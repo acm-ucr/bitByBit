@@ -3,12 +3,19 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "google", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "google",
+    "prettier",
+    "next/core-web-vitals"
+  ],
   "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2022,
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {}
+  "rules": {
+    "require-jsdoc": "off"
+  }
 }
