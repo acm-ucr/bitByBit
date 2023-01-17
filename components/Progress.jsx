@@ -38,7 +38,7 @@ const Progress = () => {
           <p className="text-l mb-1">5/15</p>
         </div>
         <div className="flex bg-white text-black-500 rounded-full w-full h-3 mb-3">
-          <div className="bg-blue-200 text-black-500 rounded-full w-3/5 z-10"></div>
+          <div className="bg-blue-200 text-black-500 rounded-full w-1/3 z-10"></div>
         </div>
       </div>
     </>
