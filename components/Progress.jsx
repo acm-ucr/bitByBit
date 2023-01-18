@@ -4,7 +4,7 @@ const Progress = () => {
   return (
     <>
       <div className="bg-purple-300 rounded-3xl px-3 py-2 w-4/12">
-        <h1 className="flex font-medium text-3xl mb-2">Progress</h1>
+        <p className="flex font-medium text-3xl mb-2">Progress</p>
         <div className="flex justify-between items-end">
           <p className="text-2xl mb-1">variables</p>
           <p className="text-l mb-1">5/15</p>
