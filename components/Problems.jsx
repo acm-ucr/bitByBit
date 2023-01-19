@@ -19,12 +19,27 @@ const dummyProgrammingProblems = [
 ];
 
 const handleProgrammingProblems = (problem, index) => {
-  if (index % 2 == 0)
-  {
+  if (index % 2 == 0) {
+    return (
+      <div key={index} className="p-4 flex items-center justify-between">
+        <div className="flex flex-col">
+          <div className="text-2xl mb-2">{problem.title}</div>
+          <div className="flex justify-between">
+            {problem.tags.map((element, index) => (
+              <div className="mr-1 px-1 bg-red-500 rounded" key={index}>
+                {element}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="text-2xl text-center">{problem.difficulty}</div>
+      </div>
+    );
+  } else {
     return (
       <div
         key={index}
-        className="p-4 flex items-center justify-between"
+        className="bg-blue-500 p-4 flex items-center justify-between"
       >
         <div className="flex flex-col">
           <div className="text-2xl mb-2">{problem.title}</div>
@@ -36,29 +51,11 @@ const handleProgrammingProblems = (problem, index) => {
             ))}
           </div>
         </div>
-        <div className="text-2xl">{problem.difficulty}</div>
+        <div className="text-2xl text-center">{problem.difficulty}</div>
       </div>
     );
   }
-  else
-  {
-    return (
-      <div key={index} className="bg-blue-500 p-4 flex items-center justify-between">
-        <div className="flex flex-col">
-          <div className="text-2xl mb-2">{problem.title}</div>
-          <div className="flex justify-between">
-            {problem.tags.map((element, index) => (
-              <div className="mr-1 px-1 bg-red-500 rounded" key={index}>
-                {element}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="text-2xl">{problem.difficulty}</div>
-      </div>
-    );
-  }
-}
+};
 
 const Problems = () => {
   return (
