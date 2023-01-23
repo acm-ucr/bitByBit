@@ -1,20 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
-const Profile = () => {
-  const profilePicSrc = "";
-  const userName = "akim291";
-  const fullName = "Ashley Kim";
-  const joinDate = "01.08.23";
-  const tags = ["javascript"];
+const Profile = (props) => {
   return (
     <div className="w-full p-7 bg-indigo-900 text-white rounded-3xl">
       <div className="flex justify-between items-start pb-2">
         <div className="w-48 h-48 mb-2 bg-gray-300 rounded-2xl relative">
           <Image
-            src={profilePicSrc}
+            src={props.src}
             className="rounded-2xl"
-            alt={fullName + "'s profile picture"}
+            alt={props.fullName + "'s profile picture"}
             fill
             unoptimized={true}
           />
@@ -36,11 +31,11 @@ const Profile = () => {
           }
         </button>
       </div>
-      <div className="text-3xl font-bold">{userName}</div>
-      <div className="text-xl font-normal">{fullName}</div>
+      <div className="text-3xl font-bold">{props.userName}</div>
+      <div className="text-xl font-normal">{props.fullName}</div>
       <div className="h-0.5 w-full bg-white rounded-sm my-3" />
       <div className="flex flex-wrap mt-2 mb-2 gap-2">
-        {tags.map((tag) => {
+        {props.tags.map((tag) => {
           return (
             <div
               key={tag.id}
@@ -51,7 +46,9 @@ const Profile = () => {
           );
         })}
       </div>
-      <div className="text-sm font-light mt-4">member since {joinDate}</div>
+      <div className="text-sm font-light mt-4">
+        member since {props.joinDate}
+      </div>
     </div>
   );
 };
