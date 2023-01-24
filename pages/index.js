@@ -1,11 +1,9 @@
-import PrimaryLogo from "@/components/PrimaryLogo";
-import Welcome from "@/components/Welcome";
+import Navigation from "@/components/Navigation";
 
 const Index = () => {
   return (
     <div className="flex justify-center items-center">
-      <PrimaryLogo />
-      <Welcome />
+      <Navigation />
     </div>
   );
 };
