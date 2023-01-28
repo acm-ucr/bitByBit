@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        readex: ["var(--font-readex)", "sans-serif"],
+      },
       colors: {
         code: {
           white: "#ffffff",
