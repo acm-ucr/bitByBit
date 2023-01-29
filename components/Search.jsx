@@ -16,6 +16,9 @@ const Search = () => {
         placeholder="search questions"
         onChange={handleChange}
         value={searchInput} 
+        
+
+        style = {{color: "red"}}
         // <style>
         //   {
         //     .searchBar
@@ -43,7 +46,7 @@ const Search = () => {
         //   }
         // </style>
         />
-        <button style = {{color: "red", background: "a84909"}}>
+        <button style = {{}}>
           
           random
         </button>
