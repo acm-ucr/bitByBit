@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 
@@ -6,8 +7,8 @@ const Navigation = () => {
     <Navbar bg="light" variant="light">
       <Navbar.Brand href="/">bitByBIT</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link href="/problems">Problems</Nav.Link>
-        <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+        <Link href="/problems">Problems</Link>
+        <Link href="/dashboard">Dashboard</Link>
       </Nav>
     </Navbar>
   );
