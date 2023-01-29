@@ -8,6 +8,7 @@ const Navigation = () => {
       <Navbar.Brand href="/">bitByBIT</Navbar.Brand>
       <Nav className="me-auto">
         <Link href="/dashboard">Problems</Link>
+        <Link href="/profile">Profile</Link>
       </Nav>
     </Navbar>
   );
