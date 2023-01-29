@@ -7,8 +7,7 @@ const Navigation = () => {
     <Navbar bg="light" variant="light">
       <Navbar.Brand href="/">bitByBIT</Navbar.Brand>
       <Nav className="me-auto">
-        <Link href="/problems">Problems</Link>
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/dashboard">Problems</Link>
       </Nav>
     </Navbar>
   );
