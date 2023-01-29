@@ -1,15 +1,16 @@
+import Link from "next/link";
 import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <div className="w-full h-16 flex justify-left items-center bg-black text-white">
-      <div className="w-11/12 flex">
-        <p className="m-0 p-0 text-3xl px-3 ">bitByBIT</p>
-        <div>
-          <p className="m-0 p-1 text-2xl px-3">Problems</p>
-        </div>
-      </div>
-    </div>
+    <Navbar bg="light" variant="light">
+      <Navbar.Brand href="/">bitByBIT</Navbar.Brand>
+      <Nav className="me-auto">
+        <Link href="/dashboard">Problems</Link>
+        <Link href="/profile">Profile</Link>
+      </Nav>
+    </Navbar>
   );
 };
 

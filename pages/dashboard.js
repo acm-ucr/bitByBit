@@ -9,7 +9,7 @@ const dashboard = () => {
   return (
     <div>
       <Row>
-        <Col xl={4}>
+        <Col xl={4} className="flex justify-center items-center flex-col">
           <Filters />
           <Progress />
         </Col>
