@@ -9,8 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "check": "prettier --check .",
-    "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx",
-    "prepare": "husky install"
+    "eslint": "eslint . --ext js --ext jsx --ext ts --ext tsx"
   },
   "dependencies": {
     "@next/font": "13.1.2",
