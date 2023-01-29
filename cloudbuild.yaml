@@ -1,4 +1,7 @@
 steps:
+  - name: node:16.17.0
+    entrypoint: npm
+    args: ["install"]
   - name: gcr.io/cloud-builders/docker
     args:
       - build
