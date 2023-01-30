@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 
 const Index = () => {
   return (
-    <Row className="flex justify-center items-center">
+    <Row className="flex justify-center items-center bg-code-black">
       <Col xl={6}>
         <PrimaryLogo />
       </Col>
