@@ -3,7 +3,7 @@ import React from "react";
 const Progress = () => {
   return (
     <>
-      <div className="bg-code-lightpurple rounded-3xl px-3 py-2 w-4/12">
+      <div className="bg-code-lightpurple rounded-3xl px-3 py-2 w-full">
         <p className="flex font-medium text-3xl mb-2">Progress</p>
         <div className="flex justify-between items-end">
           <p className="text-2xl mb-1">variables</p>
