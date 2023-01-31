@@ -1,7 +1,7 @@
 import React from "react";
 
 const PrimaryLogo = () => {
-  return <img src="primaryLogo.png" />;
+  return <Image src="primaryLogo.png" />;
 };
 
 export default PrimaryLogo;

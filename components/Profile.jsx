@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import Image from "next/image";
-//import PropTypes from "prop-types"
 
-const Profile = ({src, fullName, userName, joinDate}) => {
+const Profile = ({ src, fullName, userName, joinDate }) => {
   return (
     <div className="w-full p-7 bg-indigo-900 text-white rounded-3xl">
       <div className="flex justify-between items-start pb-2">
@@ -47,12 +46,9 @@ const Profile = ({src, fullName, userName, joinDate}) => {
           );
         })}
       </div>
-      <div className="text-sm font-light mt-4">
-        member since {joinDate}
-      </div>
+      <div className="text-sm font-light mt-4">member since {joinDate}</div>
     </div>
   );
 };
-
 
 export default Profile;
