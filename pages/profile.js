@@ -10,7 +10,6 @@ const profile = () => {
     <div>
       <Row>
         <Col>
-          {/* <Profile /> */}
           <ProblemsSolved />
         </Col>
         <Col>
