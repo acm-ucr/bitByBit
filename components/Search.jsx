@@ -6,7 +6,7 @@ const Search = () => {
 
   return (
     <div className="flex justify-between items-center">
-      <div className="bg-white flex items-center border-black border-2 rounded-full p-2">
+      <div className="bg-white flex border-black border-2 rounded-full p-2">
         <FaSearch className="text-3xl text-black hover:!text-blue-500 cursor-pointer mx-2" />
         <input
           className="text-black outline-none"
