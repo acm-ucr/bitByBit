@@ -18,7 +18,7 @@ const Search = () => {
         />
       </div>
       <button className="flex items-center py-2 pl-1.5 pr-2.5 bg-code-green rounded-full font-readex">
-        <FaRandom className="text-3xl text-code-black mx-1.5"/>
+        <FaRandom className="text-3xl text-code-black mx-1.5" />
         random
       </button>
     </div>
