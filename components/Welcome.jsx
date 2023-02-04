@@ -29,7 +29,7 @@ const Welcome = () => {
   }, []);
 
   return (
-    <div className="bg-black w-full">
+    <div className="bg-code-black w-full">
       <div className="flex flex-col items-center pt-32">
         <div className="text-white text-5xl font-bold mb-5">Welcome!</div>
       </div>
