@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
-const Profile = (props) => {
+const Profile = ({ src, fullName, userName, joinDate }) => {
   return (
     <div className="w-full p-7 bg-indigo-900 text-white rounded-3xl">
       <div className="flex justify-between items-start pb-2">
         <div className="w-48 h-48 mb-2 bg-gray-300 rounded-2xl relative">
           <Image
-            src={props.src}
+            src={src}
             className="rounded-2xl"
-            alt={props.fullName + "'s profile picture"}
+            alt={fullName + "'s profile picture"}
             fill
             unoptimized={true}
           />
@@ -31,8 +31,8 @@ const Profile = (props) => {
           }
         </button>
       </div>
-      <div className="text-3xl font-bold">{props.userName}</div>
-      <div className="text-xl font-normal">{props.fullName}</div>
+      <div className="text-3xl font-bold">{userName}</div>
+      <div className="text-xl font-normal">{fullName}</div>
       <div className="h-0.5 w-full bg-white rounded-sm my-3" />
       <div className="flex flex-wrap mt-2 mb-2 gap-2">
         {props.tags.map((tag) => {
@@ -46,9 +46,7 @@ const Profile = (props) => {
           );
         })}
       </div>
-      <div className="text-sm font-light mt-4">
-        member since {props.joinDate}
-      </div>
+      <div className="text-sm font-light mt-4">member since {joinDate}</div>
     </div>
   );
 };
