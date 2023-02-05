@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { FaRandom } from "react-icons/fa";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -16,6 +17,10 @@ const Search = () => {
           value={searchInput}
         />
       </div>
+      <button className="flex items-center py-2 pl-1.5 pr-2.5 bg-code-green rounded-full font-readex">
+        <FaRandom className="text-3xl text-code-black mx-1.5" />
+        random
+      </button>
     </div>
   );
 };
