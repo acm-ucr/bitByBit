@@ -4,11 +4,17 @@ import { Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <Navbar className="bg-code-black">
-      <Navbar.Brand href="/">bitByBIT</Navbar.Brand>
+    <Navbar variant="light" className="bg-code-black ">
+      <Navbar.Brand href="/" className="text-code-white ">
+        bitByBIT
+      </Navbar.Brand>
       <Nav className="me-auto">
-        <Link href="/dashboard">Problems</Link>
-        <Link href="/profile">Profile</Link>
+        <Link className="text-code-white" href="/dashboard">
+          Problems
+        </Link>
+        <Link className="text-code-white" href="/profile">
+          Profile
+        </Link>
       </Nav>
     </Navbar>
   );
