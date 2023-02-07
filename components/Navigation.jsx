@@ -5,7 +5,7 @@ import { Nav, Navbar } from "react-bootstrap";
 const Navigation = () => {
   return (
     <Navbar variant="light" className="bg-code-black ">
-      <Navbar.Brand href="/" className="text-code-white ">
+      <Navbar.Brand href="/" className="!text-code-white">
         bitByBIT
       </Navbar.Brand>
       <Nav className="me-auto">
