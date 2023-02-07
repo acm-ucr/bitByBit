@@ -16,61 +16,57 @@ const dummyProgrammingProblems = [
     tags: ["variables", "functions"],
     difficulty: "Hard",
   },
+  {
+    title: `Problem 1`,
+    tags: ["arrays", "functions"],
+    difficulty: "Easy",
+  },
+  {
+    title: `Problem 2`,
+    tags: ["loops", "conditionals"],
+    difficulty: "Medium",
+  },
+  {
+    title: `Problem 3`,
+    tags: ["variables", "functions"],
+    difficulty: "Hard",
+  },
 ];
 
 const handleProgrammingProblems = (problem, index) => {
   const difficultyColors = { Easy: "lime", Medium: "yellow", Hard: "pink" };
-  if (index % 2 == 0) {
-    return (
-      <div key={index} className="p-4 flex items-center justify-between">
-        <div className="flex flex-col">
-          <div className="text-2xl mb-2">{problem.title}</div>
-          <div className="flex justify-between">
-            {problem.tags.map((element, index) => (
-              <div
-                className="mr-1 px-1 bg-code-darkerpurple rounded"
-                key={index}
-              >
-                {element}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div
-          className={`text-code-${
-            difficultyColors[problem.difficulty]
-          } text-2xl text-center`}
-        >
-          {problem.difficulty}
+
+  return (
+    <div
+      key={index}
+      className={`${
+        index % 2 == 0 ? "" : "bg-code-darkerpurple"
+      } p-4 flex items-center justify-between`}
+    >
+      <div className="flex flex-col">
+        <div className="text-2xl mb-2">{problem.title}</div>
+        <div className="flex justify-between">
+          {problem.tags.map((element, index) => (
+            <div
+              className={`mr-1 px-1 ${
+                index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
+              } rounded`}
+              key={index}
+            >
+              {element}
+            </div>
+          ))}
         </div>
       </div>
-    );
-  } else {
-    return (
       <div
-        key={index}
-        className="bg-code-darkerpurple p-4 flex items-center justify-between"
+        className={`text-code-${
+          difficultyColors[problem.difficulty]
+        } text-2xl text-center`}
       >
-        <div className="flex flex-col">
-          <div className="text-2xl mb-2">{problem.title}</div>
-          <div className="flex justify-between">
-            {problem.tags.map((element, index) => (
-              <div className="mr-1 px-1 bg-code-black rounded" key={index}>
-                {element}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div
-          className={`text-code-${
-            difficultyColors[problem.difficulty]
-          } text-2xl text-center`}
-        >
-          {problem.difficulty}
-        </div>
+        {problem.difficulty}
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 const Problems = () => {
