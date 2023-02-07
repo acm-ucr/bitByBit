@@ -34,7 +34,11 @@ const dummyProgrammingProblems = [
 ];
 
 const handleProgrammingProblems = (problem, index) => {
-  const difficultyColors = { Easy: "text-code-lime", Medium: "text-code-yellow", Hard: "text-code-pink" };
+  const difficultyColors = {
+    Easy: "text-code-lime",
+    Medium: "text-code-yellow",
+    Hard: "text-code-pink",
+  };
 
   return (
     <div
