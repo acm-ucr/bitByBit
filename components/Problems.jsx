@@ -34,7 +34,11 @@ const dummyProgrammingProblems = [
 ];
 
 const handleProgrammingProblems = (problem, index) => {
-  const difficultyColors = { Easy: "lime", Medium: "yellow", Hard: "pink" };
+  const difficultyColors = {
+    Easy: "text-code-lime",
+    Medium: "text-code-yellow",
+    Hard: "text-code-pink",
+  };
 
   return (
     <div
@@ -46,7 +50,7 @@ const handleProgrammingProblems = (problem, index) => {
       <div className="flex flex-col">
         <div className="text-2xl mb-2">{problem.title}</div>
         <div className="flex justify-between">
-          {problem.tags.map((element, index) => (
+          {problem.tags.map((element, tagsIndex) => (
             <div
               className={`mr-1 px-1 ${
                 index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
@@ -59,7 +63,7 @@ const handleProgrammingProblems = (problem, index) => {
         </div>
       </div>
       <div
-        className={`text-code-${
+        className={`${
           difficultyColors[problem.difficulty]
         } text-2xl text-center`}
       >
