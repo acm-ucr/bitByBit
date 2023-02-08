@@ -8,11 +8,11 @@ import { Row, Col } from "react-bootstrap";
 const profile = () => {
   return (
     <div>
-      <Row>
-        <Col>
+      <Row className="w-full">
+        <Col xl={4}>
           <ProblemsSolved />
         </Col>
-        <Col>
+        <Col xl={8}>
           <Submissions />
           <ProblemRecord />
         </Col>
