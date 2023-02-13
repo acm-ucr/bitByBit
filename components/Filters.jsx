@@ -1,7 +1,7 @@
 import React from "react";
 
 const Filters = () => {
-  return <div>Filters</div>;
+  return <div className="text-code-white">Filters</div>;
 };
 
 export default Filters;
