@@ -4,15 +4,15 @@ import { Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <Navbar variant="light" className="bg-code-black ">
-      <Navbar.Brand href="/" className="!text-code-white">
-        bitByBIT
+    <Navbar variant="light" className="bg-code-black font-semibold font-readex">
+      <Navbar.Brand href="/" className="!text-code-white px-2">
+        <div className="text-3xl">bitByBIT</div>
       </Navbar.Brand>
-      <Nav className="me-auto">
-        <Link className="text-code-white" href="/dashboard">
+      <Nav className="me-auto flex-grow-1 gap-3">
+        <Link className="text-code-white no-underline" href="/dashboard">
           Problems
         </Link>
-        <Link className="text-code-white" href="/profile">
+        <Link className="text-code-white no-underline" href="/profile">
           Profile
         </Link>
       </Nav>
