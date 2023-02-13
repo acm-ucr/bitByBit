@@ -7,13 +7,13 @@ import { Row, Col } from "react-bootstrap";
 
 const dashboard = () => {
   return (
-    <div className="bg-code-black">
-      <Row>
+    <div className="bg-code-black h-screen">
+      <Row className="bg-code-black">
         <Col xl={4} className="flex justify-center items-center flex-col">
           <Filters />
           <Progress />
         </Col>
-        <Col xl={8}>
+        <Col xl={8} className="flex justify-center items-center flex-col">
           <Search />
           <Problems />
         </Col>
