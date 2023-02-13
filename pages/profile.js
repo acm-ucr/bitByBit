@@ -7,15 +7,15 @@ import { Row, Col } from "react-bootstrap";
 
 const profile = () => {
   return (
-    <div>
+    <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
           <ProblemsSolved />
         </Col>
         <Col xl={8}>
           <Submissions />
-          <ProblemRecord />
         </Col>
+        <ProblemRecord />
       </Row>
     </div>
   );

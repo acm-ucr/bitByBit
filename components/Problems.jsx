@@ -75,7 +75,7 @@ const handleProgrammingProblems = (problem, index) => {
 
 const Problems = () => {
   return (
-    <div className="m-4 p-4 w-full h-full bg-code-black text-code-white">
+    <div className="m-4 p-4 w-full h-screen bg-code-black text-code-white">
       <div className="flex justify-between">
         <div className="text-2xl">Title</div>
         <div className="text-2xl">Difficulty</div>
