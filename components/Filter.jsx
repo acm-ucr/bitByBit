@@ -4,7 +4,7 @@ const Filter = ({ color, name }) => {
   return (
     <div>
       <div
-        className={` flex border-code-white border-2 px-2 ${color} rounded-full text-code-black`}
+        className={` flex border-code-white text-2xl font-extralight border-2 px-2 py-1 ${color} rounded-full text-code-black`}
       >
         {name}
         {" x"}
