@@ -11,12 +11,12 @@ const dashboard = () => {
       <Row className="bg-code-black">
         <Col
           xl={4}
-          className="flex ml-4 gap-4 justify-center items-center flex-col"
+          className="flex gap-4 justify-center items-center flex-col"
         >
           <Filters />
           <Progress />
         </Col>
-        <Col xl={7} className="flex justify-center items-left flex-col">
+        <Col xl={8} className="flex justify-center items-left flex-col">
           <Search />
           <Problems />
         </Col>
