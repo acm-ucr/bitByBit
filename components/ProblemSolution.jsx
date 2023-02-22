@@ -30,7 +30,7 @@ const ProblemSolutionEntry = ({ entry, index }) => {
 const ProblemSolution = ({ entries }) => {
   return (
     <div>
-      {entries.map((entry, i) => (
+      {entries?.map((entry, i) => (
         <ProblemSolutionEntry entry={entry} index={i + 1} key={i} />
       ))}
     </div>
