@@ -5,7 +5,7 @@ import React from "react";
 
 const Submissions = () => {
   return (
-    <div className="rounded-3xl font-readex text-code-white w-full h-full bg-code-darkerpurple p-2 pb-0 pt-3">
+    <div className="rounded-3xl font-readex text-code-white w-full h-fit bg-code-darkerpurple p-3">
       <div className="flex justify-between mx-2">
         <p>x submissions in the last year</p>
         <div className="flex items-start gap-1">
