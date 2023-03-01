@@ -7,8 +7,8 @@ import { Row, Col } from "react-bootstrap";
 
 const dashboard = () => {
   return (
-    <div className="bg-code-black h-screen">
-      <Row className="bg-code-black">
+    <div className="bg-code-black">
+      <Row className="bg-code-black w-screen">
         <Col xl={4} className="flex gap-4 justify-center items-center flex-col">
           <Filters />
           <Progress />
