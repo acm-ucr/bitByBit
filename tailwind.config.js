@@ -29,5 +29,30 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        code: {
+          primary: "#ffefa7",
+
+          secondary: "#dcf49e",
+
+          accent: "#f6d6e5",
+
+          neutral: "#ebb7f9",
+
+          "base-100": "#F3F3F7",
+
+          info: "#99c8fc",
+
+          success: "#ebb7f9",
+
+          warning: "#E0990B",
+
+          error: "#FA4A33",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
