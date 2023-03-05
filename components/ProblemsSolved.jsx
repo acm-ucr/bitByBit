@@ -3,14 +3,17 @@ import ProblemsCategory from "@/components/ProblemsCategory";
 
 const ProblemsSolved = () => {
   return (
-    <div className="bg-code-gray rounded-3xl w-10/12 p-6 m-6 font-medium items-center place-content-center">
-      <p className="text-3xl mb-4">Problems Solved</p>
-      <div className="flex justify-center">
-        <div className="bg-code-gray w-40 h-40 rounded-full flex flex-column justify-center items-center border-black mb-6 border-8 border-r-code-green">
-          <p className="font-semibold text-4xl mb-0">15</p>
-          <p className="font-normal text-3xl mt-0">solved</p>
+    <div className="bg-code-gray rounded-3xl w-2/3 p-6 m-6 font-medium">
+      <div className="flex flex-col items-center">
+        <div
+          className="radial-progress text-code-green flex flex-col justify-center items-center"
+          style={{ "--value": 15, "--size": "12rem", "--thickness": "12px" }}
+        >
+          <p className="text-4xl text-code-black mb-0">15</p>
+          <p className="text-3xl text-code-black mt-0">Solved</p>
         </div>
       </div>
+
       <>
         <ProblemsCategory
           difficulty="Easy"
