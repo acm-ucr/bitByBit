@@ -6,7 +6,7 @@ const Filters = () => {
 
   return (
     <div className="rounded-3xl p-3 pt-2 w-11/12 font-readex text-code-white bg-code-darkerpurple">
-      <div className="flex text-lg justify-between mb-2 mr-10">
+      <div className="flex text-lg justify-between mb-2 mr-0">
         <div className="text-3xl">Filters</div>
         <div className="text-2xl font-extralight">clear all</div>
       </div>
