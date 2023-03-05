@@ -18,7 +18,6 @@ const Filter = ({ color, name, setFiltered, filtered }) => {
           className={` flex border-code-white text-2xl font-extralight border-2 px-2 py-1 ${color} rounded-full text-code-black`}
         >
           {name}
-          {" x"}
         </div>
       ) : (
         <div
