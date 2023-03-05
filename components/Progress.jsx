@@ -1,11 +1,12 @@
 import React from "react";
 
 const Progress = ({
-  variableProgress,
+  variablesProgress,
   arraysProgress,
   conditionalsProgress,
   loopsProgress,
   functionsProgress,
+  total,
 }) => {
   return (
     <>
@@ -13,12 +14,12 @@ const Progress = ({
         <p className="flex font-medium text-3xl mb-2">Progress</p>
         <div className="flex justify-between items-end">
           <p className="text-2xl mb-1">variables</p>
-          <p className="text-l mb-1">5/15</p>
+          <p className="text-l mb-1">{`${variablesProgress}/${total}`}</p>
         </div>
         <progress
           className="progress progress-primary bg-code-lightpurple"
-          value={variableProgress}
-          max="100"
+          value={variablesProgress}
+          max={total}
         ></progress>
 
         <div className="flex justify-between items-end">
@@ -28,7 +29,7 @@ const Progress = ({
         <progress
           className="progress progress-secondary bg-code-lightpurple"
           value={arraysProgress}
-          max="100"
+          max={total}
         ></progress>
 
         <div className="flex justify-between items-end">
@@ -38,7 +39,7 @@ const Progress = ({
         <progress
           className="progress progress-accent bg-code-lightpurple"
           value={conditionalsProgress}
-          max="100"
+          max={total}
         ></progress>
 
         <div className="flex justify-between items-end">
@@ -47,8 +48,8 @@ const Progress = ({
         </div>
         <progress
           className="progress progress-success bg-code-lightpurple"
-          value={variableProgress}
-          max="100"
+          value={loopsProgress}
+          max={total}
         ></progress>
 
         <div className="flex justify-between items-end">
@@ -58,7 +59,7 @@ const Progress = ({
         <progress
           className="progress progress-info bg-code-lightpurple mb-1"
           value={functionsProgress}
-          max="100"
+          max={total}
         ></progress>
       </div>
     </>
