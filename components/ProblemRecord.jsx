@@ -78,11 +78,11 @@ const handleProgrammingProblems = (problem, index) => {
           {problem.difficulty}
         </div>
         <div>
-        {problem.status === "completed" ? (
-          <ProgressCircle completed={true} index={index} />
-        ) : (
-          <ProgressCircle completed={false} index={index} />
-        )}
+          {problem.status === "completed" ? (
+            <ProgressCircle completed={true} index={index} />
+          ) : (
+            <ProgressCircle completed={false} index={index} />
+          )}
         </div>
       </div>
     </div>
