@@ -16,7 +16,7 @@ const Progress = ({
           <p className="text-l mb-1">5/15</p>
         </div>
         <progress
-          className="progress progress-primary bg-white"
+          className="progress progress-primary bg-code-lightpurple"
           value={variableProgress}
           max="100"
         ></progress>
@@ -26,7 +26,7 @@ const Progress = ({
           <p className="text-l mb-1">6/15</p>
         </div>
         <progress
-          className="progress progress-secondary bg-white"
+          className="progress progress-secondary bg-code-lightpurple"
           value={arraysProgress}
           max="100"
         ></progress>
@@ -36,7 +36,7 @@ const Progress = ({
           <p className="text-l mb-1">8/15</p>
         </div>
         <progress
-          className="progress progress-accent bg-white"
+          className="progress progress-accent bg-code-lightpurple"
           value={conditionalsProgress}
           max="100"
         ></progress>
@@ -46,8 +46,8 @@ const Progress = ({
           <p className="text-l mb-1">7/15</p>
         </div>
         <progress
-          className="progress progress-success bg-white"
-          value={loopsProgress}
+          className="progress progress-success bg-code-lightpurple"
+          value={variableProgress}
           max="100"
         ></progress>
 
@@ -56,7 +56,7 @@ const Progress = ({
           <p className="text-l mb-1">5/15</p>
         </div>
         <progress
-          className="progress progress-info bg-white mb-1"
+          className="progress progress-info bg-code-lightpurple mb-1"
           value={functionsProgress}
           max="100"
         ></progress>
