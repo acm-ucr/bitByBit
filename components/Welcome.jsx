@@ -40,7 +40,7 @@ const Welcome = () => {
         >
           Get Started
         </button>
-        <button className="text-white text-2xl rounded-full w-96 h-20 ring-4 ring-white font-bold bg-black-500 ">
+        <button className="text-white underline underline-offset-2 text-2xl font-semibold">
           I already have an account
         </button>
       </div>
