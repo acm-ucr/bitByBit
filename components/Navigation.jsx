@@ -9,10 +9,16 @@ const Navigation = () => {
         <div className="text-3xl">bitByBIT</div>
       </Navbar.Brand>
       <Nav className="me-auto flex-grow-1 gap-3">
-        <Link className="text-code-white no-underline" href="/dashboard">
+        <Link
+          className="text-code-white no-underline hover:text-code-lightpurple"
+          href="/dashboard"
+        >
           Problems
         </Link>
-        <Link className="text-code-white no-underline" href="/profile">
+        <Link
+          className="text-code-white no-underline hover:text-code-lightpurple"
+          href="/profile"
+        >
           Profile
         </Link>
       </Nav>
