@@ -17,7 +17,7 @@ const Search = () => {
         />
         <FaSearch className="text-3xl text-black hover:!text-code-green cursor-pointer mx-2" />
       </div>
-      <button className="flex items-center py-2 pl-1.5 pr-2.5 bg-code-green rounded-full font-readex">
+      <button className="flex items-center py-2 pl-1.5 pr-2.5 bg-code-green rounded-full font-readex  hover:text-code-white">
         <FaRandom className="text-3xl text-code-black mx-1.5" />
         random
       </button>
