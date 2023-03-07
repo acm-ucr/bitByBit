@@ -1,4 +1,5 @@
 import React from "react";
+import { FaEllipsisH } from "react-icons/fa";
 
 const dummyProgrammingProblems = [
   {
@@ -83,6 +84,11 @@ const Problems = () => {
       <hr className="border-2 opacity-100 border-white" />
 
       {dummyProgrammingProblems.map(handleProgrammingProblems)}
+      <div className="flex justify-center">
+        <button className="py-2 pl-1.5 pr-2.5 ">
+          <FaEllipsisH className="text-3xl" />
+        </button>
+      </div>
     </div>
   );
 };
