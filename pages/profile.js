@@ -7,7 +7,7 @@ import { Row, Col } from "react-bootstrap";
 
 const profile = () => {
   return (
-    <div className="bg-code-black">
+    <div className="bg-code-black pt-16">
       <Row className="w-full">
         <Col xl={4}>
           <ProblemsSolved />
