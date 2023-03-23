@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 
 const Filter = ({ color, name, setFiltered, filtered }) => {
   const isActive = useMemo(() => {
