@@ -16,7 +16,7 @@ const Profile = ({ src, fullName, userName, joinDate, tags }) => {
           />
         </div>
         <button>
-          <HiPencil className="text-4xl"/>
+          <HiPencil className="text-4xl" />
         </button>
       </div>
       <div className="text-3xl font-semibold">{userName}</div>
