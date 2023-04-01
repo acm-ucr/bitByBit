@@ -15,6 +15,8 @@ const profile = () => {
         <Col xl={8}>
           <Submissions />
         </Col>
+      </Row>
+      <Row className="w-1/2">
         <ProblemRecord />
       </Row>
     </div>

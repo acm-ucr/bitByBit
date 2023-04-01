@@ -77,7 +77,7 @@ const handleProgrammingProblems = (problem, index) => {
         >
           {problem.difficulty}
         </div>
-        <div>
+        <div className="w-1/2justify-between flex ">
           {problem.status === "completed" ? (
             <ProgressCircle completed={true} index={index} />
           ) : (
@@ -91,7 +91,7 @@ const handleProgrammingProblems = (problem, index) => {
 
 const ProblemRecord = () => {
   return (
-    <div className="py-3 pr-4 font-readex w-full h-screen text-code-white">
+    <div className="py-3 pr-4 font-readex w-1/2 h-screen text-code-white">
       <div className="flex gap-3 mb-3">
         <div className="font-bold text-2xl">Problem Record</div>
         <div className="flex gap-1">
