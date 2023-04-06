@@ -10,7 +10,7 @@ const ProblemDescription = ({
   constraints,
 }) => {
   return (
-    <div className="flex flex-col bg-code-darkerpurple pt-3 pb-2 px-3 text-code-white font-readex">
+    <div className="min-h-screen w-full flex flex-col bg-code-darkerpurple pt-3 pb-3 px-3 text-code-white font-readex">
       <div className="flex flex-row justify-between">
         <div className="text-2xl font-bold">{name}</div>
         <div className="border-2 rounded-full py-px px-3 text-code-lightgreen border-code-lightgreen">
