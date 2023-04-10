@@ -2,7 +2,7 @@ import React from "react";
 
 const ProblemSolutionEntry = ({ entry, index }) => {
   return (
-    <div className="bg-code-black px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
+    <div className="bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
       <div className="font-bold">
         Approach {index}: {entry.methodName}
       </div>
@@ -29,7 +29,7 @@ const ProblemSolutionEntry = ({ entry, index }) => {
 
 const ProblemSolution = ({ entries }) => {
   return (
-    <div>
+    <div className="min-h-screen w-full">
       {entries?.map((entry, i) => (
         <ProblemSolutionEntry entry={entry} index={i + 1} key={i} />
       ))}
