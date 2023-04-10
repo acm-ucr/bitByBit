@@ -8,7 +8,7 @@ const Problems = () => {
   const [state, setState] = useState(0);
 
   return (
-    <div className="pt-16">
+    <div className="bg-code-lightpurple pt-16">
       <ProblemStateToggle state={state} onUpdateState={setState} />
       {state === 0 && (
         <ProblemDescription
@@ -20,7 +20,19 @@ const Problems = () => {
           constraints={["constrain 1", "constrain 2"]}
         />
       )}
-      {state === 1 && <ProblemSolution />}
+      {state === 1 && (
+        <ProblemSolution
+          entries={[
+            {
+              methodName: "TEST METHOD",
+              description: "TEST DESCRIPTION",
+              implementation: "TEST IMPLEMENTATION",
+              timeComplexity: "TEST TIME COMPLEXITY",
+              spaceComplexity: "TEST SPACE COMPLEXITY",
+            },
+          ]}
+        />
+      )}
       {state === 2 && <ProblemSubmission />}
     </div>
   );
