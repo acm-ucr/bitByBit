@@ -20,7 +20,19 @@ const Problems = () => {
           constraints={["constrain 1", "constrain 2"]}
         />
       )}
-      {state === 1 && <ProblemSolution />}
+      {state === 1 && (
+        <ProblemSolution
+          entries={[
+            {
+              methodName: "TEST METHOD",
+              description: "TEST DESCRIPTION",
+              implementation: "TEST IMPLEMENTATION",
+              timeComplexity: "TEST TIME COMPLEXITY",
+              spaceComplexity: "TEST SPACE COMPLEXITY",
+            },
+          ]}
+        />
+      )}
       {state === 2 && <ProblemSubmission />}
     </div>
   );
