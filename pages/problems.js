@@ -8,7 +8,7 @@ const Problems = () => {
   const [state, setState] = useState(0);
 
   return (
-    <div className="pt-16">
+    <div className="bg-code-lightpurple pt-16">
       <ProblemStateToggle state={state} onUpdateState={setState} />
       {state === 0 && (
         <ProblemDescription

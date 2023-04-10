@@ -2,7 +2,7 @@ import React from "react";
 
 const ProblemStateToggle = ({ state, onUpdateState }) => {
   return (
-    <div>
+    <>
       <div className="flex justify-start bg-code-lightpurple pt-2">
         <div className="flex justify-between bg-code-lightpurple w-[45%]">
           <div
@@ -31,7 +31,7 @@ const ProblemStateToggle = ({ state, onUpdateState }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
