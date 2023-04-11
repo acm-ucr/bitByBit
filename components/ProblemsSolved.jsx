@@ -23,12 +23,14 @@ const problemsCategoriesData = [
 ];
 
 const problemsCategoriesList = problemsCategoriesData.map((category) => (
-  <ProblemsCategory
-    difficulty={category.difficulty}
-    solved={category.solved}
-    total={category.total}
-    color={category.color}
-  />
+  <>
+    <ProblemsCategory
+      difficulty={category.difficulty}
+      solved={category.solved}
+      total={category.total}
+      color={category.color}
+    />
+  </>
 ));
 
 const ProblemsSolved = () => {
@@ -43,7 +45,6 @@ const ProblemsSolved = () => {
           <p className="text-3xl text-code-black mt-0">Solved</p>
         </div>
       </div>
-
       {problemsCategoriesList}
     </div>
   );
