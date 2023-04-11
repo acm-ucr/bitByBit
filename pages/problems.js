@@ -2,7 +2,7 @@ import ProblemDescription from "@/components/ProblemDescription";
 import ProblemSolution from "@/components/ProblemSolution";
 import ProblemStateToggle from "@/components/ProblemStateToggle";
 import ProblemSubmission from "@/components/ProblemSubmission";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Problems = () => {
   const [state, setState] = useState(0);
