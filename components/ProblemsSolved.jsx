@@ -1,6 +1,36 @@
 import React from "react";
 import ProblemsCategory from "@/components/ProblemsCategory";
 
+const problemsCategoriesData = [
+  {
+    difficulty: "Easy",
+    solved: 8,
+    total: 20,
+    color: "bg-code-lime",
+  },
+  {
+    difficulty: "Medium",
+    solved: 4,
+    total: 15,
+    color: "bg-code-yellow",
+  },
+  {
+    difficulty: "Hard",
+    solved: 3,
+    total: 15,
+    color: "bg-code-pink",
+  },
+];
+
+const problemsCategoriesList = problemsCategoriesData.map((category) => (
+  <ProblemsCategory
+    difficulty={category.difficulty}
+    solved={category.solved}
+    total={category.total}
+    color={category.color}
+  />
+));
+
 const ProblemsSolved = () => {
   return (
     <div className="bg-code-gray rounded-3xl w-2/3 p-6 m-6 font-medium">
@@ -14,27 +44,7 @@ const ProblemsSolved = () => {
         </div>
       </div>
 
-      <>
-        <ProblemsCategory
-          difficulty="Easy"
-          solved={8}
-          total={20}
-          color="bg-code-lime"
-        />
-
-        <ProblemsCategory
-          difficulty="Medium"
-          solved={4}
-          total={15}
-          color="bg-code-yellow"
-        />
-        <ProblemsCategory
-          difficulty="Hard"
-          solved={3}
-          total={15}
-          color="bg-code-pink"
-        />
-      </>
+      {problemsCategoriesList}
     </div>
   );
 };
