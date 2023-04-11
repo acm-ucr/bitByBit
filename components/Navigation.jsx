@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Nav, Navbar } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 const Navigation = () => {
   return (

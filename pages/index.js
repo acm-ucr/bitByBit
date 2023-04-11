@@ -1,6 +1,7 @@
 import PrimaryLogo from "@/components/PrimaryLogo";
 import Welcome from "@/components/Welcome";
-import { Col, Row } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Index = () => {
   return (
