@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProblemCategory = ({ difficulty, solved, total, color }) => {
   return (
     <div>

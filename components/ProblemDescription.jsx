@@ -1,5 +1,3 @@
-import React from "react";
-
 // name, tags, difficulty, description, example, contraints
 const ProblemDescription = ({
   name,

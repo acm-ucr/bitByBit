@@ -1,4 +1,3 @@
-import React from "react";
 import ProblemsCategory from "@/components/ProblemsCategory";
 
 const ProblemsSolved = () => {
