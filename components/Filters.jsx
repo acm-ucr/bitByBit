@@ -1,6 +1,44 @@
 import { useState } from "react";
 import Filter from "./Filter";
 
+const tags = [
+  {
+    name: "variables",
+    color: "bg-code-yellow"
+  },
+  {
+    name: "arrays",
+    color: "bg-code-lime"
+  },
+  {
+    name: "conditionals",
+    color: "bg-code-lightpink"
+  },
+  {
+    name: "loops",
+    color: "bg-code-yellow"
+  },
+  {
+    name: "functions",
+    color: "bg-code-blue"
+  }
+];
+
+const difficulties = [
+  {
+    name: "easy",
+    color: "bg-code-lightgreen"
+  },
+  {
+    name: "medium",
+    color: "bg-code-yellow"
+  },
+  {
+    name: "hard",
+    color: "bg-code-lightpink"
+  }
+];
+
 const Filters = () => {
   const [filtered, setFiltered] = useState([]);
 
@@ -19,57 +57,25 @@ const Filters = () => {
       <div className="flex flex-col">
         <div className="mb-1 text-2xl">Tags</div>
         <div className="flex flex-wrap gap-1 pb-2 font-light">
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-yellow"
-            name="variables"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-lime"
-            name="arrays"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-lightpink"
-            name="conditionals"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-lightpurple"
-            name="loops"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-blue"
-            name="functions"
-          />
+          {tags.map((element) => (
+            <Filter
+              setFiltered={setFiltered}
+              filtered={filtered}
+              color={element.color}
+              name={element.name}
+            />
+          ))}
         </div>
         <div className="mb-1 text-2xl">Difficulty</div>
         <div className="flex flex-wrap gap-1 font-light">
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-lightgreen"
-            name="easy"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-yellow"
-            name="medium"
-          />
-          <Filter
-            setFiltered={setFiltered}
-            filtered={filtered}
-            color="bg-code-lightpink"
-            name="hard"
-          />
+          {difficulties.map((element) => (
+            <Filter
+              setFiltered={setFiltered}
+              filtered={filtered}
+              color={element.color}
+              name={element.name}
+            />
+          ))}
         </div>
       </div>
     </div>
