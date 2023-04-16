@@ -57,23 +57,23 @@ const Filters = () => {
       <div className="flex flex-col">
         <div className="mb-1 text-2xl">Tags</div>
         <div className="flex flex-wrap gap-1 pb-2 font-light">
-          {tags.map((element) => (
+          {tags.map((tag) => (
             <Filter
               setFiltered={setFiltered}
               filtered={filtered}
-              color={element.color}
-              name={element.name}
+              color={tag.color}
+              name={tag.name}
             />
           ))}
         </div>
         <div className="mb-1 text-2xl">Difficulty</div>
         <div className="flex flex-wrap gap-1 font-light">
-          {difficulties.map((element) => (
+          {difficulties.map((difficulty) => (
             <Filter
               setFiltered={setFiltered}
               filtered={filtered}
-              color={element.color}
-              name={element.name}
+              color={difficulty.color}
+              name={difficulty.name}
             />
           ))}
         </div>
