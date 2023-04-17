@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProblemSolutionEntry = ({ entry, index }) => {
   return (
     <div className="min-h-screen w-full bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">

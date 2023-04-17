@@ -2,8 +2,8 @@ import Filters from "@/components/Filters";
 import Problems from "@/components/Problems";
 import Progress from "@/components/Progress";
 import Search from "@/components/Search";
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Row";
 
 const dashboard = () => {
   return (
