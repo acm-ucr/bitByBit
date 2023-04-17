@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import {
   setPersistence,
   browserLocalPersistence,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -22,11 +21,6 @@ const Welcome = () => {
         });
     });
   };
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentState) => {
-      if (currentState !== null) void router.push("/dashboard");
-    });
-  }, []);
 
   return (
     <div className="bg-code-black w-full">
