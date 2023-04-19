@@ -1,4 +1,5 @@
 import CodeEditor from "./CodeEditor";
+import Console from "./Console";
 
 const ProblemDescription = ({
   name,
@@ -40,6 +41,7 @@ const ProblemDescription = ({
       </div>
       <div className="w-1/2">
         <CodeEditor />
+        <Console />
       </div>
     </div>
   );
