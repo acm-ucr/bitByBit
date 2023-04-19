@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
       }
     });
   }, []);
-  console.log(user);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <main className={`${readex.variable}`}>
