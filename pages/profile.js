@@ -15,7 +15,6 @@ const profile = () => {
             fullName="Ashley Kim"
             userName="Ashley Kim"
             joinDate="April 1st 2023"
-            tags={["javascript", "python"]}
           />
           <ProblemsSolved />
         </Col>
