@@ -21,7 +21,6 @@ const dashboard = () => {
           />
         </Col>
         <Col xl={8} className="flex justify-center items-left flex-col">
-          <Search />
           <Problems />
         </Col>
       </Row>
