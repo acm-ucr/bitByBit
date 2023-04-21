@@ -1,4 +1,5 @@
 import { FaEllipsisH } from "react-icons/fa";
+import Link from "next/link";
 
 const dummyProgrammingProblems = [
   {
@@ -48,7 +49,12 @@ const handleProgrammingProblems = (problem, index) => {
       } p-4 flex items-center justify-between`}
     >
       <div className="flex flex-col">
-        <div className="text-2xl mb-2">{problem.title}</div>
+        <Link
+          className="text-2xl mb-2 no-underline"
+          href={"/problems/" + index}
+        >
+          {problem.title}
+        </Link>
         <div className="flex justify-between">
           {problem.tags.map((element, tagsIndex) => (
             <div
