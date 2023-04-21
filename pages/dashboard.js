@@ -1,7 +1,6 @@
 import Filters from "@/components/Filters";
 import Problems from "@/components/Problems";
 import Progress from "@/components/Progress";
-import Search from "@/components/Search";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
