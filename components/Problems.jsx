@@ -50,7 +50,7 @@ const handleProgrammingProblems = (problem, index) => {
     >
       <div className="flex flex-col">
         <Link
-          className="text-2xl mb-2 no-underline"
+          className="text-2xl mb-2 text-code-white no-underline hover:text-code-lightpurple"
           href={"/problems/" + index}
         >
           {problem.title}
