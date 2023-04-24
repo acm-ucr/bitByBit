@@ -46,6 +46,11 @@ const Filters = () => {
     setFiltered([]);
   };
 
+  const submitFilter = () => {
+    console.log(filtered)
+    window.location.reload(true)
+  };
+
   return (
     <div className="rounded-3xl p-3 pt-2 w-11/12 font-readex text-code-white bg-code-darkerpurple">
       <div className="flex text-lg justify-between mb-2 mr-0">
@@ -80,6 +85,9 @@ const Filters = () => {
           ))}
         </div>
       </div>
+      <button className="text-2xl font-extralight float-right" onClick={submitFilter}>
+          submit
+      </button>
     </div>
   );
 };
