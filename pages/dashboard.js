@@ -9,7 +9,7 @@ const dashboard = () => {
   return (
     <div className="bg-code-black">
       <Row className="bg-code-black w-screen">
-        <Col xl={4} className="flex gap-4 justify-center items-center flex-col">
+        <Col xl={4} className="flex gap-6 justify-center items-center flex-col">
           <Filters />
           <Progress
             variablesProgress={5}
