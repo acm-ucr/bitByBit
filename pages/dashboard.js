@@ -1,7 +1,6 @@
 import Filters from "@/components/Filters";
 import Problems from "@/components/Problems";
 import Progress from "@/components/Progress";
-import Search from "@/components/Search";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -21,7 +20,6 @@ const dashboard = () => {
           />
         </Col>
         <Col xl={8} className="flex justify-center items-left flex-col">
-          <Search />
           <Problems />
         </Col>
       </Row>
