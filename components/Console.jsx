@@ -1,6 +1,7 @@
 import React from "react";
 import { RxCaretUp } from "react-icons/rx";
 import { useState } from "react";
+import axios from "axios";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
   return (
@@ -33,6 +34,23 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
+
+  // temp values before context is made
+  // 71 is python 3
+  const language = 71;
+  const code = "print('Hello World')";
+
+  const handleExecute = () => {
+    axios
+      .post("/api/execute", {
+        source_code: code,
+        language_id: language,
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+  };
+
   return (
     <div className="p-2.5 text-code-white flex-col font-readex">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
@@ -43,7 +61,10 @@ const Console = () => {
           Console <RxCaretUp className="text-2xl" />
         </button>
         <div className="flex text-code-black gap-2">
-          <button className="rounded-full bg-code-white font-bold px-3">
+          <button
+            onClick={handleExecute}
+            className="rounded-full bg-code-white font-bold px-3"
+          >
             Run
           </button>
           <button className="rounded-full bg-code-lime font-bold px-3">

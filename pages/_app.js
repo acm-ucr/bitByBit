@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import UserContext from "@/components/UserContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import axios from "axios";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Layout from "@/components/Layout";
+
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
-import Layout from "@/components/Layout";
 
 // eslint-disable-next-line new-cap
 const readex = Readex_Pro({
@@ -19,7 +19,6 @@ const readex = Readex_Pro({
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
-  const router = useRouter();
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -38,7 +37,6 @@ export default function App({ Component, pageProps }) {
           .catch((error) => {
             console.log(error);
           });
-        router.push("/dashboard");
       }
     });
   }, []);
