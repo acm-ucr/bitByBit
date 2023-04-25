@@ -1,7 +1,9 @@
-import React from "react";
+import Image from "next/image";
 
 const PrimaryLogo = () => {
-  return <img src="primaryLogo.png" alt="logo" />;
+  return (
+    <Image src="/primaryLogo.png" alt="landingPage" width={874} height={760} />
+  );
 };
 
 export default PrimaryLogo;

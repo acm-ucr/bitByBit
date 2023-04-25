@@ -1,4 +1,3 @@
-import React from "react";
 import ProgressCircle from "./ProgressCircle";
 
 const dummyProgrammingProblems = [

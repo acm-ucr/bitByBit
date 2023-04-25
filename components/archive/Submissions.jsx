@@ -1,5 +1,3 @@
-import React from "react";
-
 // fix font
 // fix position of x submissions in the last year
 

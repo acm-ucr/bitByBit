@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProgressCircle = ({ completed, index }) => {
   const radius = 7;
   const circleWidth = 40;
