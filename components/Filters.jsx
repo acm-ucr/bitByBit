@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Filter from "./Filter";
 
 const tags = [
@@ -39,16 +39,15 @@ const difficulties = [
   },
 ];
 
-const Filters = () => {
-  const [filtered, setFiltered] = useState([]);
+const Filters = ({filtered, setFiltered}) => {
 
   const clearAll = () => {
     setFiltered([]);
   };
 
   const submitFilter = () => {
-    console.log(filtered)
-    window.location.reload(true)
+    // console.log(filtered)
+    // window.location.reload(true)
   };
 
   return (

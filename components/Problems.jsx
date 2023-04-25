@@ -1,35 +1,36 @@
 import { FaEllipsisH } from "react-icons/fa";
+import { useState } from "react";
 
 const dummyProgrammingProblems = [
   {
     title: `Problem 1`,
     tags: ["arrays", "functions"],
-    difficulty: "Easy",
+    difficulty: "easy",
   },
   {
     title: `Problem 2`,
     tags: ["loops", "conditionals"],
-    difficulty: "Medium",
+    difficulty: "medium",
   },
   {
     title: `Problem 3`,
     tags: ["variables", "functions"],
-    difficulty: "Hard",
+    difficulty: "hard",
   },
   {
     title: `Problem 1`,
     tags: ["arrays", "functions"],
-    difficulty: "Easy",
+    difficulty: "easy",
   },
   {
     title: `Problem 2`,
     tags: ["loops", "conditionals"],
-    difficulty: "Medium",
+    difficulty: "medium",
   },
   {
     title: `Problem 3`,
     tags: ["variables", "functions"],
-    difficulty: "Hard",
+    difficulty: "hard",
   },
 ];
 
@@ -73,7 +74,25 @@ const handleProgrammingProblems = (problem, index) => {
   );
 };
 
-const Problems = () => {
+const Problems = ({filtered}) => {
+  // const [filteredProblems, setFilteredProblems] = useState(dummyProgrammingProblems)
+  // const filteredProblems = dummyProgrammingProblems.filter(problems => {return problems.difficulty === filtered[0] || problems.tags.filter(tg=> {return tg === filtered[1]})})
+  const filteredProblems= [];
+
+  for (const problems of dummyProgrammingProblems) {
+    for (const val of filtered){
+      if (problems.difficulty === val) {
+        filteredProblems.push(problems);
+      }
+      else{
+        for (const tgs of problems.tags){
+          if (tgs === val){
+            filteredProblems.push(problems);
+          }
+        }
+      }
+    }
+  }
   return (
     <div className="py-3 pr-4 w-full h-screen text-code-white">
       <div className="flex justify-between">
@@ -82,7 +101,7 @@ const Problems = () => {
       </div>
       <hr className="border-2 opacity-100 border-white" />
 
-      {dummyProgrammingProblems.map(handleProgrammingProblems)}
+      {filteredProblems.map(handleProgrammingProblems)}
       <div className="flex justify-center">
         <button className="py-2 pl-1.5 pr-2.5 ">
           <FaEllipsisH className="text-3xl" />
