@@ -1,6 +1,6 @@
 import ProblemRecord from "@/components/ProblemRecord";
 import ProblemsSolved from "@/components/ProblemsSolved";
-import Submissions from "@/components/Submissions";
+// import Submissions from "@/components/Submissions";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "@/components/Profile";
@@ -11,7 +11,7 @@ const ProfilePage = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="bg-code-black pt-16">
+    <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
           <Profile
@@ -23,7 +23,7 @@ const ProfilePage = () => {
           <ProblemsSolved />
         </Col>
         <Col xl={8}>
-          <Submissions />
+          {/* <Submissions /> */}
           <ProblemRecord />
         </Col>
       </Row>

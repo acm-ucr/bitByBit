@@ -112,7 +112,7 @@ const ProblemRecord = () => {
           <div className="text-xl mr-4">Status</div>
         </div>
       </div>
-      <hr className="border-2 opacity-100 border-white" />
+      <hr className="border-1 opacity-100 border-white" />
 
       {dummyProgrammingProblems.map(handleProgrammingProblems)}
     </div>
