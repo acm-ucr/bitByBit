@@ -8,7 +8,7 @@ import Profile from "@/components/Profile";
 
 const profile = () => {
   return (
-    <div className="bg-code-black pt-16">
+    <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
           <Profile

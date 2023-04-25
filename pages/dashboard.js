@@ -6,8 +6,8 @@ import Col from "react-bootstrap/Col";
 
 const dashboard = () => {
   return (
-    <div className="bg-code-black pt-16 min-h-screen">
-      <Row className="bg-code-black w-screen mb-0">
+    <div className="bg-code-black">
+      <Row className="mb-0">
         <Col xl={4} className="flex gap-4 justify-center items-center flex-col">
           <Filters />
           <Progress
