@@ -1,39 +1,6 @@
 import { FaEllipsisH } from "react-icons/fa";
 import Link from "next/link";
 
-const dummyProgrammingProblems = [
-  {
-    title: `Problem 1`,
-    tags: ["arrays", "functions"],
-    difficulty: "Easy",
-  },
-  {
-    title: `Problem 2`,
-    tags: ["loops", "conditionals"],
-    difficulty: "Medium",
-  },
-  {
-    title: `Problem 3`,
-    tags: ["variables", "functions"],
-    difficulty: "Hard",
-  },
-  {
-    title: `Problem 1`,
-    tags: ["arrays", "functions"],
-    difficulty: "Easy",
-  },
-  {
-    title: `Problem 2`,
-    tags: ["loops", "conditionals"],
-    difficulty: "Medium",
-  },
-  {
-    title: `Problem 3`,
-    tags: ["variables", "functions"],
-    difficulty: "Hard",
-  },
-];
-
 const handleProgrammingProblems = (problem, index) => {
   const difficultyColors = {
     Easy: "text-code-lime",
@@ -79,7 +46,7 @@ const handleProgrammingProblems = (problem, index) => {
   );
 };
 
-const Problems = () => {
+const Problems = ({ problems }) => {
   return (
     <div className="py-3 pr-4 w-full h-screen text-code-white">
       <div className="flex justify-between">
@@ -88,7 +55,7 @@ const Problems = () => {
       </div>
       <hr className="border-2 opacity-100 border-white" />
 
-      {dummyProgrammingProblems.map(handleProgrammingProblems)}
+      {problems.map(handleProgrammingProblems)}
       <div className="flex justify-center">
         <button className="py-2 pl-1.5 pr-2.5 ">
           <FaEllipsisH className="text-3xl" />
