@@ -14,12 +14,16 @@ const ProfilePage = () => {
     <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
-          <Profile
-            src={user.image}
-            fullName={user.name}
-            userName={user.username}
-            joinDate="April 1st 2023"
-          />
+          {user ? (
+            <Profile
+              src={user.image}
+              fullName={user.name}
+              userName={user.username}
+              joinDate="April 1st 2023"
+            />
+          ) : (
+            <Profile joinDate="April 1st 2023" />
+          )}
           <ProblemsSolved />
         </Col>
         <Col xl={8}>
