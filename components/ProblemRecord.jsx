@@ -1,3 +1,5 @@
+import React from "react";
+import { useState } from "react";
 import ProgressCircle from "./ProgressCircle";
 
 const dummyProgrammingProblems = [
@@ -78,9 +80,9 @@ const handleProgrammingProblems = (problem, index) => {
         </div>
         <div>
           {problem.status === "completed" ? (
-            <ProgressCircle completed={true} index={index} />
-          ) : (
             <ProgressCircle completed={false} index={index} />
+          ) : (
+            <ProgressCircle completed={true} index={index} />
           )}
         </div>
       </div>
@@ -89,20 +91,51 @@ const handleProgrammingProblems = (problem, index) => {
 };
 
 const ProblemRecord = () => {
+  const [filteredProblems, setFilteredProblems] = useState(
+    dummyProgrammingProblems
+  );
+
+  const filterProblem = (status) => {
+    switch (status) {
+      case "all":
+        setFilteredPorblems(dummyProgrammingProblems);
+        break;
+      case "completed":
+        setFilteredProblems(
+          dummyProgrammingProblems.filter((a) => a.status === "completed")
+        );
+        break;
+      case "in-progress":
+        setFilteredProblems(
+          dummyProgrammingProblems.filter((a) => a.status === "in-progress")
+        );
+        break;
+    }
+  };
+
   return (
     <div className="py-3 pr-4 font-readex w-full h-screen text-code-white">
       <div className="flex gap-3 mb-3">
         <div className="font-bold text-2xl">Problem Record</div>
         <div className="flex gap-1">
-          <div className="hover:cursor-pointer px-3 self-center bg-code-darkpurple border-code-darkpurple border-2 rounded-full">
+          <button
+            onClick={() => filterProblem("all")}
+            className="hover:cursor-pointer px-3 self-center bg-code-darkpurple border-code-darkpurple border-2 rounded-full"
+          >
             all
-          </div>
-          <div className="hover:cursor-pointer px-3 self-center border-code-darkpurple border-2 rounded-full">
+          </button>
+          <button
+            onClick={() => filterProblem("completed")}
+            className="hover:cursor-pointer px-3 self-center border-code-darkpurple border-2 rounded-full"
+          >
             completed
-          </div>
-          <div className="hover:cursor-pointer px-3 self-center  border-code-darkpurple border-2 rounded-full">
+          </button>
+          <button
+            onClick={() => filterProblem("in-progress")}
+            className="hover:cursor-pointer px-3 self-center  border-code-darkpurple border-2 rounded-full"
+          >
             in progress
-          </div>
+          </button>
         </div>
       </div>
       <div className="flex justify-between">
@@ -112,9 +145,9 @@ const ProblemRecord = () => {
           <div className="text-xl mr-4">Status</div>
         </div>
       </div>
-      <hr className="border-1 opacity-100 border-white" />
+      <hr className="border-2 opacity-100 border-white" />
 
-      {dummyProgrammingProblems.map(handleProgrammingProblems)}
+      {filteredProblems.map(handleProgrammingProblems)}
     </div>
   );
 };
