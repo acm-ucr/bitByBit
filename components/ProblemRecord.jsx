@@ -94,11 +94,13 @@ const ProblemRecord = () => {
   const [filteredProblems, setFilteredProblems] = useState(
     dummyProgrammingProblems
   );
+  const [status, setStatus] = useState("all");
 
   const filterProblem = (status) => {
+    setStatus(status);
     switch (status) {
       case "all":
-        setFilteredPorblems(dummyProgrammingProblems);
+        setFilteredProblems(dummyProgrammingProblems);
         break;
       case "completed":
         setFilteredProblems(
@@ -120,19 +122,25 @@ const ProblemRecord = () => {
         <div className="flex gap-1">
           <button
             onClick={() => filterProblem("all")}
-            className="hover:cursor-pointer px-3 self-center bg-code-darkpurple border-code-darkpurple border-2 rounded-full"
+            className={`hover:cursor-pointer px-3 self-center border-code-darkpurple border-2 rounded-full ${
+              status === "all" ? "bg-code-darkpurple" : ""
+            }`}
           >
             all
           </button>
           <button
             onClick={() => filterProblem("completed")}
-            className="hover:cursor-pointer px-3 self-center border-code-darkpurple border-2 rounded-full"
+            className={`hover:cursor-pointer px-3 self-center border-code-darkpurple border-2 rounded-full ${
+              status === "completed" ? "bg-code-darkpurple" : ""
+            }`}
           >
             completed
           </button>
           <button
             onClick={() => filterProblem("in-progress")}
-            className="hover:cursor-pointer px-3 self-center  border-code-darkpurple border-2 rounded-full"
+            className={`hover:cursor-pointer px-3 self-center  border-code-darkpurple border-2 rounded-full ${
+              status === "in-progress" ? "bg-code-darkpurple" : ""
+            }`}
           >
             in progress
           </button>
