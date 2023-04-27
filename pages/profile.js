@@ -19,7 +19,7 @@ const ProfilePage = () => {
               src={user.image}
               fullName={user.name}
               userName={user.username}
-              joinDate="April 1st 2023"
+              joinDate={user.created}
             />
           ) : (
             <Profile joinDate="April 1st 2023" />
