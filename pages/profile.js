@@ -1,21 +1,29 @@
 import ProblemRecord from "@/components/ProblemRecord";
 import ProblemsSolved from "@/components/ProblemsSolved";
-// import Profile from "@/components/Profile";
 // import Submissions from "@/components/Submissions";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "@/components/Profile";
+import UserContext from "@/components/UserContext";
+import { useContext } from "react";
 
-const profile = () => {
+const ProfilePage = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
-          <Profile
-            fullName="Ashley Kim"
-            userName="Ashley Kim"
-            joinDate="April 1st 2023"
-          />
+          {user ? (
+            <Profile
+              src={user.image}
+              fullName={user.name}
+              userName={user.username}
+              joinDate="April 1st 2023"
+            />
+          ) : (
+            <Profile joinDate="April 1st 2023" />
+          )}
           <ProblemsSolved />
         </Col>
         <Col xl={8}>
@@ -27,4 +35,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default ProfilePage;
