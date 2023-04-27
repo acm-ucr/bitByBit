@@ -1,6 +1,3 @@
-import CodeEditor from "./CodeEditor";
-import Console from "./Console";
-
 const ProblemDescription = ({
   name,
   difficulty,
@@ -38,10 +35,6 @@ const ProblemDescription = ({
             </div>
           ))}
         </ul>
-      </div>
-      <div className="w-1/2">
-        <CodeEditor />
-        <Console />
       </div>
     </div>
   );
