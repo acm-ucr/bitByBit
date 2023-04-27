@@ -2,7 +2,7 @@ const ProblemStateToggle = ({ state, onUpdateState }) => {
   return (
     <>
       <div className="flex justify-start bg-code-lightpurple pt-2">
-        <div className="flex justify-between bg-code-lightpurple w-[45%]">
+        <div className="flex justify-between bg-code-lightpurple w-full">
           <div
             className={`${
               state === 0 ? "bg-code-darkerpurple" : "bg-code-black"
