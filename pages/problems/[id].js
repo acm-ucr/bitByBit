@@ -11,7 +11,7 @@ const Problems = () => {
   const [state, setState] = useState(0);
 
   return (
-    <div className="bg-code-lightpurple pt-16 flex">
+    <div className="bg-code-lightpurple flex">
       <div className="w-1/2">
         <ProblemStateToggle state={state} onUpdateState={setState} />
         {state === 0 && (
