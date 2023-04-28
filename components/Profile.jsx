@@ -13,6 +13,11 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
     setIsEditing(false);
   };
 
+  const updateProfileComponent = () => {
+    isEditing ? setIsEditing(false) : setIsEditing(true);
+    setTempUser("");
+  };
+
   return (
     <div className="w-96 p-7 bg-code-darkpurple text-code-white rounded-3xl">
       <div className="flex justify-between items-start pb-2.5">
@@ -25,11 +30,7 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
             unoptimized={true}
           />
         </div>
-        <button
-          onClick={(e) =>
-            isEditing ? setIsEditing(false) : setIsEditing(true)
-          }
-        >
+        <button onClick={(e) => updateProfileComponent()}>
           <HiPencil className="text-4xl" />
         </button>
       </div>
