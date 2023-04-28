@@ -95,7 +95,7 @@ const Dashboard = () => {
       setFilteredProblems(
         dummyProgrammingProblems.filter(
           (a) =>
-            filtered.includes(a.difficulty) &&
+            filtered.includes(a.difficulty) ||
             a.tags.some((r) => filtered.indexOf(r) >= 0)
         )
       );

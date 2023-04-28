@@ -15,19 +15,13 @@ const Filter = ({ color, name, setFiltered, filtered }) => {
 
   return (
     <div className="hover:cursor-pointer select-none" onClick={handleClick}>
-      {isActive ? (
-        <div
-          className={` flex border-code-white text-2xl font-extralight border-2 px-2 py-1 ${color} rounded-full text-code-black`}
-        >
-          {name}
-        </div>
-      ) : (
-        <div
-          className={` flex border-code-white text-2xl font-extralight border-2 px-2 py-1 rounded-full text-code-white`}
-        >
-          {name}
-        </div>
-      )}
+      <div
+        className={`flex border-code-white text-2xl font-light border-2 px-2 py-1 ${
+          isActive ? `${color} !text-code-black` : "!text-code-white"
+        } rounded-full`}
+      >
+        {name}
+      </div>
     </div>
   );
 };
