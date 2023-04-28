@@ -21,12 +21,6 @@ const Navigation = () => {
         </Link>
         <Link
           className="text-code-white no-underline hover:text-code-lightpurple"
-          href="/problems"
-        >
-          Problems
-        </Link>
-        <Link
-          className="text-code-white no-underline hover:text-code-lightpurple"
           href="/profile"
         >
           Profile
