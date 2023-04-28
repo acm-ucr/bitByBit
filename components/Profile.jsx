@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HiPencil } from "react-icons/hi";
+import { HiPencil, HiX } from "react-icons/hi";
 import UserContext from "@/components/UserContext";
 import { useContext, useState } from "react";
 
@@ -31,7 +31,11 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
           />
         </div>
         <button onClick={(e) => updateProfileComponent()}>
-          <HiPencil className="text-4xl" />
+          {!isEditing ? (
+            <HiPencil className="text-4xl" />
+          ) : (
+            <HiX className="text-4xl" />
+          )}
         </button>
       </div>
       {!isEditing ? (
