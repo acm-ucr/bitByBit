@@ -2,13 +2,20 @@ import Image from "next/image";
 import { HiPencil, HiX } from "react-icons/hi";
 import UserContext from "@/components/UserContext";
 import { useContext, useState } from "react";
+import { doc, updateDoc, getFirestore } from "firebase/firestore";
 
 const Profile = ({ src, fullName, userName, joinDate }) => {
   const { user, setUser } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [tempUser, setTempUser] = useState("");
 
-  const updateContext = (tempUser) => {
+  const db = getFirestore();
+
+  const updateContext = async (tempUser) => {
+    const userDocRef = doc(db, "users", user.uid);
+    await updateDoc(userDocRef, {
+      username: tempUser,
+    });
     setUser({ ...user, username: tempUser });
     setIsEditing(false);
   };
