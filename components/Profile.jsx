@@ -8,21 +8,28 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
   const { user, setUser } = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [tempUser, setTempUser] = useState("");
+  const [error, setError] = useState("");
 
   const db = getFirestore();
 
   const updateContext = async (tempUser) => {
     const userDocRef = doc(db, "users", user.uid);
-    await updateDoc(userDocRef, {
-      username: tempUser,
-    });
-    setUser({ ...user, username: tempUser });
-    setIsEditing(false);
+    try {
+      await updateDoc(userDocRef, {
+        username: tempUser,
+      });
+      setUser({ ...user, username: tempUser });
+    } catch {
+      setError("*Sorry, there was an error with your request");
+    } finally {
+      setIsEditing(false);
+    }
   };
 
   const updateProfileComponent = () => {
     isEditing ? setIsEditing(false) : setIsEditing(true);
     setTempUser("");
+    setError("");
   };
 
   return (
@@ -56,6 +63,7 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
             value={tempUser}
             onChange={(e) => setTempUser(e.target.value)}
           />
+          <div className="text-code-lightpurple">{error}</div>
           <button
             className="justify-self-end rounded-full h-7 w-24 bg-code-lime text-code-black font-bold"
             onClick={() => {
