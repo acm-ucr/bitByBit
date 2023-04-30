@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "@/components/Profile";
 import UserContext from "@/components/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Timestamp } from "firebase/firestore";
 
 const ProfilePage = () => {
@@ -40,8 +40,12 @@ const ProfilePage = () => {
     return date;
   };
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
   return (
-    <div className="bg-code-black">
+    <div className="bg-code-black overscroll-contain">
       <Row className="w-full">
         <Col xl={4}>
           {user ? (
