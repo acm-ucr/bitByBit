@@ -22,25 +22,29 @@ const LanguageSelector = ({ state, onUpdateState }) => {
           {selectedLang}
           {!isOpen ? (
             <div>
-              <RxCaretDown className="text-2xl"/>
+              <RxCaretDown className="text-2xl" />
             </div>
           ) : (
             <div>
-              <RxCaretUp className="text-2xl"/>
+              <RxCaretUp className="text-2xl" />
             </div>
           )}
         </button>
         {isOpen && (
           <div className="bg-code-black rounded-b-lg flex flex-col">
-            {languages.map((lang, index) => (
-              <button
-                key={index}
-                className="px-2 hover:text-code-purple w-full text-left"
-                onClick={() => handleSelection(lang)}
-              >
-                {lang}
-              </button>
-            ))}
+            {languages.map((lang, index) => {
+              if (lang != selectedLang) {
+                return (
+                  <button
+                    key={index}
+                    className="px-2 hover:text-code-purple w-full text-left"
+                    onClick={() => handleSelection(lang)}
+                  >
+                    {lang}
+                  </button>
+                );
+              }
+            })}
           </div>
         )}
       </div>
