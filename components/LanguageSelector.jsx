@@ -11,7 +11,7 @@ const LanguageSelector = ({ state, onUpdateState }) => {
     setIsOpen(false);
   };
   return (
-    <div className="text-code-white font-readex font-light flex flex-col m-5 w-32">
+    <div className="text-code-white font-readex font-light flex flex-col w-32">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`flex w-full gap-2 justify-between bg-code-black px-2 items-center ${
