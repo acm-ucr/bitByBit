@@ -11,43 +11,37 @@ const LanguageSelector = ({ state, onUpdateState }) => {
     setIsOpen(false);
   };
   return (
-    <div className="text-code-white font-readex font-light">
-      <div className="flex flex-col m-5 w-28">
-        <button
-          onClick={() => setIsOpen((prev) => !prev)}
-          className={`flex justify-between bg-code-black px-2 items-center ${
-            isOpen ? `rounded-t-lg` : `rounded-full`
-          }`}
-        >
-          {selectedLang}
-          {!isOpen ? (
-            <div>
-              <RxCaretDown className="text-2xl" />
-            </div>
-          ) : (
-            <div>
-              <RxCaretUp className="text-2xl" />
-            </div>
-          )}
-        </button>
-        {isOpen && (
-          <div className="bg-code-black rounded-b-lg flex flex-col">
-            {languages.map((lang, index) => {
-              if (lang != selectedLang) {
-                return (
-                  <button
-                    key={index}
-                    className="px-2 hover:text-code-purple w-full text-left"
-                    onClick={() => handleSelection(lang)}
-                  >
-                    {lang}
-                  </button>
-                );
-              }
-            })}
-          </div>
+    <div className="text-code-white font-readex font-light flex flex-col m-5 w-32">
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={`flex w-full gap-2 justify-between bg-code-black px-2 items-center ${
+          isOpen ? `rounded-t-lg` : `rounded-full`
+        }`}
+      >
+        {selectedLang}
+        {!isOpen ? (
+          <RxCaretDown className="text-2xl" />
+        ) : (
+          <RxCaretUp className="text-2xl" />
         )}
-      </div>
+      </button>
+      {isOpen && (
+        <div className="bg-code-black rounded-b-lg">
+          {languages.map((lang, index) => {
+            if (lang != selectedLang) {
+              return (
+                <button
+                  key={index}
+                  className="px-2 pt-2 hover:text-code-purple w-full text-left"
+                  onClick={() => handleSelection(lang)}
+                >
+                  {lang}
+                </button>
+              );
+            }
+          })}
+        </div>
+      )}
     </div>
   );
 };
