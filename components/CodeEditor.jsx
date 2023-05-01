@@ -1,6 +1,10 @@
 import React from "react";
+import CodeContext from "./CodeContext";
+import { useContext } from "react";
 
 const CodeEditor = () => {
+  const { code, setCode } = useContext(CodeContext);
+  console.log(code);
   return (
     <div className="p-6 w-full">
       <textarea

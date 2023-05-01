@@ -19,6 +19,7 @@ const readex = Readex_Pro({
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
+  const [code, setCode] = useState("");
   const [language, setLanguage] = useState({
     name: "Python",
     id: 71,
@@ -44,9 +45,12 @@ export default function App({ Component, pageProps }) {
       }
     });
   }, []);
+  console.log(user);
 
   return (
-    <CodeContext.Provider value={{ user, setUser, language, setLanguage }}>
+    <CodeContext.Provider
+      value={{ user, setUser, code, setCode, language, setLanguage }}
+    >
       <main className={`${readex.variable}`}>
         <Layout>
           <Component {...pageProps} />
