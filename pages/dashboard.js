@@ -104,9 +104,12 @@ const Dashboard = () => {
 
   return (
     <div className="bg-code-black">
-      <Row className="mb-0">
-        <Col xl={4} className="flex gap-4 justify-center items-center flex-col">
-          <div className="rounded-3xl p-3 pt-2 w-11/12 font-readex text-code-white bg-code-darkerpurple">
+      <Row className="mb-0 ">
+        <Col
+          xl={4}
+          className=" flex gap-4 justify-around items-center flex-col"
+        >
+          <div className="rounded-2xl p-4 pt-3 w-11/12 font-readex text-code-white bg-code-darkerpurple">
             <div className="flex text-lg justify-between mb-2 mr-0">
               <div className="text-3xl">Filters</div>
               <button className="text-2xl font-extralight" onClick={clearAll}>
