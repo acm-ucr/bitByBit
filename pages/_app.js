@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import UserContext from "@/components/UserContext";
+import CodeContext from "@/components/CodeContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import axios from "axios";
@@ -19,6 +19,10 @@ const readex = Readex_Pro({
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
+  const [language, setLanguage] = useState({
+    name: "Python",
+    id: 71,
+  });
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -42,12 +46,12 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <CodeContext.Provider value={{ user, setUser, language, setLanguage }}>
       <main className={`${readex.variable}`}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </main>
-    </UserContext.Provider>
+    </CodeContext.Provider>
   );
 }

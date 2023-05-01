@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { HiPencil, HiX } from "react-icons/hi";
-import UserContext from "@/components/UserContext";
+import CodeContext from "@/components/CodeContext";
 import { useContext, useState } from "react";
 import { doc, updateDoc, getFirestore } from "firebase/firestore";
 
 const Profile = ({ src, fullName, userName, joinDate }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(CodeContext);
   const [isEditing, setIsEditing] = useState(false);
   const [tempUser, setTempUser] = useState("");
   const [error, setError] = useState("");
