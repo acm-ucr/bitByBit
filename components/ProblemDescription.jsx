@@ -8,7 +8,7 @@ const ProblemDescription = ({
 }) => {
   return (
     <div className="flex bg-code-darkerpurple">
-      <div className="w-1/2 flex flex-col  pt-3 pb-3 px-3 text-code-white font-readex">
+      <div className="w-full flex flex-col  pt-3 pb-3 px-3 text-code-white font-readex">
         <div className="flex flex-row justify-between">
           <div className="text-2xl font-bold">{name}</div>
           <div className="border-2 rounded-full py-px px-3 text-code-lightgreen border-code-lightgreen">
@@ -17,7 +17,7 @@ const ProblemDescription = ({
         </div>
         <div className="flex flex-row mt-1 mb-4 font-thin">
           {tags.map((element, index) => (
-            <div className={`mr-1 px-1 bg-code-black rounded`} key={index}>
+            <div className="mr-1 px-1 bg-code-black rounded" key={index}>
               {element}
             </div>
           ))}
