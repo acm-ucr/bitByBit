@@ -33,7 +33,7 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
   };
 
   return (
-    <div className="w-96 p-7 bg-code-darkpurple text-code-white rounded-3xl">
+    <div className="w-2/3 p-7 m-4 bg-code-darkpurple text-code-white rounded-3xl">
       <div className="flex justify-between items-start pb-2.5">
         <div className="w-48 h-48 mb-2 bg-gray-300 rounded-2xl relative">
           <Image
