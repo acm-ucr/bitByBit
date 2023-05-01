@@ -44,15 +44,13 @@ const ProfilePage = () => {
     <div className="bg-code-black">
       <Row className="w-full">
         <Col xl={4}>
-          {user ? (
+          {user && (
             <Profile
               src={user.image}
               fullName={user.name}
               userName={user.username}
               joinDate={getDate()}
             />
-          ) : (
-            <Profile />
           )}
           <ProblemsSolved />
         </Col>
