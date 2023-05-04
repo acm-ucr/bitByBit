@@ -38,7 +38,7 @@ const ProblemsSolved = () => {
     </>
   ));
   return (
-    <div className="bg-code-gray rounded-3xl w-2/3 p-6 m-6 font-medium">
+    <div className="bg-code-gray rounded-3xl w-2/3 p-6 m-2 font-medium">
       <div className="flex flex-col items-center">
         <div
           className="radial-progress text-code-green flex flex-col justify-center items-center"
