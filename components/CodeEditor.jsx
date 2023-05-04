@@ -4,6 +4,9 @@ import { useContext } from "react";
 
 const CodeEditor = () => {
   const { code, setCode } = useContext(CodeContext);
+
+  // setting language
+  // const { language, setLanguage } = useContext(CodeContext);
   console.log(code);
   return (
     <div className="p-6 w-full">
