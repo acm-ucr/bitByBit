@@ -4,12 +4,12 @@ import ProblemsSolved from "@/components/ProblemsSolved";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "@/components/Profile";
-import UserContext from "@/components/UserContext";
+import CodeContext from "@/components/CodeContext";
 import { useContext } from "react";
 import { Timestamp } from "firebase/firestore";
 
 const ProfilePage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(CodeContext);
 
   const getDate = () => {
     const timestamp = new Timestamp(
