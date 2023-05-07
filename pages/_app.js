@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState({
     name: "Python",
-    id: 71,
+    id: 92,
   });
 
   useEffect(() => {
