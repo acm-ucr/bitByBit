@@ -6,6 +6,7 @@ import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
 
 import { useState } from "react";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const Problems = () => {
   const [state, setState] = useState(0);
@@ -40,6 +41,7 @@ const Problems = () => {
         {state === 2 && <ProblemSubmission />}
       </div>
       <div className="w-1/2">
+        <LanguageSelector />
         <CodeEditor />
         <Console />
       </div>
