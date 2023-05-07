@@ -55,10 +55,10 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
       {!isEditing ? (
         <div className="text-3xl font-semibold">{userName}</div>
       ) : (
-        <div className="grid w-80 gap-1">
+        <div className="grid max-w-80 gap-1">
           Change username
           <input
-            className="text-lg rounded w-80 h-9 text-code-black pl-2"
+            className="text-lg rounded w-full h-9 text-code-black pl-2"
             placeholder="Input your new username here..."
             value={tempUser}
             onChange={(e) => setTempUser(e.target.value)}
