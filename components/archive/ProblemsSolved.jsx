@@ -1,5 +1,5 @@
 import ProblemsCategory from "@/components/ProblemsCategory";
-import CodeContext from "./CodeContext";
+import CodeContext from "../CodeContext";
 import { useContext } from "react";
 
 const ProblemsSolved = () => {

@@ -1,5 +1,5 @@
 import ProblemRecord from "@/components/ProblemRecord";
-import ProblemsSolved from "@/components/ProblemsSolved";
+// import ProblemsSolved from "@/components/archive/ProblemsSolved";
 // import Submissions from "@/components/Submissions";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -52,7 +52,7 @@ const ProfilePage = () => {
               joinDate={getDate()}
             />
           )}
-          <ProblemsSolved />
+          {/* <ProblemsSolved /> */}
         </Col>
         <Col xl={8}>
           {/* <Submissions /> */}
