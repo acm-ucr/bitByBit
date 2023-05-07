@@ -1,21 +1,7 @@
 import { useState } from "react";
 import { RxCaretDown } from "react-icons/rx";
 import { RxCaretUp } from "react-icons/rx";
-
-const languages = [
-  {
-    name: "Python",
-    id: 92,
-  },
-  {
-    name: "Javascript",
-    id: 93,
-  },
-  {
-    name: "C++",
-    id: 54,
-  },
-];
+import { languages } from "./data/Languages";
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);

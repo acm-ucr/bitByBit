@@ -1,13 +1,8 @@
 import { FaEllipsisH } from "react-icons/fa";
 import Link from "next/link";
+import { difficultyColors } from "./data/Problems";
 
 const handleProgrammingProblems = (problem, index) => {
-  const difficultyColors = {
-    Easy: "text-code-lime",
-    Medium: "text-code-yellow",
-    Hard: "text-code-pink",
-  };
-
   return (
     <div
       key={index}
