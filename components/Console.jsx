@@ -45,6 +45,7 @@ const Console = () => {
       .post("/api/execute", {
         source_code: code,
         language_id: language,
+        stdin: null,
       })
       .then((response) => {
         console.log(response.data);
