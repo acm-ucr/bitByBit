@@ -2,33 +2,25 @@ import Image from "next/image";
 import { HiPencil, HiX } from "react-icons/hi";
 import CodeContext from "@/components/CodeContext";
 import { useContext, useState } from "react";
-import { doc, updateDoc, getFirestore } from "firebase/firestore";
+import axios from "axios";
 
 const Profile = ({ src, fullName, userName, joinDate }) => {
   const { user, setUser } = useContext(CodeContext);
   const [isEditing, setIsEditing] = useState(false);
-  const [tempUser, setTempUser] = useState("");
+  const [newUserName, setNewUserName] = useState("");
   const [error, setError] = useState("");
 
-  const db = getFirestore();
-
   const updateContext = async (tempUser) => {
-    const userDocRef = doc(db, "users", user.uid);
-    try {
-      await updateDoc(userDocRef, {
-        username: tempUser,
-      });
-      setUser({ ...user, username: tempUser });
-    } catch {
-      setError("*Sorry, there was an error with your request");
-    } finally {
-      setIsEditing(false);
-    }
+    await axios
+      .post("api/updateUserInfo", { uid: user.uid, newName: tempUser })
+      .then((response) => setUser({ ...user, username: response.data.newName }))
+      .catch((error) => setError(error.response.data.error))
+      .finally(() => setIsEditing(false));
   };
 
   const updateProfileComponent = () => {
     isEditing ? setIsEditing(false) : setIsEditing(true);
-    setTempUser("");
+    setNewUserName("");
     setError("");
   };
 
@@ -60,14 +52,14 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
           <input
             className="text-lg rounded w-full h-9 text-code-black pl-2"
             placeholder="Input your new username here..."
-            value={tempUser}
-            onChange={(e) => setTempUser(e.target.value)}
+            value={newUserName}
+            onChange={(e) => setNewUserName(e.target.value)}
           />
           <div className="text-code-lightpurple">{error}</div>
           <button
             className="justify-self-end rounded-full h-7 w-24 bg-code-lime text-code-black font-bold"
             onClick={() => {
-              updateContext(tempUser);
+              updateContext(newUserName);
             }}
           >
             Save
