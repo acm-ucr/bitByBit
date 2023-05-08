@@ -1,8 +1,12 @@
+import { auth } from "@/firebase";
+import { signOut } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const Navigation = () => {
+  const router = useRouter();
   return (
     <Navbar
       variant="light"
@@ -26,12 +30,17 @@ const Navigation = () => {
           Profile
         </Link>
       </Nav>
-      <Link
+      <button
         className="text-code-white no-underline hover:text-code-lightpurple flex justify-end mr-4"
-        href="/"
+        onClick={() => {
+          signOut(auth).then(() => {
+            console.log("Logged Out Successfully");
+          });
+          router.push("/");
+        }}
       >
         Sign Out
-      </Link>
+      </button>
     </Navbar>
   );
 };
