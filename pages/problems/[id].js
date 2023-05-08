@@ -63,7 +63,7 @@ const Problems = () => {
   const containerRef = useRef();
   const panelRef = useRef();
   const handleWidth = 16;
-  const maxContainerWidth = 0;
+  let maxContainerWidth = 0;
   if (typeof window !== "undefined") {
     maxContainerWidth = window.innerWidth;
   }
