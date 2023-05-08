@@ -7,6 +7,7 @@ import Console from "@/components/Console";
 
 import { useState, useRef } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
+import { FaCircle } from "react-icons/fa";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -115,8 +116,12 @@ const Problems = () => {
               width: `${handleWidth}px`,
             }}
             onPointerDown={onResizeStart}
-            className="bg-code-black rounded absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center"
-          ></div>
+            className="bg-code-black rounded absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center flex justify-center items-center flex-col px-2"
+          >
+            <FaCircle className="text-[8px] my-1" />
+            <FaCircle className="text-[8px] my-1" />
+            <FaCircle className="text-[8px] my-1" />
+          </div>
         </div>
         <div className="flex flex-col flex-grow">
           <LanguageSelector />
