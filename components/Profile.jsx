@@ -11,11 +11,11 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
   const [error, setError] = useState("");
 
   const updateContext = async (tempUser) => {
-    axios
+    await axios
       .post("api/updateUserInfo", { uid: user.uid, newName: tempUser })
       .then((response) => setUser({ ...user, username: response.data.newName }))
       .catch((error) => setError(error.response.data.error))
-      .finally(setIsEditing(false));
+      .finally(() => setIsEditing(false));
   };
 
   const updateProfileComponent = () => {
