@@ -74,7 +74,7 @@ const Problems = () => {
         style={{
           width: "100%",
           maxWidth: `${maxContainerWidth}px`,
-          height: "400px",
+          height: "100%",
           display: "flex",
         }}
       >
@@ -131,7 +131,9 @@ const Problems = () => {
         </div>
         <div className="flex flex-col flex-grow">
           <LanguageSelector />
-          <CodeEditor />
+          <div className="flex flex-col flex-grow h-full overflow-auto">
+            <CodeEditor />
+          </div>
           <Console />
         </div>
       </div>

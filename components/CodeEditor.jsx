@@ -16,7 +16,6 @@ const CodeEditor = () => {
   }, []);
   return (
     <CodeMirror
-      height="350px"
       extensions={[cpp()]}
       // extensions={[python()]}
       // extensions={[javascript({ jsx: true })]}
