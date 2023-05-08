@@ -12,10 +12,6 @@ import { FaCircle } from "react-icons/fa";
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
 
-  if (typeof window === "undefined") {
-    return;
-  }
-
   const onResizeStart = () => {
     if (panelRef.current) {
       panelRef.current.style.pointerEvents = "none";
@@ -25,8 +21,10 @@ const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
       containerRef.current.classList.add("resizing");
       containerRef.current.style.cursor = "ew-resize";
     }
-    window.addEventListener("pointermove", onResize);
-    window.addEventListener("pointerup", onResizeEnd);
+    if (typeof window !== "undefined") {
+      window.addEventListener("pointermove", onResize);
+      window.addEventListener("pointerup", onResizeEnd);
+    }
   };
 
   const onResize = (e) => {
@@ -50,8 +48,10 @@ const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
       containerRef.current.classList.remove("resizing");
       containerRef.current.style.cursor = "auto";
     }
-    window.removeEventListener("pointermove", onResize);
-    window.removeEventListener("pointerup", onResizeEnd);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("pointermove", onResize);
+      window.removeEventListener("pointerup", onResizeEnd);
+    }
   };
 
   return { panelWidth, onResizeStart };
