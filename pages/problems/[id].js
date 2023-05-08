@@ -12,6 +12,10 @@ import { FaCircle } from "react-icons/fa";
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
 
+  if (typeof window === "undefined") {
+    return;
+  }
+
   const onResizeStart = () => {
     if (panelRef.current) {
       panelRef.current.style.pointerEvents = "none";
@@ -59,7 +63,10 @@ const Problems = () => {
   const containerRef = useRef();
   const panelRef = useRef();
   const handleWidth = 16;
-  const maxContainerWidth = window.innerWidth;
+  const maxContainerWidth = 0;
+  if (typeof window !== "undefined") {
+    maxContainerWidth = window.innerWidth;
+  }
 
   const { panelWidth, onResizeStart } = useResize(
     containerRef,
