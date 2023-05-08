@@ -1,17 +1,28 @@
 import React from "react";
 import CodeContext from "./CodeContext";
 import { useContext } from "react";
+import CodeMirror from '@uiw/react-codemirror'
+import { cpp } from "@codemirror/lang-cpp";
+import { javascript } from "@codemirror/lang-javascript";
+import { python } from "@codemirror/lang-python";
+import { aura } from "@uiw/codemirror-theme-aura"
 
 const CodeEditor = () => {
   const { code, setCode } = useContext(CodeContext);
   console.log(code);
+  const onChange = React.useCallback((value, viewUpdate) => {
+    console.log('value:', value);
+    setCode(value);
+  }, []);
   return (
-    <div className="p-6 w-full">
-      <textarea
-        className="text-code-white bg-transparent w-full resize-none border-white border-2 focus:outline-none"
-        onChange={(e) => setCode(e.target.value)}
-      />
-    </div>
+    <CodeMirror
+      height="350px"
+      extensions={[cpp()]}
+      // extensions={[python()]}
+      // extensions={[javascript({ jsx: true })]}
+      onChange={onChange}
+      theme={aura}
+    />
   );
 };
 
