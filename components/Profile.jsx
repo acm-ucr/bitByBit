@@ -51,7 +51,7 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
           Change username
           <input
             className="text-lg rounded w-full h-9 text-code-black pl-2"
-            placeholder="Input your new username here..."
+            placeholder={userName}
             value={newUserName}
             onChange={(e) => setNewUserName(e.target.value)}
           />
