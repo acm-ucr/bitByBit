@@ -72,23 +72,17 @@ const Problems = () => {
       <div
         ref={containerRef}
         style={{
-          width: "100%",
           maxWidth: `${maxContainerWidth}px`,
-          height: "100%",
-          display: "flex",
         }}
+        className="flex w-full h-full"
       >
         <div
           ref={panelRef}
           style={{
-            position: "relative",
             width: `${panelWidth}px`,
-            maxWidth: "100%",
-            height: "100%",
             paddingRight: `${handleWidth}px`,
-            display: "flex",
-            "flex-direction": "column",
           }}
+          className="relative flex flex-col h-full max-w-full"
         >
           <ProblemStateToggle state={state} onUpdateState={setState} />
           {state === 0 && (
@@ -118,15 +112,10 @@ const Problems = () => {
 
           <div
             style={{
-              position: "absolute",
-              top: "0",
-              right: "0",
-              height: "100%",
-              background: "white",
               width: `${handleWidth}px`,
-              cursor: "ew-resize",
             }}
             onPointerDown={onResizeStart}
+            className="bg-code-black rounded absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center"
           ></div>
         </div>
         <div className="flex flex-col flex-grow">
