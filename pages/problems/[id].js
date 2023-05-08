@@ -64,7 +64,7 @@ const Problems = () => {
     containerRef,
     panelRef,
     maxContainerWidth / 2,
-    maxContainerWidth / 3,
+    maxContainerWidth / 3
   );
 
   return (
