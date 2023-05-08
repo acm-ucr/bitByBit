@@ -3,8 +3,8 @@ import CodeContext from "./CodeContext";
 import { useContext } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { cpp } from "@codemirror/lang-cpp";
-import { javascript } from "@codemirror/lang-javascript";
-import { python } from "@codemirror/lang-python";
+// import { javascript } from "@codemirror/lang-javascript";
+// import { python } from "@codemirror/lang-python";
 import { aura } from "@uiw/codemirror-theme-aura";
 
 const CodeEditor = () => {
