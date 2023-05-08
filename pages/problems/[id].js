@@ -63,7 +63,8 @@ const Problems = () => {
   const { panelWidth, onResizeStart } = useResize(
     containerRef,
     panelRef,
-    maxContainerWidth / 2
+    maxContainerWidth / 2,
+    maxContainerWidth / 3,
   );
 
   return (
