@@ -31,7 +31,7 @@ const Navigation = () => {
         href="/"
       >
         Sign Out
-      </Link>{" "}
+      </Link>
     </Navbar>
   );
 };

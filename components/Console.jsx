@@ -36,8 +36,8 @@ const Console = () => {
   const [state, setState] = useState(0);
 
   // temp values before context is made
-  // 71 is python 3
-  const language = 71;
+  // 92 is python 3
+  const language = 92;
   const code = "print('Hello World')";
 
   const handleExecute = () => {
@@ -45,6 +45,7 @@ const Console = () => {
       .post("/api/execute", {
         source_code: code,
         language_id: language,
+        stdin: null,
       })
       .then((response) => {
         console.log(response.data);

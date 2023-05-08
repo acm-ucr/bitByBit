@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { HiPencil, HiX } from "react-icons/hi";
-import UserContext from "@/components/UserContext";
+import CodeContext from "@/components/CodeContext";
 import { useContext, useState } from "react";
 import { doc, updateDoc, getFirestore } from "firebase/firestore";
 
 const Profile = ({ src, fullName, userName, joinDate }) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(CodeContext);
   const [isEditing, setIsEditing] = useState(false);
   const [tempUser, setTempUser] = useState("");
   const [error, setError] = useState("");
@@ -35,7 +35,7 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
   return (
     <div className="w-2/3 p-7 m-4 bg-code-darkpurple text-code-white rounded-3xl">
       <div className="flex justify-between items-start pb-2.5">
-        <div className="w-1/2 h-48 mb-2 bg-gray-300 rounded-2xl relative">
+        <div className="w-48 h-48 mb-2 bg-gray-300 rounded-2xl relative">
           <Image
             src={src}
             className="rounded-2xl"
@@ -55,10 +55,10 @@ const Profile = ({ src, fullName, userName, joinDate }) => {
       {!isEditing ? (
         <div className="text-3xl font-semibold">{userName}</div>
       ) : (
-        <div className="grid w-80 gap-1">
+        <div className="grid max-w-80 gap-1">
           Change username
           <input
-            className="text-lg rounded w-80 h-9 text-code-black pl-2"
+            className="text-lg rounded w-full h-9 text-code-black pl-2"
             placeholder="Input your new username here..."
             value={tempUser}
             onChange={(e) => setTempUser(e.target.value)}

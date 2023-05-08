@@ -1,9 +1,9 @@
 import ProblemsCategory from "@/components/ProblemsCategory";
-import userContext from "./UserContext";
+import CodeContext from "../CodeContext";
 import { useContext } from "react";
 
 const ProblemsSolved = () => {
-  const { user } = useContext(userContext);
+  const { user } = useContext(CodeContext);
   const total = Number(user?.easy + user?.medium + user?.hard);
 
   const problemsCategoriesData = [

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { RxCaretDown } from "react-icons/rx";
 import { RxCaretUp } from "react-icons/rx";
+import { languages } from "./data/Languages";
 
-const LanguageSelector = ({ state, onUpdateState }) => {
-  const languages = ["Python", "JavaScript", "C++"];
+const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("Python");
+  const [selectedLang, setSelectedLang] = useState(languages[0]);
+
   const handleSelection = (lang) => {
     setSelectedLang(lang);
     setIsOpen(false);
@@ -18,7 +19,7 @@ const LanguageSelector = ({ state, onUpdateState }) => {
           isOpen ? `rounded-t-lg` : `rounded-full`
         }`}
       >
-        {selectedLang}
+        {selectedLang.name}
         {!isOpen ? (
           <RxCaretDown className="text-2xl" />
         ) : (
@@ -27,19 +28,20 @@ const LanguageSelector = ({ state, onUpdateState }) => {
       </button>
       {isOpen && (
         <div className="bg-code-black rounded-b-lg">
-          {languages.map((lang, index) => {
-            if (lang != selectedLang) {
-              return (
-                <button
-                  key={index}
-                  className="px-2 pt-2 hover:text-code-purple w-full text-left"
-                  onClick={() => handleSelection(lang)}
-                >
-                  {lang}
-                </button>
-              );
-            }
-          })}
+          {Object.entries(languages).map((language, index) => (
+            <button
+              key={index}
+              className="px-2 pt-2 hover:text-code-purple w-full text-left"
+              onClick={() =>
+                handleSelection({
+                  name: languages[index].name,
+                  id: languages[index].id,
+                })
+              }
+            >
+              {languages[index].name}
+            </button>
+          ))}
         </div>
       )}
     </div>

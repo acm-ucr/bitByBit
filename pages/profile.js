@@ -1,15 +1,15 @@
 import ProblemRecord from "@/components/ProblemRecord";
-import ProblemsSolved from "@/components/ProblemsSolved";
+// import ProblemsSolved from "@/components/archive/ProblemsSolved";
 // import Submissions from "@/components/Submissions";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Profile from "@/components/Profile";
-import UserContext from "@/components/UserContext";
+import CodeContext from "@/components/CodeContext";
 import { useContext } from "react";
 import { Timestamp } from "firebase/firestore";
 
 const ProfilePage = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(CodeContext);
 
   const getDate = () => {
     const timestamp = new Timestamp(
@@ -41,7 +41,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="bg-code-black">
+    <div className="bg-code-black overscroll-contain overflow-hidden h-full">
       <Row className="w-full">
         <Col xl={4}>
           {user && (
@@ -52,7 +52,7 @@ const ProfilePage = () => {
               joinDate={getDate()}
             />
           )}
-          <ProblemsSolved />
+          {/* <ProblemsSolved /> */}
         </Col>
         <Col xl={8}>
           {/* <Submissions /> */}

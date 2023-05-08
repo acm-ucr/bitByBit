@@ -6,6 +6,7 @@ import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
 
 import { useState, useRef } from "react";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -128,6 +129,7 @@ const Problems = () => {
           ></div>
         </div>
         <div className="flex flex-col flex-grow">
+          <LanguageSelector />
           <CodeEditor />
           <Console />
         </div>
