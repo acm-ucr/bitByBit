@@ -38,7 +38,7 @@ export const dummyProgrammingProblems = [
 ];
 
 export const difficultyColors = {
-  Easy: "text-code-lime",
-  Medium: "text-code-yellow",
-  Hard: "text-code-pink",
+  easy: "text-code-lime",
+  medium: "text-code-yellow",
+  hard: "text-code-pink",
 };

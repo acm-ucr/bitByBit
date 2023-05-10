@@ -4,28 +4,28 @@ import { difficultyColors } from "./data/Problems";
 
 const handleProgrammingProblems = (problem, index) => {
   return (
-    <div
+    <Link
       key={index}
+      href={"/problems/" + index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
-      } p-4 flex items-center justify-between`}
+      } p-4 flex items-center justify-between no-underline ${
+        difficultyColors[problem.difficulty]
+      } `}
     >
       <div className="flex flex-col">
-        <Link
-          className="text-2xl mb-2 text-code-white no-underline hover:text-code-lightpurple"
-          href={"/problems/" + index}
-        >
+        <p className="text-2xl mb-2 text-code-white no-underline hover:text-code-lightpurple">
           {problem.title}
-        </Link>
+        </p>
         <div className="flex justify-between">
-          {problem.tags.map((element, tagsIndex) => (
+          {problem.tags.map((tag) => (
             <div
               className={`mr-1 px-1 ${
                 index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
-              } rounded`}
+              } rounded text-code-white no-underline`}
               key={index}
             >
-              {element}
+              {tag}
             </div>
           ))}
         </div>
@@ -37,7 +37,7 @@ const handleProgrammingProblems = (problem, index) => {
       >
         {problem.difficulty}
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -46,7 +46,7 @@ const Problems = ({ problems }) => {
     <div className="py-3 pr-4 w-full h-screen text-code-white">
       <div className="flex justify-between">
         <div className="text-2xl">Title</div>
-        <div className="text-2xl">Difficulty</div>
+        <div className="text-2xl">Difficulty </div>
       </div>
       <hr className="border-2 opacity-100 border-white" />
 
