@@ -36,9 +36,6 @@ const Welcome = () => {
         >
           Get Started
         </button>
-        <button className="text-white underline underline-offset-2 text-2xl font-semibold font-readex">
-          I already have an account
-        </button>
       </div>
     </div>
   );
