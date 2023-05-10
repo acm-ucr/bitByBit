@@ -10,7 +10,7 @@ export default async function updateUserInfo(req, res) {
     res.status(200).json({ newName: req.body.newName });
   } catch {
     res
-      .status(400)
+      .status(500)
       .json({ error: "*Sorry, there was an error with your request" });
   }
 }
