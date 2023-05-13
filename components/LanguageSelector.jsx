@@ -27,21 +27,23 @@ const LanguageSelector = () => {
         )}
       </button>
       {isOpen && (
-        <div className="bg-code-black rounded-b-lg">
-          {Object.entries(languages).map((language, index) => (
-            <button
-              key={index}
-              className="px-2 pt-2 hover:text-code-purple w-full text-left"
-              onClick={() =>
-                handleSelection({
-                  name: languages[index].name,
-                  id: languages[index].id,
-                })
-              }
-            >
-              {languages[index].name}
-            </button>
-          ))}
+        <div className="absolute top-[88px] z-50 w-32">
+          <div className="bg-code-black rounded-b-lg">
+            {Object.entries(languages).map((language, index) => (
+              <button
+                key={index}
+                className="px-2 pt-2 hover:text-code-purple w-full text-left"
+                onClick={() =>
+                  handleSelection({
+                    name: languages[index].name,
+                    id: languages[index].id,
+                  })
+                }
+              >
+                {languages[index].name}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>
