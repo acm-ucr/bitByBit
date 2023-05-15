@@ -7,16 +7,12 @@ import CodeContext from "../components/CodeContext";
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [selectedLang, setSelectedLang] = useState(languages[0]);
   const { language, setLanguage } = useContext(CodeContext);
 
   const handleSelection = (lang) => {
     setLanguage(lang);
-    // setSelectedLang(lang);
     setIsOpen(false);
   };
-  console.log("selected", language);
-  // console.log(selectedLang);
   return (
     <div className="text-code-white font-readex font-light flex flex-col w-32">
       <button
