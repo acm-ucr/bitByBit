@@ -43,7 +43,7 @@ const handleProgrammingProblems = (problem, index) => {
 
 const Problems = ({ problems }) => {
   return (
-    <div className="py-3 pr-4 w-full h-screen text-code-white">
+    <div className="py-3 pr-4 w-full h-full text-code-white">
       <div className="flex justify-between">
         <div className="text-2xl">Title</div>
         <div className="text-2xl">Difficulty </div>
