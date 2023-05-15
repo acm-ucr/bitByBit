@@ -10,7 +10,6 @@ const Navigation = () => {
   return (
     <Navbar
       variant="light"
-      fixed="top"
       className="bg-code-black font-semibold font-readex w-11/12"
     >
       <Navbar.Brand href="/" className="!text-code-white px-2">
