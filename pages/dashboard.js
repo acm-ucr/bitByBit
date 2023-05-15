@@ -138,7 +138,9 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-            <button onClick={apply}>Apply</button>
+            <div className="flex text-lg justify-end mb-2 mr-0">
+              <button className="text-2xl font-extralight" onClick={apply}>Apply</button>
+            </div>
           </div>
         </Col>
         <Col xl={8} className="flex justify-center items-left flex-col">
