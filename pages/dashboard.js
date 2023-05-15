@@ -102,10 +102,10 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="bg-code-black justify-center">
-      <Row className="mb-0 justify-center w-11/12">
+    <div className="bg-code-black flex justify-center items-center">
+      <Row className="mb-0 flex items-cetner justify-center w-11/12">
         <Col xl={4} className=" flex justify-start items-center flex-col">
-          <div className="rounded-2xl p-4 pt-3 w-11/12 font-readex text-code-white bg-code-darkerpurple">
+          <div className="rounded-2xl p-4 pt-3 w-full font-readex text-code-white bg-code-darkerpurple">
             <div className="flex text-lg justify-between mb-2 mr-0">
               <div className="text-3xl">Filters</div>
               <button className="text-2xl font-extralight" onClick={clearAll}>
@@ -141,7 +141,7 @@ const Dashboard = () => {
             <button onClick={apply}>Apply</button>
           </div>
         </Col>
-        <Col xl={7} className="flex justify-center items-left flex-col">
+        <Col xl={8} className="flex justify-center items-left flex-col">
           <Problems problems={filteredProblems} />
         </Col>
       </Row>
