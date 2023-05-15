@@ -41,8 +41,8 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="bg-code-black overscroll-contain overflow-hidden h-full">
-      <Row className="w-full">
+    <div className="bg-code-black overscroll-contain overflow-hidden w-full h-full justify-center">
+      <Row className="w-11/12">
         <Col xl={4}>
           {user && (
             <Profile
