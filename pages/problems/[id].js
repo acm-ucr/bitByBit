@@ -123,7 +123,7 @@ const Problems = () => {
               width: `${handleWidth}px`,
             }}
             onPointerDown={onResizeStart}
-            className="bg-code-black rounded absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center flex justify-center items-center flex-col px-2"
+            className="bg-code-black absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center flex justify-center items-center flex-col px-2"
           >
             <FaCircle className="text-[8px] my-1" />
             <FaCircle className="text-[8px] my-1" />
