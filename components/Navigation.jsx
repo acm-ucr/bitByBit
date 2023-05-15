@@ -11,7 +11,7 @@ const Navigation = () => {
     <Navbar
       variant="light"
       fixed="top"
-      className="bg-code-black font-semibold font-readex"
+      className="bg-code-black font-semibold font-readex w-11/12"
     >
       <Navbar.Brand href="/" className="!text-code-white px-2">
         <div className="text-3xl">bitByBIT</div>
