@@ -139,7 +139,9 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="flex text-lg justify-end mb-2 mr-0">
-              <button className="text-2xl font-extralight" onClick={apply}>Apply</button>
+              <button className="text-2xl font-extralight" onClick={apply}>
+                Apply
+              </button>
             </div>
           </div>
         </Col>
