@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RxCaretUp } from "react-icons/rx";
 import { useState } from "react";
 import axios from "axios";
+import CodeContext from "../components/CodeContext";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
   return (
@@ -34,21 +35,21 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
+  const { language } = useContext(CodeContext);
 
   // temp values before context is made
-  // 92 is python 3
-  const language = 92;
   const code = "print('Hello World')";
 
   const handleExecute = () => {
     axios
       .post("/api/execute", {
         source_code: code,
-        language_id: language,
+        language_id: language.id,
         stdin: null,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(request.data);
+        console.log("BHELLO", response.data);
       });
   };
 

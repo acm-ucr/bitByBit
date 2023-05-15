@@ -2,13 +2,15 @@ import { useState } from "react";
 import { RxCaretDown } from "react-icons/rx";
 import { RxCaretUp } from "react-icons/rx";
 import { languages } from "./data/Languages";
+import { useContext } from "react";
+import CodeContext from "../components/CodeContext";
 
 const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState(languages[0]);
+  const { language, setLanguage } = useContext(CodeContext);
 
   const handleSelection = (lang) => {
-    setSelectedLang(lang);
+    setLanguage(lang);
     setIsOpen(false);
   };
   return (
@@ -19,7 +21,7 @@ const LanguageSelector = () => {
           isOpen ? `rounded-t-lg` : `rounded-full`
         }`}
       >
-        {selectedLang.name}
+        {language.name}
         {!isOpen ? (
           <RxCaretDown className="text-2xl" />
         ) : (
