@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { RxCaretUp } from "react-icons/rx";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import CodeContext from "../components/CodeContext";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
@@ -35,22 +35,19 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
-  const { language } = useContext(CodeContext);
-
-  // temp values before context is made
-  const code = "print('Hello World')";
+  const { language, code } = useContext(CodeContext);
 
   const handleExecute = () => {
-    axios
-      .post("/api/execute", {
-        source_code: code,
-        language_id: language.id,
-        stdin: null,
-      })
-      .then((response) => {
-        console.log(request.data);
-        console.log("BHELLO", response.data);
-      });
+    console.log(language, code);
+    // axios
+    //   .post("/api/execute", {
+    //     source_code: code,
+    //     language_id: language.id,
+    //     stdin: null,
+    //   })
+    //   .then((response) => {
+    //     console.log("BHELLO", response.data);
+    //   });
   };
 
   return (

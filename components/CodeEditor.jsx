@@ -11,7 +11,6 @@ const CodeEditor = () => {
   const { code, setCode } = useContext(CodeContext);
   console.log(code);
   const onChange = React.useCallback((value, viewUpdate) => {
-    console.log("value:", value);
     setCode(value);
   }, []);
   return (
