@@ -24,6 +24,7 @@ export default function App({ Component, pageProps }) {
     name: "Python",
     id: 92,
   });
+  const [problem, setProblem] = useState({});
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -45,11 +46,19 @@ export default function App({ Component, pageProps }) {
       }
     });
   }, []);
-  console.log(user);
 
   return (
     <CodeContext.Provider
-      value={{ user, setUser, code, setCode, language, setLanguage }}
+      value={{
+        user,
+        setUser,
+        code,
+        setCode,
+        language,
+        setLanguage,
+        problem,
+        setProblem,
+      }}
     >
       <main className={`${readex.variable}`}>
         <Layout>
