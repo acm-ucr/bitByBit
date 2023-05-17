@@ -53,7 +53,7 @@ const Console = () => {
   };
 
   return (
-    <div className="p-2.5 text-code-white flex-col font-readex">
+    <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
       {state === 0 && <div className="h-40">.</div>}
       {state === 1 && <div className="h-40">..</div>}

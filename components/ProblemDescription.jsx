@@ -7,7 +7,7 @@ const ProblemDescription = ({
   constraints,
 }) => {
   return (
-    <div className="flex bg-code-darkerpurple">
+    <div className="flex bg-code-darkerpurple h-full">
       <div className="w-full flex flex-col  pt-3 pb-3 px-3 text-code-white font-readex">
         <div className="flex flex-row justify-between">
           <div className="text-2xl font-bold">{name}</div>
