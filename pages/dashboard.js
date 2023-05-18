@@ -9,31 +9,25 @@ const dummyProgrammingProblems = [
     title: `Problem 1`,
     tags: ["arrays", "functions"],
     difficulty: "easy",
+    description: "HELLO THIS IS A V HARD QUESTION",
+    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
+    example: "THIS IS AN EXAMPLE",
   },
   {
     title: `Problem 2`,
     tags: ["loops", "conditionals"],
     difficulty: "medium",
+    description: "HELLO THIS IS A V HARD QUESTION",
+    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
+    example: "THIS IS AN EXAMPLE",
   },
   {
     title: `Problem 3`,
     tags: ["variables", "functions"],
     difficulty: "hard",
-  },
-  {
-    title: `Problem 1`,
-    tags: ["arrays", "functions"],
-    difficulty: "easy",
-  },
-  {
-    title: `Problem 2`,
-    tags: ["loops", "conditionals"],
-    difficulty: "medium",
-  },
-  {
-    title: `Problem 3`,
-    tags: ["variables", "functions"],
-    difficulty: "hard",
+    description: "HELLO THIS IS A V HARD QUESTION",
+    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
+    example: "THIS IS AN EXAMPLE",
   },
 ];
 
@@ -138,7 +132,11 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-            <button onClick={apply}>Apply</button>
+            <div className="flex text-lg justify-end mb-2 mr-0">
+              <button className="text-2xl font-extralight" onClick={apply}>
+                Apply
+              </button>
+            </div>
           </div>
         </Col>
         <Col xl={8} className="flex justify-center items-left flex-col">

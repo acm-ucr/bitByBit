@@ -1,35 +1,33 @@
-const ProblemDescription = ({
-  name,
-  difficulty,
-  tags,
-  description,
-  example,
-  constraints,
-}) => {
+import { useContext } from "react";
+import CodeContext from "./CodeContext";
+
+const ProblemDescription = ({}) => {
+  const { problem } = useContext(CodeContext);
+
   return (
     <div className="flex bg-code-darkerpurple h-full">
       <div className="w-full flex flex-col  pt-3 pb-3 px-3 text-code-white font-readex">
         <div className="flex flex-row justify-between">
-          <div className="text-2xl font-bold">{name}</div>
+          <div className="text-2xl font-bold">{problem.title}</div>
           <div className="border-2 rounded-full py-px px-3 text-code-lightgreen border-code-lightgreen">
-            {difficulty}
+            {problem.difficulty}
           </div>
         </div>
         <div className="flex flex-row mt-1 mb-4 font-thin">
-          {tags.map((element, index) => (
+          {problem.tags.map((element, index) => (
             <div className="mr-1 px-1 bg-code-black rounded" key={index}>
               {element}
             </div>
           ))}
         </div>
-        <div className="font-light mb-4">{description}</div>
+        <div className="font-light mb-4">{problem.description}</div>
         <div className="text-2xl font-bold">Example</div>
         <div className="bg-code-darkpurple flex py-2.5 px-3 mb-3 my-1.5 font-thin w-full whitespace-pre rounded-2xl">
-          {example}
+          {problem.example}
         </div>
         <div className="text-2xl font-bold">Constraints</div>
         <ul className="list-disc font-extralight">
-          {constraints.map((constraint, index) => (
+          {problem.constraints.map((constraint, index) => (
             <div key={index}>
               <li>{constraint}</li>
             </div>

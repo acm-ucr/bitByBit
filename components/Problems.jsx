@@ -1,8 +1,24 @@
 import { FaEllipsisH } from "react-icons/fa";
 import Link from "next/link";
 import { difficultyColors } from "./data/Problems";
+import { useContext } from "react";
+import CodeContext from "./CodeContext";
 
-const handleProgrammingProblems = (problem, index) => {
+const HandleProgrammingProblems = (problem, index) => {
+  const { setProblem } = useContext(CodeContext);
+
+  const selectProblem = () => {
+    console.log(problem);
+    setProblem({
+      difficulty: problem.difficulty,
+      title: problem.title,
+      tags: problem.tags,
+      example: problem.example,
+      constraints: problem.constraints,
+      description: problem.description,
+    });
+  };
+
   return (
     <Link
       key={index}
@@ -12,6 +28,7 @@ const handleProgrammingProblems = (problem, index) => {
       } p-4 flex items-center justify-between no-underline ${
         difficultyColors[problem.difficulty]
       } `}
+      onClick={selectProblem}
     >
       <div className="flex flex-col">
         <p className="text-2xl mb-2 text-code-white no-underline hover:text-code-lightpurple">
@@ -50,7 +67,7 @@ const Problems = ({ problems }) => {
       </div>
       <hr className="border-2 opacity-100 border-white" />
 
-      {problems.map(handleProgrammingProblems)}
+      {problems.map(HandleProgrammingProblems)}
       <div className="flex justify-center">
         <button className="py-2 pl-1.5 pr-2.5 ">
           <FaEllipsisH className="text-3xl" />
