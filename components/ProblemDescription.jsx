@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import CodeContext from "./CodeContext";
 
-const ProblemDescription = ({}) => {
+const ProblemDescription = () => {
   const { problem } = useContext(CodeContext);
 
   return (
@@ -14,11 +14,12 @@ const ProblemDescription = ({}) => {
           </div>
         </div>
         <div className="flex flex-row mt-1 mb-4 font-thin">
-          {problem.tags.map((element, index) => (
-            <div className="mr-1 px-1 bg-code-black rounded" key={index}>
-              {element}
-            </div>
-          ))}
+          {problem.tags &&
+            problem.tags.map((element, index) => (
+              <div className="mr-1 px-1 bg-code-black rounded" key={index}>
+                {element}
+              </div>
+            ))}
         </div>
         <div className="font-light mb-4">{problem.description}</div>
         <div className="text-2xl font-bold">Example</div>
@@ -27,11 +28,10 @@ const ProblemDescription = ({}) => {
         </div>
         <div className="text-2xl font-bold">Constraints</div>
         <ul className="list-disc font-extralight">
-          {problem.constraints.map((constraint, index) => (
-            <div key={index}>
-              <li>{constraint}</li>
-            </div>
-          ))}
+          {problem.constraints &&
+            problem.constraints.map((constraint, index) => (
+              <li key={index}>{constraint}</li>
+            ))}
         </ul>
       </div>
     </div>

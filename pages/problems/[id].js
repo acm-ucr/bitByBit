@@ -4,7 +4,6 @@ import ProblemStateToggle from "@/components/ProblemStateToggle";
 import ProblemSubmission from "@/components/ProblemSubmission";
 import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
-
 import { useState, useRef } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
 import { FaCircle } from "react-icons/fa";
@@ -93,16 +92,7 @@ const Problems = () => {
           className="relative flex flex-col h-full max-w-full"
         >
           <ProblemStateToggle state={state} onUpdateState={setState} />
-          {state === 0 && (
-            <ProblemDescription
-              name="TEST"
-              difficulty="HARD"
-              tags={["arrays", "hashmap"]}
-              description="TEST DESCRIPTION"
-              example="TEST EXAMPLE"
-              constraints={["constrain 1", "constrain 2"]}
-            />
-          )}
+          {state === 0 && <ProblemDescription />}
           {state === 1 && (
             <ProblemSolution
               entries={[

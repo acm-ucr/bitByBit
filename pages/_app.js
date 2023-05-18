@@ -20,11 +20,11 @@ const readex = Readex_Pro({
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   const [code, setCode] = useState("");
+  const [problem, setProblem] = useState({});
   const [language, setLanguage] = useState({
     name: "Python",
     id: 92,
   });
-  const [problem, setProblem] = useState({});
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
