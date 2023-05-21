@@ -14,13 +14,15 @@ const CodeEditor = () => {
     setCode(value);
   }, []);
   return (
-    <CodeMirror
-      extensions={[cpp()]}
-      // extensions={[python()]}
-      // extensions={[javascript({ jsx: true })]}
-      onChange={onChange}
-      theme={aura}
-    />
+    <div className="bg-code-darkerpurple h-full">
+      <CodeMirror
+        extensions={[cpp()]}
+        // extensions={[python()]}
+        // extensions={[javascript({ jsx: true })]}
+        onChange={onChange}
+        theme={aura}
+      />
+    </div>
   );
 };
 
