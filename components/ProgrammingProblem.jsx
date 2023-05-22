@@ -3,7 +3,7 @@ import { difficultyColors } from "./data/Problems";
 import { useContext } from "react";
 import CodeContext from "./CodeContext";
 
-const ProgrammingProblem = (problem, index) => {
+const ProgrammingProblem = ({ problem, index }) => {
   const { setProblem } = useContext(CodeContext);
 
   const selectProblem = () => {
