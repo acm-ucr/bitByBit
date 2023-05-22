@@ -4,9 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import CodeContext from "./CodeContext";
+import { useContext } from "react";
 
 const Navigation = () => {
   const router = useRouter();
+
+  const { user, setUser } = useContext(CodeContext);
+
   return (
     <Navbar
       variant="light"
@@ -15,31 +20,36 @@ const Navigation = () => {
       <Navbar.Brand href="/" className="!text-code-white px-2">
         <div className="text-3xl">bitByBIT</div>
       </Navbar.Brand>
-      <Nav className="me-auto gap-3">
-        <Link
-          className="text-code-white no-underline hover:text-code-lightpurple"
-          href="/dashboard"
-        >
-          Dashboard
-        </Link>
-        <Link
-          className="text-code-white no-underline hover:text-code-lightpurple"
-          href="/profile"
-        >
-          Profile
-        </Link>
-      </Nav>
-      <button
-        className="text-code-white no-underline hover:text-code-lightpurple flex justify-end mr-4"
-        onClick={() => {
-          signOut(auth).then(() => {
-            console.log("Logged Out Successfully");
-          });
-          router.push("/");
-        }}
-      >
-        Sign Out
-      </button>
+      {user && (
+        <>
+          <Nav className="me-auto gap-3">
+            <Link
+              className="text-code-white no-underline hover:text-code-lightpurple"
+              href="/dashboard"
+            >
+              Dashboard
+            </Link>
+            <Link
+              className="text-code-white no-underline hover:text-code-lightpurple"
+              href="/profile"
+            >
+              Profile
+            </Link>
+          </Nav>
+          <button
+            className="text-code-white no-underline hover:text-code-lightpurple flex justify-end mr-4"
+            onClick={() => {
+              signOut(auth).then(() => {
+                console.log("Logged Out Successfully");
+                setUser(null);
+              });
+              router.push("/");
+            }}
+          >
+            Sign Out
+          </button>
+        </>
+      )}
     </Navbar>
   );
 };
