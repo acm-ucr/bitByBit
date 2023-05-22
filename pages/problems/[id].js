@@ -125,6 +125,7 @@ const Problems = () => {
           <div className="flex flex-col flex-grow h-full overflow-auto">
             <CodeEditor />
           </div>
+          <div className="w-full text-code-purple h-6 "></div>
           <Console />
         </div>
       </div>
