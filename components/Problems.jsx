@@ -8,7 +8,7 @@ const Problems = ({ problems }) => {
         <div className="text-2xl">Title</div>
         <div className="text-2xl">Difficulty </div>
       </div>
-      <hr className="border-2 opacity-100 border-white" />
+      <hr className="border-2 opacity-100 border-white m-0" />
 
       {problems.map((problem, index) => (
         <ProgrammingProblem problem={problem} index={index} key={index} />
