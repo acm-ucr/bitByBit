@@ -6,6 +6,7 @@ import axios from "axios";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
+import { useRouter } from "next/router";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
@@ -27,6 +28,7 @@ export default function App({ Component, pageProps }) {
   });
   const [problems, setProblems] = useState([]);
   const [attempts, setAttempts] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -51,6 +53,8 @@ export default function App({ Component, pageProps }) {
           .catch((error) => {
             console.log(error);
           });
+      } else {
+        router.push("/");
       }
     });
   }, []);
