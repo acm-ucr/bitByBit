@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CodeContext from "./CodeContext";
+import { difficultyColors, difficultyColorsBorder } from "./data/Problems";
 
 const ProblemDescription = () => {
   const { problem } = useContext(CodeContext);
@@ -9,7 +10,11 @@ const ProblemDescription = () => {
       <div className="w-full flex flex-col  pt-3 pb-3 px-3 text-code-white font-readex">
         <div className="flex flex-row justify-between">
           <div className="text-2xl font-bold">{problem.title}</div>
-          <div className="border-2 rounded-full py-px px-3 text-code-lightgreen border-code-lightgreen">
+          <div
+            className={`border-2 rounded-full py-px px-3 ${
+              difficultyColors[problem.difficulty]
+            } ${difficultyColorsBorder[problem.difficulty]}`}
+          >
             {problem.difficulty}
           </div>
         </div>

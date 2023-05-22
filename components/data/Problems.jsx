@@ -42,3 +42,9 @@ export const difficultyColors = {
   medium: "text-code-yellow",
   hard: "text-code-pink",
 };
+
+export const difficultyColorsBorder = {
+  easy: "border-code-lime",
+  medium: "border-code-yellow",
+  hard: "border-code-pink",
+};
