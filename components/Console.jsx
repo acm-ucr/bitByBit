@@ -66,7 +66,10 @@ const Console = () => {
           >
             Run
           </button>
-          <button className="rounded-full bg-code-lime font-bold px-3" onClick={() => setState(1)}>
+          <button
+            className="rounded-full bg-code-lime font-bold px-3"
+            onClick={() => setState(1)}
+          >
             Submit
           </button>
         </div>
