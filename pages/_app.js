@@ -26,6 +26,7 @@ export default function App({ Component, pageProps }) {
     id: 92,
   });
   const [problems, setProblems] = useState([]);
+  const [attempts, setAttempts] = useState([]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -33,6 +34,9 @@ export default function App({ Component, pageProps }) {
         axios
           .post("/api/getProblems")
           .then((response) => setProblems(response.data));
+        axios
+          .post("/api/getAttempts", { uid: currentUser.uid })
+          .then((response) => setAttempts(response.data));
         axios
           .post("api/getUserInfo", { uid: currentUser.uid })
           .then((response) => {
@@ -64,6 +68,8 @@ export default function App({ Component, pageProps }) {
         setProblem,
         problems,
         setProblems,
+        attempts,
+        setAttempts,
       }}
     >
       <main className={`${readex.variable}`}>
