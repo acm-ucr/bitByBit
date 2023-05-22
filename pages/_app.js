@@ -25,10 +25,14 @@ export default function App({ Component, pageProps }) {
     name: "Python",
     id: 92,
   });
+  const [problems, setProblems] = useState([]);
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser !== null) {
+        axios
+          .post("/api/getProblems")
+          .then((response) => setProblems(response.data));
         axios
           .post("api/getUserInfo", { uid: currentUser.uid })
           .then((response) => {
@@ -58,6 +62,8 @@ export default function App({ Component, pageProps }) {
         setLanguage,
         problem,
         setProblem,
+        problems,
+        setProblems,
       }}
     >
       <main className={`${readex.variable}`}>
