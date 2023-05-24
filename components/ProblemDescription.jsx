@@ -15,7 +15,7 @@ const ProblemDescription = () => {
               difficultyColors[problem.difficulty]
             } ${difficultyColorsBorder[problem.difficulty]}`}
           >
-            {problem.difficulty}
+            {problem.difficulty.toUpperCase()}
           </div>
         </div>
         <div className="flex flex-row mt-1 mb-4 font-thin">
