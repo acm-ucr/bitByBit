@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { difficultyColors } from "./data/Problems";
+import { difficultyColors, difficultyColorsBorder } from "./data/Problems";
 import { useContext } from "react";
 import CodeContext from "./CodeContext";
 
@@ -25,7 +25,7 @@ const ProgrammingProblem = ({ problem, index }) => {
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
       } p-4 flex items-center justify-between no-underline ${
         difficultyColors[problem.difficulty]
-      } `}
+      }`}
       onClick={selectProblem}
     >
       <div className="flex flex-col">
@@ -47,11 +47,11 @@ const ProgrammingProblem = ({ problem, index }) => {
         </div>
       </div>
       <div
-        className={`${
-          difficultyColors[problem.difficulty]
-        } text-2xl text-center`}
+        className={`${difficultyColors[problem.difficulty]} ${
+          difficultyColorsBorder[problem.difficulty]
+        } border-rounded border-2 py-2 px-2 rounded-full text-lg text-center`}
       >
-        {problem.difficulty}
+        {problem.difficulty.toUpperCase()}
       </div>
     </Link>
   );
