@@ -2,37 +2,37 @@ export const dummyProgrammingProblems = [
   {
     title: `Problem 1`,
     tags: ["arrays", "functions"],
-    difficulty: "Easy",
+    difficulty: "easy",
     status: "in-progress",
   },
   {
     title: `Problem 2`,
     tags: ["loops", "conditionals"],
-    difficulty: "Medium",
+    difficulty: "medium",
     status: "in-progress",
   },
   {
     title: `Problem 3`,
     tags: ["variables", "functions"],
-    difficulty: "Hard",
+    difficulty: "hard",
     status: "completed",
   },
   {
     title: `Problem 1`,
     tags: ["arrays", "functions"],
-    difficulty: "Easy",
+    difficulty: "easy",
     status: "in-progress",
   },
   {
     title: `Problem 2`,
     tags: ["loops", "conditionals"],
-    difficulty: "Medium",
+    difficulty: "medium",
     status: "in-progress",
   },
   {
     title: `Problem 3`,
     tags: ["variables", "functions"],
-    difficulty: "Hard",
+    difficulty: "hard",
     status: "in-progress",
   },
 ];
