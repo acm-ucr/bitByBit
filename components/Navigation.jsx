@@ -15,29 +15,29 @@ const Navigation = () => {
   return (
     <Navbar
       variant="light"
-      className="bg-code-black font-semibold font-readex w-11/12"
+      className="bg-code-black font-semibold font-readex w-11/12 gap-x-5"
     >
-      <Navbar.Brand href="/" className="!text-code-white px-2">
+      <Navbar.Brand href="/" className="!text-code-white">
         <div className="text-3xl">bitByBIT</div>
       </Navbar.Brand>
       {user && (
         <>
-          <Nav className="me-auto gap-3">
+          <Nav className="me-auto">
             <Link
               className="text-code-white no-underline hover:text-code-lightpurple"
               href="/dashboard"
             >
               Dashboard
             </Link>
-            <Link
-              className="text-code-white no-underline hover:text-code-lightpurple"
-              href="/profile"
-            >
-              Profile
-            </Link>
           </Nav>
+          <Link
+            className="text-code-white no-underline hover:text-code-lightpurple mr-4"
+            href="/profile"
+          >
+            Profile
+          </Link>
           <button
-            className="text-code-white no-underline hover:text-code-lightpurple flex justify-end mr-4"
+            className="text-code-white no-underline hover:text-code-lightpurple flex justify-end"
             onClick={() => {
               signOut(auth).then(() => {
                 console.log("Logged Out Successfully");
