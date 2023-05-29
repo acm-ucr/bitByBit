@@ -37,8 +37,11 @@ const Console = () => {
   const [state, setState] = useState(0);
   const { language, code } = useContext(CodeContext);
 
-  const handleExecute = () => {
+  const [isRunning, setIsRunning] = useState(false);
+
+  const handleExecute = async () => {
     console.log(language, code);
+    setIsRunning(true);
     // axios
     //   .post("/api/execute", {
     //     source_code: code,
@@ -48,7 +51,22 @@ const Console = () => {
     //   .then((response) => {
     //     console.log("BHELLO", response.data);
     //   });
+
+    // SIMULATE API CALL HERE
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    setIsRunning(false);
   };
+
+  const handleSubmit = async () => {
+    setIsRunning(true);
+
+    // SIMULATE API CALL HERE
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    setState(1);
+    setIsRunning(false);
+  };
+
+  console.log(isRunning);
 
   return (
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
@@ -61,14 +79,20 @@ const Console = () => {
         </button>
         <div className="flex text-code-black gap-2">
           <button
+            disabled={isRunning}
             onClick={handleExecute}
-            className="rounded-full bg-code-white font-bold px-3"
+            className={`rounded-full bg-code-white font-bold px-3 ${
+              isRunning ? `cursor-not-allowed` : `cursor-pointer`
+            }`}
           >
             Run
           </button>
           <button
-            className="rounded-full bg-code-lime font-bold px-3"
-            onClick={() => setState(1)}
+            disabled={isRunning}
+            className={`rounded-full bg-code-lime font-bold px-3 ${
+              isRunning ? `cursor-not-allowed` : `cursor-pointer`
+            }`}
+            onClick={handleSubmit}
           >
             Submit
           </button>
