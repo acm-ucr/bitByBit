@@ -82,7 +82,7 @@ const Dashboard = () => {
 
   const apply = () => {
     console.log(filteredProblems);
-    if (filtered === []) {
+    if (filtered.length === 0) {
       setFilteredProblems(dummyProgrammingProblems);
     } else {
       setFilteredProblems(
