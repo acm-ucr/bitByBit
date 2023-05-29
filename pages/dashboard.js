@@ -51,10 +51,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     setFilteredProblems(problems);
-  }, [problems])
-
-  console.log("problems", problems);
-  console.log("filteredProblems", filteredProblems);
+  }, [problems]);
 
   const clearAll = () => {
     setFiltered([]);
@@ -62,7 +59,6 @@ const Dashboard = () => {
   };
 
   const apply = () => {
-    console.log(filteredProblems);
     if (filtered.length === 0) {
       setFilteredProblems(problems);
     } else {
