@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }) {
           .then((response) => setProblems(response.data));
         axios
           .post("/api/getAttempts", { uid: currentUser.uid })
-          .then((response) => setAttempts(response.data));
+          .then((response) => setAttempts(response.data)); // note for andrew khadder
         axios
           .post("api/getUserInfo", { uid: currentUser.uid })
           .then((response) => {
