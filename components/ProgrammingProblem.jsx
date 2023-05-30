@@ -29,7 +29,7 @@ const ProgrammingProblem = ({ problem, index }) => {
       onClick={selectProblem}
     >
       <div className="flex flex-col">
-        <p className="text-2xl mb-2 text-code-white no-underline hover:text-code-lightpurple">
+        <p className="text-2xl mb-2 text-code-white no-underline">
           {problem.title}
         </p>
         <div className="flex justify-between">
