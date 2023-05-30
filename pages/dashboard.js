@@ -2,34 +2,8 @@ import Problems from "@/components/Problems";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Filter from "@/components/Filter";
-import { useState } from "react";
-
-const dummyProgrammingProblems = [
-  {
-    title: `Problem 1`,
-    tags: ["arrays", "functions"],
-    difficulty: "easy",
-    description: "HELLO THIS IS A V HARD QUESTION",
-    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
-    example: "THIS IS AN EXAMPLE",
-  },
-  {
-    title: `Problem 2`,
-    tags: ["loops", "conditionals"],
-    difficulty: "medium",
-    description: "HELLO THIS IS A V HARD QUESTION",
-    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
-    example: "THIS IS AN EXAMPLE",
-  },
-  {
-    title: `Problem 3`,
-    tags: ["variables", "functions"],
-    difficulty: "hard",
-    description: "HELLO THIS IS A V HARD QUESTION",
-    constraints: ["INPUT MUST BE INT", "POGGERS CONSTRAINT"],
-    example: "THIS IS AN EXAMPLE",
-  },
-];
+import { useState, useContext, useEffect } from "react";
+import CodeContext from "../components/CodeContext";
 
 const tags = [
   {
@@ -70,26 +44,29 @@ const difficulties = [
 ];
 
 const Dashboard = () => {
+  const { problems } = useContext(CodeContext);
+
   const [filtered, setFiltered] = useState([]);
-  const [filteredProblems, setFilteredProblems] = useState(
-    dummyProgrammingProblems
-  );
+  const [filteredProblems, setFilteredProblems] = useState([]);
+
+  useEffect(() => {
+    setFilteredProblems(problems);
+  }, [problems]);
 
   const clearAll = () => {
     setFiltered([]);
-    setFilteredProblems(dummyProgrammingProblems);
+    setFilteredProblems(problems);
   };
 
   const apply = () => {
-    console.log(filteredProblems);
     if (filtered.length === 0) {
-      setFilteredProblems(dummyProgrammingProblems);
+      setFilteredProblems(problems);
     } else {
       setFilteredProblems(
-        dummyProgrammingProblems.filter(
+        problems.filter(
           (a) =>
-            filtered.includes(a.difficulty) ||
-            a.tags.some((r) => filtered.indexOf(r) >= 0)
+            filtered.includes(a.data.difficulty) ||
+            a.data.tags.some((r) => filtered.indexOf(r) >= 0)
         )
       );
     }
