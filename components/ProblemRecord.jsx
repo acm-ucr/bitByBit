@@ -1,8 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import ProgressCircle from "./ProgressCircle";
-import { dummyProgrammingProblems, difficultyColors } from "./data/Problems";
+import { difficultyColors } from "./data/Problems";
 import CodeContext from "./CodeContext";
-import ProgrammingProblem from "./ProgrammingProblem";
 
 const handleProgrammingProblems = (problem, index) => {
   return (
