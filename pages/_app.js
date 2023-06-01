@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }) {
   const [code, setCode] = useState("");
   const [problem, setProblem] = useState({});
   const [language, setLanguage] = useState({
-    name: "Python",
-    id: 92,
+    name: "C++",
+    id: 54,
   });
   const [problems, setProblems] = useState([]);
   const [attempts, setAttempts] = useState([]);
