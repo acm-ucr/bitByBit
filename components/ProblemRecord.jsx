@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import ProgressCircle from "./ProgressCircle";
-import { dummyProgrammingProblems, difficultyColors } from "./data/Problems";
+import { difficultyColors } from "./data/Problems";
+import CodeContext from "./CodeContext";
 
 const handleProgrammingProblems = (problem, index) => {
   return (
@@ -12,9 +12,9 @@ const handleProgrammingProblems = (problem, index) => {
       } p-4 flex items-center justify-between`}
     >
       <div className="flex flex-col">
-        <div className="text-2xl mb-2">{problem.title}</div>
+        <div className="text-2xl mb-2">{problem.data.title}</div>
         <div className="flex">
-          {problem.tags.map((element, tagsIndex) => (
+          {problem.data.tags.map((element, tagsIndex) => (
             <div
               className={`mr-1 px-1 ${
                 index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
@@ -29,10 +29,10 @@ const handleProgrammingProblems = (problem, index) => {
       <div className="w-1/2 justify-between flex ">
         <div
           className={`${
-            difficultyColors[problem.difficulty]
+            difficultyColors[problem.data.difficulty]
           } text-2xl text-center`}
         >
-          {problem.difficulty}
+          {problem.data.difficulty}
         </div>
         <div>
           {problem.status === "completed" ? (
@@ -47,25 +47,36 @@ const handleProgrammingProblems = (problem, index) => {
 };
 
 const ProblemRecord = () => {
-  const [filteredProblems, setFilteredProblems] = useState(
-    dummyProgrammingProblems
-  );
+  const { attempts, problems } = useContext(CodeContext);
+
+  const allProblemData = problems.filter(() => attempts.map((x) => x.data.pid));
+
+  const [filteredProblems, setFilteredProblems] = useState([]);
+
+  useEffect(() => {
+    setFilteredProblems(allProblemData); // fixes refresh bug
+  }, [problems]);
+
   const [status, setStatus] = useState("all");
 
   const filterProblem = (status) => {
     setStatus(status);
+    const incompleteIDs = attempts
+      .filter((a) => a.data.complete === false)
+      .map((x) => x.data.pid); // array of all incomplete attempt ids
+    const completeIDs = attempts
+      .filter((a) => a.data.complete === true)
+      .map((x) => x.data.pid); // array of all complete attempt problem ids
     switch (status) {
       case "all":
-        setFilteredProblems(dummyProgrammingProblems);
+        setFilteredProblems(allProblemData);
         break;
       case "completed":
-        setFilteredProblems(
-          dummyProgrammingProblems.filter((a) => a.status === "completed")
-        );
+        setFilteredProblems(problems.filter((x) => completeIDs.includes(x.id)));
         break;
       case "in-progress":
         setFilteredProblems(
-          dummyProgrammingProblems.filter((a) => a.status === "in-progress")
+          problems.filter((x) => incompleteIDs.includes(x.id))
         );
         break;
     }
@@ -110,7 +121,6 @@ const ProblemRecord = () => {
         </div>
       </div>
       <hr className="border-2 opacity-100 border-white" />
-
       {filteredProblems.map(handleProgrammingProblems)}
     </div>
   );
