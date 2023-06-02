@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { RxCaretUp } from "react-icons/rx";
+// import { RxCaretUp } from "react-icons/rx";
 import { useState } from "react";
 // import axios from "axios";
 import CodeContext from "../components/CodeContext";
@@ -75,7 +75,7 @@ const Console = () => {
       {state === 1 && <div className="h-40">..</div>}
       <div className="flex flex-row gap-4 justify-between">
         <button className="flex rounded-lg bg-code-darkpurple px-3 py-1">
-          Console <RxCaretUp className="text-2xl" />
+          Console
         </button>
         <div className="flex text-code-black gap-2">
           <button
