@@ -11,7 +11,13 @@ const Problems = ({ problems }) => {
       <hr className="border-2 opacity-100 border-white m-0" />
 
       {problems.map((problem, index) => (
-        <ProgrammingProblem problem={problem.data} index={index} key={index} />
+        <>
+          <ProgrammingProblem
+            problem={problem.data}
+            index={problem.id}
+            key={index}
+          />
+        </>
       ))}
       <div className="flex justify-center">
         <button className="py-2 pl-1.5 pr-2.5 ">
