@@ -8,8 +8,8 @@ import { cpp } from "@codemirror/lang-cpp";
 import { aura } from "@uiw/codemirror-theme-aura";
 
 const CodeEditor = () => {
+  // eslint-disable-next-line no-unused-vars
   const { code, setCode } = useContext(CodeContext);
-  console.log(code);
   const onChange = React.useCallback((value, viewUpdate) => {
     setCode(value);
   }, []);

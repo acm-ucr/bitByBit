@@ -35,12 +35,12 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
 
   const handleExecute = async () => {
-    console.log(language, code);
     setIsRunning(true);
     // axios
     //   .post("/api/execute", {
@@ -65,8 +65,6 @@ const Console = () => {
     setState(1);
     setIsRunning(false);
   };
-
-  console.log(isRunning);
 
   return (
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
