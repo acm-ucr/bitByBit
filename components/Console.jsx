@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { RxCaretUp } from "react-icons/rx";
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import CodeContext from "../components/CodeContext";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
@@ -35,35 +35,41 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
-  // eslint-disable-next-line no-unused-vars
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
 
   const handleExecute = async () => {
     setIsRunning(true);
-    // axios
-    //   .post("/api/execute", {
-    //     source_code: code,
-    //     language_id: language.id,
-    //     stdin: null,
-    //   })
-    //   .then((response) => {
-    //     console.log("BHELLO", response.data);
-    //   });
-
-    // SIMULATE API CALL HERE
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    setIsRunning(false);
+    axios
+      .post("/api/execute", {
+        source_code: code.toString("base64"),
+        language_id: language.id,
+        stdin: null,
+      })
+      .then((response) => {
+        console.log("BHELLO", response.data);
+      })
+      .finally(() => {
+        setIsRunning(false);
+      });
   };
 
   const handleSubmit = async () => {
     setIsRunning(true);
-
-    // SIMULATE API CALL HERE
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    setState(1);
-    setIsRunning(false);
+    axios
+      .post("/api/execute", {
+        source_code: code.toString("base64"),
+        language_id: language.id,
+        stdin: null,
+      })
+      .then((response) => {
+        console.log("BHELLO", response.data);
+      })
+      .finally(() => {
+        setState(1);
+        setIsRunning(false);
+      });
   };
 
   return (
