@@ -19,7 +19,7 @@ const Results = () => {
         Input
         <div className="flex rounded-lg bg-code-darkpurple px-3 py-1">
           <p>s =</p>
-          <p>"hello"</p>
+          <p>{"hello"}</p>
         </div>
       </div>
       <div>
