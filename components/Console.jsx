@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import CodeContext from "../components/CodeContext";
+import Results from "../components/Results";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
   return (
@@ -76,7 +77,7 @@ const Console = () => {
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
       {state === 0 && <div className="h-40">.</div>}
-      {state === 1 && <div className="h-40">..</div>}
+      {state === 1 && <div className="h-40"><Results/></div>}
       <div className="flex flex-row gap-4 justify-between">
         <button className="flex rounded-lg bg-code-darkpurple px-3 py-1">
           Console
