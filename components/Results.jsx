@@ -37,14 +37,14 @@ const Results = () => {
   const [state, setState] = useState(0);
 
   return (
-    <div style={{ overflow: 'scroll', height: '150px'}}>
+    <div style={{ overflow: "scroll", height: "150px" }}>
       <div className="flex flex-row gap-4 font-normal py-3">
         <div className="text-lg text-code-green">Accepted</div>
         <div className="text-sm text-code-gray">Runtime: 0ms</div>
       </div>
       <div>
         <ResultsStateToggle state={state} onUpdateState={setState} />
-        {state === 0 && 
+        {state === 0 && (
           <div className="h-40">
             <div>
               <p className="text-xs pt-3 text-code-gray">Input</p>
@@ -64,10 +64,10 @@ const Results = () => {
               <div className="flex rounded-lg bg-code-darkpurple px-3 py-2">
                 &quot;holle&quot;
               </div>
-            </div>    
+            </div>
           </div>
-        }
-        {state === 1 && 
+        )}
+        {state === 1 && (
           <div className="h-40">
             <div>
               <p className="text-xs pt-3">Input</p>
@@ -89,9 +89,8 @@ const Results = () => {
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
-      
     </div>
   );
 };
