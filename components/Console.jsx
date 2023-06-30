@@ -36,7 +36,7 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
-  const [inputs, setInputs] = useState(new Array(5).fill("[0,2]"));
+  const [inputs, setInputs] = useState(new Array(2).fill("[0,2]"));
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
