@@ -41,7 +41,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="bg-code-black w-full h-full flex justify-center">
+    <div className="bg-code-black w-full h-min flex justify-center overscroll-none">
       <Row className="w-11/12">
         <Col xl={4}>
           {user && (

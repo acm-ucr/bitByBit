@@ -83,7 +83,7 @@ const ProblemRecord = () => {
   };
 
   return (
-    <div className="py-3 pr-4 font-readex w-full h-screen text-code-white">
+    <div className="py-3 pr-4 font-readex w-full h-min text-code-white">
       <div className="flex gap-3 mb-3">
         <div className="font-bold text-2xl">Problem Record</div>
         <div className="flex gap-1">
