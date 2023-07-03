@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import CodeContext from "../components/CodeContext";
 import Results from "../components/Results";
+import TestCases from "../components/TestCases";
 
 const ConsoleStateToggle = ({ state, onUpdateState }) => {
   return (
@@ -36,6 +37,7 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
+  const [inputs, setInputs] = useState(new Array(2).fill("[0,2]"));
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
@@ -76,7 +78,7 @@ const Console = () => {
   return (
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
-      {state === 0 && <div className="h-40">.</div>}
+      {state === 0 && <TestCases inputs={inputs} setInputs={setInputs} />}
       {state === 1 && (
         <div className="h-40">
           <Results />
