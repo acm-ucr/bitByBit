@@ -37,7 +37,6 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
 
 const Console = () => {
   const [state, setState] = useState(0);
-  const [inputs, setInputs] = useState(new Array(2).fill("[0,2]"));
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
@@ -78,7 +77,7 @@ const Console = () => {
   return (
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
-      {state === 0 && <TestCases inputs={inputs} setInputs={setInputs} />}
+      {state === 0 && <TestCases />}
       {state === 1 && (
         <div className="h-40">
           <Results />
