@@ -1,15 +1,21 @@
-import React from "react";
-import { useState } from "react";
+import React, { useCallback } from "react";
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import CodeContext from "../components/CodeContext";
 
 const TestCaseInput = ({ tests, state }) => {
   return (
     <div className="flex flex-col">
       <div className="text-sm">input =</div>
-      <div className="bg-code-darkpurple rounded-lg p-2">{tests[state]}</div>
+      <div className="bg-code-darkpurple rounded-lg p-2">
+        {tests[state].input}
+      </div>
     </div>
   );
 };
-const TestCasesToggle = ({ state, onUpdateState }) => {
+const TestCasesToggle = ({ state, onUpdateState, inputs }) => {
   return (
     <div className="flex flex-row gap-2 py-2 h-30">
       <div
@@ -33,11 +39,32 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
 };
 const TestCases = () => {
   const [state, setState] = useState(0);
-  const [inputs] = useState(new Array(2).fill("[0,2]"));
+  const [inputs, setInputs] = useState([{}]);
+  const { problem } = useContext(CodeContext);
+
+  const populateArray = useCallback(
+    (data) => {
+      const index = data.findIndex((element) => element.id == problem.id);
+      const newArr = [...data[index].data.testcases];
+      setInputs(newArr);
+    },
+    [problem.id]
+  );
+
+  useEffect(() => {
+    onAuthStateChanged(auth, () => {
+      axios
+        .get("../api/getProblems")
+        .then((response) => populateArray(response.data))
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  }, [populateArray]);
 
   return (
     <div className="h-40">
-      <TestCasesToggle state={state} onUpdateState={setState} />
+      <TestCasesToggle state={state} onUpdateState={setState} inputs={inputs} />
       <TestCaseInput tests={inputs} state={state} />
     </div>
   );

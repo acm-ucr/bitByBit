@@ -14,6 +14,7 @@ const ProgrammingProblem = ({ problem, index }) => {
       example: problem.example,
       constraints: problem.constraints,
       description: problem.description,
+      id: index,
     });
   };
 
