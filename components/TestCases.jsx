@@ -15,7 +15,7 @@ const TestCaseInput = ({ tests, state }) => {
     </div>
   );
 };
-const TestCasesToggle = ({ state, onUpdateState, inputs }) => {
+const TestCasesToggle = ({ state, onUpdateState }) => {
   return (
     <div className="flex flex-row gap-2 py-2 h-30">
       <div
@@ -64,7 +64,7 @@ const TestCases = () => {
 
   return (
     <div className="h-40">
-      <TestCasesToggle state={state} onUpdateState={setState} inputs={inputs} />
+      <TestCasesToggle state={state} onUpdateState={setState} />
       <TestCaseInput tests={inputs} state={state} />
     </div>
   );
