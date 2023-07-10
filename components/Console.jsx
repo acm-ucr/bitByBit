@@ -84,10 +84,7 @@ const Console = () => {
           <Results />
         </div>
       )}
-      <div className="flex flex-row gap-4 justify-between">
-        <button className="flex rounded-lg bg-code-darkpurple px-3 py-1">
-          Console
-        </button>
+      <div className="flex flex-row gap-4 justify-end">
         <div className="flex text-code-black gap-2">
           <button
             disabled={isRunning}
