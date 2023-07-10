@@ -4,44 +4,7 @@ import Col from "react-bootstrap/Col";
 import Filter from "@/components/Filter";
 import { useState, useContext, useEffect } from "react";
 import CodeContext from "../components/CodeContext";
-
-const tags = [
-  {
-    name: "variables",
-    color: "bg-code-yellow",
-  },
-  {
-    name: "arrays",
-    color: "bg-code-lime",
-  },
-  {
-    name: "conditionals",
-    color: "bg-code-lightpink",
-  },
-  {
-    name: "loops",
-    color: "bg-code-yellow",
-  },
-  {
-    name: "functions",
-    color: "bg-code-blue",
-  },
-];
-
-const difficulties = [
-  {
-    name: "easy",
-    color: "bg-code-lightgreen",
-  },
-  {
-    name: "medium",
-    color: "bg-code-yellow",
-  },
-  {
-    name: "hard",
-    color: "bg-code-lightpink",
-  },
-];
+import { tags, difficulties } from "../components/data/Filters"
 
 const Dashboard = () => {
   const { problems } = useContext(CodeContext);
