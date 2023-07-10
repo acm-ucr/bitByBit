@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col";
 import Filter from "@/components/Filter";
 import { useState, useContext, useEffect } from "react";
 import CodeContext from "../components/CodeContext";
-import { tags, difficulties } from "../components/data/Filters"
+import { tags, difficulties } from "../components/data/Filters";
 
 const Dashboard = () => {
   const { problems } = useContext(CodeContext);
