@@ -1,7 +1,6 @@
 import ProblemDescription from "@/components/ProblemDescription";
 import ProblemSolution from "@/components/ProblemSolution";
 import ProblemStateToggle from "@/components/ProblemStateToggle";
-import ProblemSubmission from "@/components/ProblemSubmission";
 import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
 import { useState, useRef } from "react";
@@ -106,7 +105,6 @@ const Problems = () => {
               ]}
             />
           )}
-          {state === 2 && <ProblemSubmission />}
 
           <div
             style={{
