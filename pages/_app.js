@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
+// import { SessionProvider } from "next-auth/react";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
@@ -17,6 +18,18 @@ const readex = Readex_Pro({
   variable: "--font-readex",
   weight: ["200", "300", "400", "500", "600", "700"],
 });
+
+/*
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  )
+} */
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
