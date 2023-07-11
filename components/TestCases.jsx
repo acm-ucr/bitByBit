@@ -1,16 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import CodeContext from "../components/CodeContext";
 
-const TestCaseInput = ({ tests, state, handleInputChange }) => {
+const TestCaseInput = ({ tests, state }) => {
   return (
     <div className="flex flex-col">
       <div className="text-sm">input =</div>
-      <input
-        className="bg-code-darkpurple rounded-lg p-2"
-        name="input"
-        value={tests[state]}
-        onChange={(e) => handleInputChange(e, state)}
-      />
+      <div className="bg-code-darkpurple rounded-lg p-2">
+        {tests[state].input}
+      </div>
     </div>
   );
 };
@@ -36,37 +33,20 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
     </div>
   );
 };
-const TestCases = ({ inputs, setInputs }) => {
+const TestCases = () => {
   const [state, setState] = useState(0);
+  const [inputs, setInputs] = useState([{}]);
+  const { problem } = useContext(CodeContext);
 
-  const handleInputChange = (e, index) => {
-    const updateInput = inputs.map((c, i) => {
-      if (i === index) {
-        return e.target.value;
-      } else {
-        return c;
-      }
-    });
-    setInputs(updateInput);
-  };
+  useEffect(() => {
+    const newArr = [...problem.testcases];
+    setInputs(newArr);
+  }, [problem.testcases]);
 
   return (
     <div className="h-40">
       <TestCasesToggle state={state} onUpdateState={setState} />
-      {state === 0 && (
-        <TestCaseInput
-          tests={inputs}
-          handleInputChange={handleInputChange}
-          state={state}
-        />
-      )}
-      {state === 1 && (
-        <TestCaseInput
-          tests={inputs}
-          handleInputChange={handleInputChange}
-          state={state}
-        />
-      )}
+      <TestCaseInput tests={inputs} state={state} />
     </div>
   );
 };
