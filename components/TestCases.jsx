@@ -1,8 +1,4 @@
-import React, { useCallback } from "react";
 import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
 import CodeContext from "../components/CodeContext";
 
 const TestCaseInput = ({ tests, state }) => {
@@ -42,25 +38,10 @@ const TestCases = () => {
   const [inputs, setInputs] = useState([{}]);
   const { problem } = useContext(CodeContext);
 
-  const populateArray = useCallback(
-    (data) => {
-      const index = data.findIndex((element) => element.id == problem.id);
-      const newArr = [...data[index].data.testcases];
-      setInputs(newArr);
-    },
-    [problem.id]
-  );
-
   useEffect(() => {
-    onAuthStateChanged(auth, () => {
-      axios
-        .get("../api/getProblems")
-        .then((response) => populateArray(response.data))
-        .catch((error) => {
-          console.log(error);
-        });
-    });
-  }, [populateArray]);
+    const newArr = [...problem.testcases];
+    setInputs(newArr);
+  }, [problem.testcases]);
 
   return (
     <div className="h-40">
