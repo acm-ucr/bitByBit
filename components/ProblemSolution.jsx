@@ -1,9 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { useCallback } from "react";
-import axios from "axios";
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { useEffect, useContext } from "react";
 import CodeContext from "../components/CodeContext";
 
 // const ProblemSolutionEntry = ({
@@ -40,41 +36,33 @@ import CodeContext from "../components/CodeContext";
 //   );
 // };
 
-const ProblemSolutionEntry = ({solutions, state}) => {
+const ProblemSolutionEntry = () => {
+  const { problem } = useContext(CodeContext);
   return (
     <div className="min-h-screen w-full bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
       <div className="font-bold text-2xl">
-        Approach: 
-        <div className="bg-code-darkpurple rounded-lg p-2">
-          {solutions[state].input}
-        </div>
+        Approach: {problem.approach}
       </div>
       <div className="font-semibold text-2xl">
         Algorithm
-        <div className="bg-code-darkpurple rounded-lg p-2">
-          {solutions[state].input}
+        <div className="font-extralight text-xl">
+          {problem.algorithm}
         </div>
       </div>
       <div className="font-semibold text-2xl">
         Implementation
-        <div className="bg-code-darkpurple rounded-lg p-2">
-          {solutions[state].input}
+        <div className="bg-code-darkpurple flex p-2.5 my-1.5 font-thin w-full whitespace-pre text-xl">
+          {problem.implementation}
         </div>
       </div>
       <div className="font-semibold text-2xl">
         Complexity Analysis
         <ul className="list-disc font-extralight text-xl">
           <li>
-            Time Complexity:
-            <div className="bg-code-darkpurple rounded-lg p-2">
-              {solutions[state].input}
-            </div>
+            Time Complexity: {problem.time}
           </li>
           <li>
-            Space Complexity:
-            <div className="bg-code-darkpurple rounded-lg p-2">
-              {solutions[state].input}
-            </div>
+            Space Complexity: {problem.space}
           </li>
         </ul>
       </div>
@@ -83,54 +71,21 @@ const ProblemSolutionEntry = ({solutions, state}) => {
   );
 };
 
-const ProblemSolution = () => {
-  const [state, setState] = useState(0);
-  const [inputs, setInputs] = useState([{}]);
-  const { problem } = useContext(CodeContext);
+// const ProblemSolution = () => {
+//   // const [state, setState] = useState(0);
+//   // const [inputs, setInputs] = useState([{}]);
+//   const { problem } = useContext(CodeContext);
 
-  const populateArray = useCallback (
-    (data) => {
-      const index = data.findIndex((element) => element.id == problem.id);
-      const newArr = [...data[index].data.testcases];
-      setInputs(newArr);
-    },
-    [problem.id]
-  );
+//   useEffect(() => {
+//     const newArr = [...problem.solutions];
+//     setInputs(newArr);
+//   }, [problem.solutions]);
 
-  useEffect(() => {
-    onAuthStateChanged(auth, () => {
-      axios
-        .get("../api/getProblems")
-        .then((response) => populateArray(response.data))
-        .catch((error) => {
-          console.log(error);
-        });
-    });
-  }, [populateArray]);
-
-  return (
-    <div className="h-40">
-        <ProblemSolutionEntry solutions={inputs} state={state} />
-    </div>
-  )
-};
-
-// const ProblemSolution = ({ entries }) => {
 //   return (
-//     <div className="min-h-screen w-full">
-//       {entries?.map((entry, i) => (
-//         <ProblemSolutionEntry
-//           methodName={entry.methodName}
-//           description={entry.description}
-//           implementation={entry.implementation}
-//           timeComplexity={entry.timeComplexity}
-//           spaceComplexity={entry.spaceComplexity}
-//           index={i + 1}
-//           key={i}
-//         />
-//       ))}
+//     <div className="h-40">
+//         <ProblemSolutionEntry solutions={problem} />
 //     </div>
-//   );
+//   )
 // };
 
-export default ProblemSolution;
+export default ProblemSolutionEntry;

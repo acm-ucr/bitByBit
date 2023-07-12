@@ -15,6 +15,11 @@ const ProgrammingProblem = ({ problem, index }) => {
       constraints: problem.constraints,
       description: problem.description,
       testcases: problem.testcases,
+      approach: problem.approach,
+      algorithm: problem.algorithm,
+      implementation: problem.implementation,
+      time: problem.time,
+      space: problem.space,
     });
   };
 
