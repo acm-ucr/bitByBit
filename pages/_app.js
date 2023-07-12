@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
-// import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
@@ -19,19 +19,7 @@ const readex = Readex_Pro({
   weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-/*
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
-  return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-  )
-} */
-
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, session }) {
   const [user, setUser] = useState(null);
   const [code, setCode] = useState("");
   const [problem, setProblem] = useState({});
@@ -73,27 +61,29 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <CodeContext.Provider
-      value={{
-        user,
-        setUser,
-        code,
-        setCode,
-        language,
-        setLanguage,
-        problem,
-        setProblem,
-        problems,
-        setProblems,
-        attempts,
-        setAttempts,
-      }}
-    >
-      <main className={`${readex.variable}`}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </main>
-    </CodeContext.Provider>
+    <SessionProvider session={session}>
+      <CodeContext.Provider
+        value={{
+          user,
+          setUser,
+          code,
+          setCode,
+          language,
+          setLanguage,
+          problem,
+          setProblem,
+          problems,
+          setProblems,
+          attempts,
+          setAttempts,
+        }}
+      >
+        <main className={`${readex.variable}`}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </main>
+      </CodeContext.Provider>
+    </SessionProvider>
   );
 }
