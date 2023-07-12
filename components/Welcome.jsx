@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { useRouter } from "next/router";
+// import React, { useEffect } from "react";
+// import { useRouter } from "next/router";
 import {
   // setPersistence,
   // browserLocalPersistence,
   // signInWithPopup,
-  GoogleAuthProvider,
-  signOut as FirebaseSignOut,
-  signInWithCredential,
+  // GoogleAuthProvider,
+  signOut as firebaseSignOut,
+  // signInWithCredential,
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Welcome = () => {
   // const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   const login = () => {
     // setPersistence(auth, browserLocalPersistence).then(() => {
@@ -31,36 +31,16 @@ const Welcome = () => {
   const logout = () => {
     signOut();
 
-    FirebaseSignOut(auth).then(() => {
+    firebaseSignOut(auth).then(() => {
       console.log("Logged out Successfully");
     });
   };
 
   const logSession = () => {
     console.log("yo");
-    console.log(session);
-    console.log(auth);
+    console.log(session); // Session works as expected
+    console.log(auth); // Auth still has null user here though
   };
-
-  useEffect(() => {
-    if (status == "loading") {
-      return;
-    }
-
-    if (session) {
-      const idToken = session.id_token;
-      const credential = GoogleAuthProvider.credential(idToken);
-
-      signInWithCredential(auth, credential).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-        console.log("ERROR: " + errorCode);
-      });
-    }
-  }, []);
 
   return (
     <div className="bg-code-black w-full">
@@ -83,7 +63,7 @@ const Welcome = () => {
           Log
         </button>
         <button
-          onClick={() => signOut()}
+          onClick={() => logout()}
           className="text-black text-2xl mb-4 rounded-full w-96 h-20 ring-4 ring-white font-bold bg-blue-300 font-readex"
         >
           Log Out

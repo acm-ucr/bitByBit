@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
-import { SessionProvider, useSession } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";

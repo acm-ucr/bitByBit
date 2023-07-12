@@ -1,14 +1,15 @@
 import { auth } from "@/firebase";
-import { signOut } from "firebase/auth";
+import { signOut as firebaseSignOut } from "firebase/auth";
 import Link from "next/link";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CodeContext from "./CodeContext";
 import { useContext } from "react";
+import { signOut } from "next-auth/react";
 
 const Navigation = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const { user, setUser } = useContext(CodeContext);
 
@@ -39,11 +40,14 @@ const Navigation = () => {
           <button
             className="text-code-white no-underline hover:text-code-lightpurple flex justify-end"
             onClick={() => {
-              signOut(auth).then(() => {
-                console.log("Logged Out Successfully");
-                setUser(null);
-              });
-              router.push("/");
+              firebaseSignOut(auth)
+                .then(() => {
+                  console.log("Logged out Successfully");
+                })
+                .then(() => {
+                  setUser(null);
+                  signOut();
+                });
             }}
           >
             Sign Out
