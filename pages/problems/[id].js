@@ -96,11 +96,11 @@ const Problems = () => {
             <ProblemSolution
               entries={[
                 {
-                  approach: "title",
+                  methodName: "TEST METHOD",
                   description: "TEST DESCRIPTION",
-                  implementation: "implementation",
-                  time: "time",
-                  space: "space",
+                  implementation: "TEST IMPLEMENTATION",
+                  timeComplexity: "TEST TIME COMPLEXITY",
+                  spaceComplexity: "TEST SPACE COMPLEXITY",
                 },
               ]}
             />
