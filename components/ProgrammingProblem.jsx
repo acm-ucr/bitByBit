@@ -15,6 +15,7 @@ const ProgrammingProblem = ({ problem, index }) => {
       constraints: problem.constraints,
       description: problem.description,
       testcases: problem.testcases,
+      solutions: problem.solutions,
     });
   };
 
