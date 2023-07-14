@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import CodeContext from "../components/CodeContext";
 
 const TestCaseInput = ({ tests, state }) => {
@@ -35,13 +35,8 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
 };
 const TestCases = () => {
   const [state, setState] = useState(0);
-  const [inputs, setInputs] = useState([{}]);
   const { problem } = useContext(CodeContext);
-
-  useEffect(() => {
-    const newArr = [...problem.testcases];
-    setInputs(newArr);
-  }, [problem.testcases]);
+  const [inputs] = useState([...problem.testcases]);
 
   return (
     <div className="h-40">
