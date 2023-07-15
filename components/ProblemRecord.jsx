@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import ProgressCircle from "./ProgressCircle";
 import { difficultyColors } from "./data/Problems";
 import CodeContext from "./CodeContext";
+import { useSession } from "next-auth/react";
 
 const handleProgrammingProblems = (problem, index) => {
   return (
@@ -47,9 +48,12 @@ const handleProgrammingProblems = (problem, index) => {
 };
 
 const ProblemRecord = () => {
-  const { attempts, problems } = useContext(CodeContext);
+  const { problems } = useContext(CodeContext);
+  const { data: session } = useSession();
 
-  const allProblemData = problems.filter(() => attempts.map((x) => x.data.pid));
+  const allProblemData = problems.filter(() =>
+    session.user.attempts.map((x) => x.data.pid)
+  );
 
   const [filteredProblems, setFilteredProblems] = useState([]);
 
@@ -61,10 +65,10 @@ const ProblemRecord = () => {
 
   const filterProblem = (status) => {
     setStatus(status);
-    const incompleteIDs = attempts
+    const incompleteIDs = session.user.attempts
       .filter((a) => a.data.complete === false)
       .map((x) => x.data.pid); // array of all incomplete attempt ids
-    const completeIDs = attempts
+    const completeIDs = session.user.attempts
       .filter((a) => a.data.complete === true)
       .map((x) => x.data.pid); // array of all complete attempt problem ids
     switch (status) {
