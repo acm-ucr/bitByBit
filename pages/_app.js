@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import CodeContext from "@/components/CodeContext";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
-import axios from "axios";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
-import { useRouter } from "next/router";
 import { SessionProvider } from "next-auth/react";
+import axios from "axios";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
@@ -19,8 +16,10 @@ const readex = Readex_Pro({
   weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-export default function App({ Component, pageProps, session }) {
-  const [user, setUser] = useState(null);
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   const [code, setCode] = useState("");
   const [problem, setProblem] = useState({});
   const [language, setLanguage] = useState({
@@ -28,44 +27,17 @@ export default function App({ Component, pageProps, session }) {
     id: 54,
   });
   const [problems, setProblems] = useState([]);
-  const [attempts, setAttempts] = useState([]);
-  const router = useRouter();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser !== null) {
-        axios
-          .post("/api/getProblems")
-          .then((response) => setProblems(response.data));
-        axios
-          .post("/api/getAttempts", { uid: currentUser.uid })
-          .then((response) => setAttempts(response.data)); // note for andrew khadder
-        axios
-          .post("api/getUserInfo", { uid: currentUser.uid })
-          .then((response) => {
-            setUser({
-              ...response.data.data,
-              name: currentUser.displayName,
-              image: currentUser.photoURL,
-              uid: currentUser.uid,
-              email: currentUser.email,
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        router.push("/");
-      }
-    });
+    axios
+      .post("/api/getProblems")
+      .then((response) => setProblems(response.data));
   }, []);
 
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} refetchInterval={5 * 60}>
       <CodeContext.Provider
         value={{
-          user,
-          setUser,
           code,
           setCode,
           language,
@@ -74,8 +46,6 @@ export default function App({ Component, pageProps, session }) {
           setProblem,
           problems,
           setProblems,
-          attempts,
-          setAttempts,
         }}
       >
         <main className={`${readex.variable}`}>

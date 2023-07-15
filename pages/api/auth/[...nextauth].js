@@ -1,68 +1,49 @@
-/* eslint-disable */ // no-cap rule must be changed so GoogleProvider works
-import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
-import { auth } from "@/firebase";
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import nextAuth from "next-auth/next";
+import googleProvider from "next-auth/providers/google";
+import { FirestoreAdapter } from "@auth/firebase-adapter";
+import { cert } from "firebase-admin/app";
+import { db } from "../../../firebase";
+import { collection, getDocs, where, query } from "firebase/firestore";
 
 export const authOptions = {
-  // Configure one or more authentication providers
+  // eslint-disable-next-line new-cap
+  adapter: FirestoreAdapter({
+    credential: cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY,
+    }),
+  }),
   providers: [
-    GoogleProvider({
-      clientId: process.env.NEXT_GOOGLE_CLIENT_ID,
-      clientSecret: process.env.NEXT_GOOGLE_CLIENT_SECRET,
+    googleProvider({
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
   ],
-
-  secret: process.env.JWT_SECRET,
-
-  // events: {
-  //   async signOut() {
-  //     FirebaseSignOut(auth).then(() => {
-  //       console.log("Logged out Successfully");
-  //     });
-  //   }
-  // },
-
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      const isAllowedToSignIn = true;
-      if (isAllowedToSignIn) {
-        const idToken = account.id_token;
-        const credential = GoogleAuthProvider.credential(idToken);
-
-        await signInWithCredential(auth, credential)
-          .then(() => {
-            console.log(auth.currentUser); // Logs correct auth with user
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            const email = error.email;
-            const credential = GoogleAuthProvider.credentialFromError(error);
-
-            console.log("ERROR: " + errorCode);
-          });
-
-        return true;
-      } else {
-        return false;
-      }
+    async redirect({ url, baseUrl }) {
+      return url.startsWith(baseUrl)
+        ? Promise.resolve(url)
+        : Promise.resolve(baseUrl);
     },
 
-    async session({ session, token, user }) {
-      session.id_token = token.id_token;
+    async session({ session, user }) {
+      const output = [];
+      const docSnap = await getDocs(
+        query(collection(db, "attempts"), where("uid", "==", user.id))
+      );
+      docSnap.forEach((doc) => {
+        output.push({ id: doc.id, data: doc.data() });
+      });
 
+      user.attempts = output;
+      session.user = user;
       return session;
     },
-
-    async jwt({ token, account, profile }) {
-      if (account) {
-        token.id_token = account.id_token;
-      }
-
-      return token;
-    },
+  },
+  pages: {
+    signIn: "/",
   },
 };
 
-export default NextAuth(authOptions);
+export default nextAuth(authOptions);

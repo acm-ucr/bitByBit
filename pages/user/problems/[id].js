@@ -6,6 +6,7 @@ import Console from "@/components/Console";
 import { useState, useRef } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
 import { FaCircle } from "react-icons/fa";
+import ProtectedPage from "@/components/ProtectedPage";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -74,7 +75,7 @@ const Problems = () => {
   );
 
   return (
-    <>
+    <ProtectedPage title="Problem" restrictions={[]}>
       <div
         ref={containerRef}
         style={{
@@ -127,7 +128,7 @@ const Problems = () => {
           <Console />
         </div>
       </div>
-    </>
+    </ProtectedPage>
   );
 };
 
