@@ -36,12 +36,11 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
 const TestCases = () => {
   const [state, setState] = useState(0);
   const { problem } = useContext(CodeContext);
-  const [inputs] = useState([...problem.testcases]);
 
   return (
     <div className="h-40">
       <TestCasesToggle state={state} onUpdateState={setState} />
-      <TestCaseInput tests={inputs} state={state} />
+      <TestCaseInput tests={problem.testcases} state={state} />
     </div>
   );
 };
