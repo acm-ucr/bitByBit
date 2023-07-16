@@ -22,7 +22,7 @@ const ProgrammingProblem = ({ problem, index }) => {
   return (
     <Link
       key={index}
-      href={"/problems/" + index}
+      href={"/user/problems/" + index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
       } p-4 flex items-center justify-between no-underline ${
