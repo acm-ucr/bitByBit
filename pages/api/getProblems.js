@@ -13,6 +13,8 @@ export default async function getProfileInfo(req, res) {
       output.push({ id: doc.id, data: doc.data() });
     });
     res.status(200).json(output);
+  } else {
+    res.status(401);
   }
 }
 
