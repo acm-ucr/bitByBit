@@ -1,13 +1,23 @@
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
 
 export default async function getProfileInfo(req, res) {
-  const output = [];
-  const docSnap = await getDocs(collection(db, "problems"));
-  docSnap.forEach((doc) => {
-    output.push({ id: doc.id, data: doc.data() });
-  });
-  res.status(200).json(output);
+  const session = await getServerSession(req, res, authOptions);
+
+  if (session) {
+    const output = [];
+    const docSnap = await getDocs(collection(db, "problems"));
+    docSnap.forEach((doc) => {
+      output.push({ id: doc.id, data: doc.data() });
+    });
+    res.status(200).json(output);
+  } else {
+    res.status(401);
+  }
+
+  res.end();
 }
 
 // SAMPLE RESPONSE
