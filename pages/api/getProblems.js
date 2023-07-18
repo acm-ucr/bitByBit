@@ -16,6 +16,8 @@ export default async function getProfileInfo(req, res) {
   } else {
     res.status(401);
   }
+
+  res.end()
 }
 
 // SAMPLE RESPONSE
