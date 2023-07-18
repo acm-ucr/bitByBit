@@ -41,4 +41,5 @@ export default async function handler(req, res) {
   } else {
     res.status(401);
   }
+  res.end();
 }
