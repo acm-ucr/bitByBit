@@ -111,11 +111,7 @@ const Problems = () => {
           className="relative flex flex-col h-full max-w-full"
         >
           <ProblemStateToggle state={state} onUpdateState={setState} />
-          {state === 0 && (
-            <ProblemDescription
-              problem={problem}
-            />
-          )}
+          {state === 0 && <ProblemDescription problem={problem} />}
           {state === 1 && (
             <ProblemSolution
               problem={problem}
