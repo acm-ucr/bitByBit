@@ -114,13 +114,11 @@ const Problems = () => {
           {state === 0 && (
             <ProblemDescription
               problem={problem}
-              onUpdateProblem={setProblem}
             />
           )}
           {state === 1 && (
             <ProblemSolution
               problem={problem}
-              onUpdateProblem={setProblem}
               entries={[
                 {
                   methodName: "TEST METHOD",
@@ -151,7 +149,7 @@ const Problems = () => {
             <CodeEditor />
           </div>
           <div className="w-full text-code-purple h-6 "></div>
-          <Console problem={problem} onUpdateProblem={setProblem} />
+          <Console problem={problem} />
         </div>
       </div>
     </ProtectedPage>
