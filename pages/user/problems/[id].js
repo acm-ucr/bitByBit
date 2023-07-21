@@ -3,11 +3,12 @@ import ProblemSolution from "@/components/ProblemSolution";
 import ProblemStateToggle from "@/components/ProblemStateToggle";
 import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
 import { FaCircle } from "react-icons/fa";
 import ProtectedPage from "@/components/ProtectedPage";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -59,15 +60,16 @@ const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
 
 const Problems = () => {
   const [state, setState] = useState(0);
-  const [problem, setProblem] = useState([]);
+  const [problem, setProblem] = useState({});
   const router = useRouter();
   const { id } = router.query;
 
   useEffect(() => {
     const fetchProblem = async () => {
       try {
-        const response = await axios.get(`/api/getProblem?id=${id}`);
-        setProblem(response.data);
+        axios
+          .post("/api/getProblem", { id: id })
+          .then((response) => setProblem(response.data));
       } catch (error) {
         console.error("Error fetching problem:", error);
       }
@@ -108,10 +110,17 @@ const Problems = () => {
           }}
           className="relative flex flex-col h-full max-w-full"
         >
-          <ProblemStateToggle state={state} onUpdateState={setState} problem={problem} onUpdateProblem={setProblem} />
-          {state === 0 && <ProblemDescription />}
+          <ProblemStateToggle state={state} onUpdateState={setState} />
+          {state === 0 && (
+            <ProblemDescription
+              problem={problem}
+              onUpdateProblem={setProblem}
+            />
+          )}
           {state === 1 && (
             <ProblemSolution
+              problem={problem}
+              onUpdateProblem={setProblem}
               entries={[
                 {
                   methodName: "TEST METHOD",
@@ -142,7 +151,7 @@ const Problems = () => {
             <CodeEditor />
           </div>
           <div className="w-full text-code-purple h-6 "></div>
-          <Console />
+          <Console problem={problem} onUpdateProblem={setProblem} />
         </div>
       </div>
     </ProtectedPage>

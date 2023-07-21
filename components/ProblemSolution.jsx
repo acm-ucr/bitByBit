@@ -1,9 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import CodeContext from "../components/CodeContext";
 
-const ProblemSolutionEntry = () => {
-  const { problem } = useContext(CodeContext);
+const ProblemSolutionEntry = ({ problem }) => {
   return (
     <div className="min-h-screen w-full bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
       <div className="font-bold text-2xl">

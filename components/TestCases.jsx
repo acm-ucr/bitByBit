@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import CodeContext from "../components/CodeContext";
+import { useState } from "react";
 
 const TestCaseInput = ({ tests, state }) => {
   return (
@@ -33,9 +32,9 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
     </div>
   );
 };
-const TestCases = () => {
+const TestCases = ({ problem }) => {
   const [state, setState] = useState(0);
-  const { problem } = useContext(CodeContext);
+  // const { problem } = useContext(CodeContext);
 
   return (
     <div className="h-40">

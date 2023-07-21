@@ -35,7 +35,7 @@ const ConsoleStateToggle = ({ state, onUpdateState }) => {
   );
 };
 
-const Console = () => {
+const Console = ({ problem }) => {
   const [state, setState] = useState(0);
   const { language, code } = useContext(CodeContext);
 
@@ -77,7 +77,7 @@ const Console = () => {
   return (
     <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
-      {state === 0 && <TestCases />}
+      {state === 0 && <TestCases problem={problem} />}
       {state === 1 && (
         <div className="h-40">
           <Results />
