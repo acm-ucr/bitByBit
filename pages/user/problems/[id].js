@@ -67,7 +67,7 @@ const Problems = () => {
   useEffect(() => {
     const fetchProblem = async () => {
       try {
-        axios
+        await axios
           .post("/api/getProblem", { id: id })
           .then((response) => setProblem(response.data));
       } catch (error) {

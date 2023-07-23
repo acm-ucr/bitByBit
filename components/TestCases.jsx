@@ -5,7 +5,7 @@ const TestCaseInput = ({ tests, state }) => {
     <div className="flex flex-col">
       <div className="text-sm">input =</div>
       <div className="bg-code-darkpurple rounded-lg p-2">
-        {tests[state].input}
+        {tests ? tests[state].input : <div />}
       </div>
     </div>
   );
