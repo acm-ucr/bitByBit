@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import CodeContext from "./CodeContext";
 import { difficultyColors, difficultyColorsBorder } from "./data/Problems";
 
-const ProblemDescription = () => {
-  const { problem } = useContext(CodeContext);
-
+const ProblemDescription = ({ problem }) => {
   return (
     problem && (
       <div className="flex bg-code-darkerpurple h-full p-2">

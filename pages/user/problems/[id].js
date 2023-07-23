@@ -3,10 +3,12 @@ import ProblemSolution from "@/components/ProblemSolution";
 import ProblemStateToggle from "@/components/ProblemStateToggle";
 import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import LanguageSelector from "@/components/LanguageSelector";
 import { FaCircle } from "react-icons/fa";
 import ProtectedPage from "@/components/ProtectedPage";
+import { useRouter } from "next/router";
+import axios from "axios";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -58,6 +60,23 @@ const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
 
 const Problems = () => {
   const [state, setState] = useState(0);
+  const [problem, setProblem] = useState({});
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    const fetchProblem = async () => {
+      try {
+        await axios
+          .post("/api/getProblem", { id: id })
+          .then((response) => setProblem(response.data));
+      } catch (error) {
+        console.error("Error fetching problem:", error);
+      }
+    };
+
+    fetchProblem();
+  }, [id]);
 
   const containerRef = useRef();
   const panelRef = useRef();
@@ -92,9 +111,10 @@ const Problems = () => {
           className="relative flex flex-col h-full max-w-full"
         >
           <ProblemStateToggle state={state} onUpdateState={setState} />
-          {state === 0 && <ProblemDescription />}
+          {state === 0 && <ProblemDescription problem={problem} />}
           {state === 1 && (
             <ProblemSolution
+              problem={problem}
               entries={[
                 {
                   methodName: "TEST METHOD",
@@ -125,7 +145,7 @@ const Problems = () => {
             <CodeEditor />
           </div>
           <div className="w-full text-code-purple h-6 "></div>
-          <Console />
+          <Console problem={problem} />
         </div>
       </div>
     </ProtectedPage>

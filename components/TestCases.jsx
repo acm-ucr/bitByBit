@@ -1,12 +1,11 @@
-import { useState, useContext } from "react";
-import CodeContext from "../components/CodeContext";
+import { useState } from "react";
 
 const TestCaseInput = ({ tests, state }) => {
   return (
     <div className="flex flex-col">
       <div className="text-sm">input =</div>
       <div className="bg-code-darkpurple rounded-lg p-2">
-        {tests[state].input}
+        {tests ? tests[state].input : <div />}
       </div>
     </div>
   );
@@ -33,9 +32,9 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
     </div>
   );
 };
-const TestCases = () => {
+const TestCases = ({ problem }) => {
   const [state, setState] = useState(0);
-  const { problem } = useContext(CodeContext);
+  // const { problem } = useContext(CodeContext);
 
   return (
     <div className="h-40">
