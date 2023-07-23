@@ -100,7 +100,7 @@ const Problems = () => {
         style={{
           maxWidth: `${maxContainerWidth}px`,
         }}
-        className="flex w-full h-full"
+        className="flex w-full h-[calc(100vh-64px)]"
       >
         <div
           ref={panelRef}

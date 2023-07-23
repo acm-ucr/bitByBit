@@ -2,7 +2,7 @@ import React from "react";
 
 const ProblemSolutionEntry = ({ problem }) => {
   return (
-    <div className="min-h-screen w-full bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
+    <div className="h-full w-full bg-code-darkerpurple px-3 pt-3 text-code-white font-readex flex flex-col gap-3">
       <div className="font-bold text-2xl">
         Approach: {problem.solutions[0].title}
       </div>
