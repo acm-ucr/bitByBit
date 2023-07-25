@@ -21,7 +21,7 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   const [code, setCode] = useState("");
-  const [problem, setProblem] = useState({});
+  // const [problem, setProblem] = useState({});
   const [language, setLanguage] = useState({
     name: "C++",
     id: 54,
@@ -42,8 +42,8 @@ export default function App({
           setCode,
           language,
           setLanguage,
-          problem,
-          setProblem,
+          // problem,
+          // setProblem,
           problems,
           setProblems,
         }}
