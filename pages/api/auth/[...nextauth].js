@@ -32,7 +32,6 @@ export const authOptions = {
           role: "member",
           start: Timestamp.now(),
         });
-        return false;
       }
       return true;
     },
