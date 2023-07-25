@@ -13,7 +13,7 @@ const Profile = () => {
 
   const updateContext = (tempUser) => {
     axios
-      .post("api/updateUserInfo", { uid: session.user.uid, newName: tempUser })
+      .post("api/updateUserInfo", { uid: session.user.id, newName: tempUser })
       .finally(() => setIsEditing(false));
   };
 
