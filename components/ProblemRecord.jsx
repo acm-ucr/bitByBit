@@ -4,7 +4,7 @@ import { difficultyColors } from "./data/Problems";
 import CodeContext from "./CodeContext";
 import { useSession } from "next-auth/react";
 
-const handleProgrammingProblems = (problem, index) => {
+const handleProgrammingProblems = ({problem}, index) => {
   return (
     <div
       key={index}
