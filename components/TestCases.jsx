@@ -34,6 +34,7 @@ const TestCasesToggle = ({ state, onUpdateState }) => {
 };
 const TestCases = ({ problem }) => {
   const [state, setState] = useState(0);
+  // const { problem } = useContext(CodeContext);
 
   return (
     <div className="h-40">
