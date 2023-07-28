@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CodeContext from "@/components/CodeContext";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
 import { SessionProvider } from "next-auth/react";
-import axios from "axios";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
