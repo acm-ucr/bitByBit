@@ -25,13 +25,6 @@ export default function App({
     name: "C++",
     id: 54,
   });
-  const [problems, setProblems] = useState([]);
-
-  useEffect(() => {
-    axios
-      .post("/api/getProblems")
-      .then((response) => setProblems(response.data));
-  }, []);
 
   return (
     <SessionProvider session={session} refetchInterval={5 * 60}>
@@ -41,8 +34,6 @@ export default function App({
           setCode,
           language,
           setLanguage,
-          problems,
-          setProblems,
         }}
       >
         <main className={`${readex.variable}`}>
