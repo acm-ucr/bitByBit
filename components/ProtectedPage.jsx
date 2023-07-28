@@ -7,9 +7,19 @@ const ProtectedPage = ({ title, children, restrictions }) => {
   const { data: session, status } = useSession();
 
   useEffect(() => {
+    console.log(status === "authenticated");
+    console.log(session.user.role === "member");
+    console.log(router.pathname === "/");
     if (status === "unauthenticated") {
       console.log("Not signed in");
       router.push("/");
+    }
+    if (
+      status === "authenticated" &&
+      session.user.role !== "admin" &&
+      router.pathname === "/"
+    ) {
+      router.push("/user/dashboard");
     }
     if (
       status === "authenticated" &&
@@ -19,7 +29,7 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       console.log("Dont have admin permissions");
       router.push("/");
     }
-  }, [status]);
+  }, [status, router]);
 
   return (
     <>
