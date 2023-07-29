@@ -1,23 +1,8 @@
 import Link from "next/link";
 import { difficultyColors, difficultyColorsBorder } from "./data/Problems";
-import { useContext } from "react";
-import CodeContext from "./CodeContext";
 
 const ProgrammingProblem = ({ problem, index }) => {
-  const { setProblem } = useContext(CodeContext);
-
-  const selectProblem = () => {
-    setProblem({
-      difficulty: problem.difficulty,
-      title: problem.title,
-      tags: problem.tags,
-      example: problem.example,
-      constraints: problem.constraints,
-      description: problem.description,
-      testcases: problem.testcases,
-      solutions: problem.solutions,
-    });
-  };
+  const selectProblem = () => {};
 
   return (
     <Link
