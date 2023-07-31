@@ -2,13 +2,19 @@ import Problems from "@/components/Problems";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Filter from "@/components/Filter";
-import { useState, useContext, useEffect } from "react";
-import CodeContext from "../../components/CodeContext";
+import { useState, useEffect } from "react";
 import { tags, difficulties } from "../../components/data/Filters";
 import ProtectedPage from "@/components/ProtectedPage";
+import axios from "axios";
 
 const Dashboard = () => {
-  const { problems } = useContext(CodeContext);
+  const [problems, setProblems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .post("/api/getProblems")
+      .then((response) => setProblems(response.data));
+  }, []);
 
   const [filtered, setFiltered] = useState([]);
   const [filteredProblems, setFilteredProblems] = useState([]);
