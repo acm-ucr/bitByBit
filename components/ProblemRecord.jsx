@@ -1,7 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import ProgressCircle from "./ProgressCircle";
 import { difficultyColors } from "./data/Problems";
-import CodeContext from "./CodeContext";
 import { useSession } from "next-auth/react";
 
 const handleProgrammingProblems = (problem, index) => {
@@ -48,18 +47,10 @@ const handleProgrammingProblems = (problem, index) => {
 };
 
 const ProblemRecord = () => {
-  const { problems } = useContext(CodeContext);
   const { data: session } = useSession();
 
-  const allProblemData = problems.filter(() =>
-    session.user.attempts.map((x) => x.data.pid)
-  );
-
   const [filteredProblems, setFilteredProblems] = useState([]);
-
-  useEffect(() => {
-    setFilteredProblems(allProblemData); // fixes refresh bug
-  }, [problems]);
+  setFilteredProblems(session.user.attempts);
 
   const [status, setStatus] = useState("all");
 
@@ -73,14 +64,14 @@ const ProblemRecord = () => {
       .map((x) => x.data.pid); // array of all complete attempt problem ids
     switch (status) {
       case "all":
-        setFilteredProblems(allProblemData);
+        setFilteredProblems(session.user.attempts);
         break;
       case "completed":
-        setFilteredProblems(problems.filter((x) => completeIDs.includes(x.id)));
+        setFilteredProblems(session.user.attempts.filter((x) => completeIDs.includes(x.id)));
         break;
       case "in-progress":
         setFilteredProblems(
-          problems.filter((x) => incompleteIDs.includes(x.id))
+          session.user.attempts.filter((x) => incompleteIDs.includes(x.id))
         );
         break;
     }
