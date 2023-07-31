@@ -49,7 +49,9 @@ const handleProgrammingProblems = (problem, index) => {
 const ProblemRecord = () => {
   const { data: session } = useSession();
 
-  const [filteredProblems, setFilteredProblems] = useState(session.user.attempts);
+  const [filteredProblems, setFilteredProblems] = useState(
+    session.user.attempts
+  );
 
   const [status, setStatus] = useState("all");
 
