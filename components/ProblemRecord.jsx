@@ -67,7 +67,9 @@ const ProblemRecord = () => {
         setFilteredProblems(session.user.attempts);
         break;
       case "completed":
-        setFilteredProblems(session.user.attempts.filter((x) => completeIDs.includes(x.id)));
+        setFilteredProblems(
+          session.user.attempts.filter((x) => completeIDs.includes(x.id))
+        );
         break;
       case "in-progress":
         setFilteredProblems(
