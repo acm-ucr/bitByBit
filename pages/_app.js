@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CodeContext from "@/components/CodeContext";
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "@/components/Layout";
 import { SessionProvider } from "next-auth/react";
-import axios from "axios";
 
 // eslint-disable-next-line camelcase
 import { Readex_Pro } from "@next/font/google";
@@ -25,13 +24,6 @@ export default function App({
     name: "C++",
     id: 54,
   });
-  const [problems, setProblems] = useState([]);
-
-  useEffect(() => {
-    axios
-      .post("/api/getProblems")
-      .then((response) => setProblems(response.data));
-  }, []);
 
   return (
     <SessionProvider session={session} refetchInterval={5 * 60}>
@@ -41,8 +33,6 @@ export default function App({
           setCode,
           language,
           setLanguage,
-          problems,
-          setProblems,
         }}
       >
         <main className={`${readex.variable}`}>

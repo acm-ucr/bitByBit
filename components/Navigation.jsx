@@ -14,7 +14,7 @@ const Navigation = () => {
         variant="light"
         className="bg-code-black font-semibold font-readex w-11/12 gap-x-5"
       >
-        <Navbar.Brand href="/dashboard" className="!text-code-white">
+        <Navbar.Brand href="/user/dashboard" className="!text-code-white">
           <div className="text-3xl">bitByBIT</div>
         </Navbar.Brand>
         {session.user && (
