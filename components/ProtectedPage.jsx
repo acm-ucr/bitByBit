@@ -19,7 +19,7 @@ const ProtectedPage = ({ title, children, restrictions }) => {
       console.log("Dont have admin permissions");
       router.push("/");
     }
-  }, [status]);
+  }, [status, router]);
 
   return (
     <>
