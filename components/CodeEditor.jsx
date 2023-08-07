@@ -1,6 +1,6 @@
 import React from "react";
 import CodeContext from "./CodeContext";
-import { useContext, useCallback, useEffect } from "react";
+import { useContext, useCallback } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { cpp } from "@codemirror/lang-cpp";
 // import { javascript } from "@codemirror/lang-javascript";
@@ -8,22 +8,11 @@ import { cpp } from "@codemirror/lang-cpp";
 import { aura } from "@uiw/codemirror-theme-aura";
 
 const CodeEditor = ({ problem }) => {
-  const { code, setCode } = useContext(CodeContext);
+  const { setCode } = useContext(CodeContext);
 
-  useEffect(() => {
-    if (problem) {
-      /* When a problem is selected, set the code editor content to the function header */
-      problem.functionHeader =
-        "def " + problem.title.toLowerCase().replaceAll(" ", "_") + "(nums): ";
-      setCode(problem.functionHeader);
-    }
-  }, [problem, setCode]);
-  const onChange = useCallback(
-    (value) => {
-      setCode(value);
-    },
-    [setCode]
-  );
+  const onChange = useCallback((value) => {
+    setCode(value);
+  }, []);
 
   return (
     <div className="bg-code-darkerpurple h-full">
@@ -31,7 +20,7 @@ const CodeEditor = ({ problem }) => {
         extensions={[cpp()]}
         // extensions={[python()]}
         // extensions={[javascript({ jsx: true })]}
-        value={code}
+        value={problem.boilerplate}
         onChange={onChange}
         theme={aura}
       />
