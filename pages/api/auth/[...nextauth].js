@@ -43,7 +43,7 @@ export const authOptions = {
     },
 
     async session({ session, user }) {
-      console.log("User Info", user);
+      // console.log("User Info", user);
       const output = [];
       const docSnap = await getDocs(
         query(collection(db, "attempts"), where("uid", "==", user.id))

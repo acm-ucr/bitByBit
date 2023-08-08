@@ -12,8 +12,10 @@ const Profile = () => {
   const [newUserName, setNewUserName] = useState("");
 
   const updateContext = (tempUser) => {
+    console.log(session.user.id, tempUser);
+    console.log(newUserName);
     axios
-      .post("api/updateUserInfo", { uid: session.user.id, newName: tempUser })
+      .post("/api/updateUserInfo", { uid: session.user.id, newName: tempUser })
       .finally(() => setIsEditing(false));
   };
 
@@ -43,13 +45,14 @@ const Profile = () => {
         </button>
       </div>
       {!isEditing ? (
-        <div className="text-3xl font-semibold">{session.user.username}</div>
+        <div className="text-3xl font-semibold">
+          {newUserName === "" ? session.user.username : newUserName}
+        </div>
       ) : (
         <div className="grid max-w-80 gap-1">
           Change username
           <input
             className="text-lg rounded w-full h-9 text-code-black pl-2"
-            placeholder={session.user.username}
             value={newUserName}
             onChange={(e) => setNewUserName(e.target.value)}
           />

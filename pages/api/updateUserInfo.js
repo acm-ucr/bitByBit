@@ -1,6 +1,6 @@
 import { db } from "../../firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import { getServerSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
 
 export default async function updateUserInfo(req, res) {
