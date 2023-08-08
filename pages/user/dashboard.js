@@ -50,7 +50,10 @@ const Dashboard = () => {
             <div className="rounded-2xl p-4 pt-3 w-full font-readex text-code-white bg-code-darkerpurple">
               <div className="flex text-lg justify-between mb-2 mr-0">
                 <div className="text-3xl">Filters</div>
-                <button className="text-2xl font-extralight" onClick={clearAll}>
+                <button
+                  className="text-2xl font-extralight hover:text-code-lightpurple"
+                  onClick={clearAll}
+                >
                   clear all
                 </button>
               </div>
@@ -81,7 +84,10 @@ const Dashboard = () => {
                 </div>
               </div>
               <div className="flex text-lg justify-end mb-2 mr-0">
-                <button className="text-2xl font-extralight" onClick={apply}>
+                <button
+                  className="text-2xl font-extralight hover:text-code-lightpurple"
+                  onClick={apply}
+                >
                   Apply
                 </button>
               </div>
