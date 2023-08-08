@@ -142,7 +142,7 @@ const Problems = () => {
         <div className="flex flex-col flex-grow">
           <LanguageSelector />
           <div className="flex flex-col flex-grow h-full overflow-auto">
-            <CodeEditor />
+            <CodeEditor problem={problem} />
           </div>
           <div className="w-full text-code-purple h-6 "></div>
           <Console problem={problem} />
