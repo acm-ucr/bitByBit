@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
+import LoadingScreen from "../components/LoadingScreen";
 
 const ProtectedPage = ({ title, children, restrictions }) => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const ProtectedPage = ({ title, children, restrictions }) => {
 
   return (
     <>
-      {status === "loading" && <>LOADING</>}
+      {status === "loading" && <LoadingScreen />}
       {status === "authenticated" && (
         <div>
           <title>{title}</title>
