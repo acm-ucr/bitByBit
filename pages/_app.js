@@ -21,8 +21,8 @@ export default function App({
 }) {
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState({
-    name: "C++",
-    id: 54,
+    name: "Python",
+    id: 71,
   });
 
   return (
