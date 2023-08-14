@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <>
       {status === "unauthenticated" && (
-        <Row className="flex justify-center items-center bg-code-black h-screen w-full">
+        <Row className="flex justify-center items-center bg-code-black h-full w-full">
           <Col xl={6}>
             <PrimaryLogo />
           </Col>
