@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { BsDot } from "react-icreact icons
-ons/bs";
+import { BsDot } from "react-icons/bs";
 
 const ResultsStateToggle = ({ state, onUpdateState }) => {
   return (
@@ -9,20 +8,24 @@ const ResultsStateToggle = ({ state, onUpdateState }) => {
       <div className="flex flex-row gap-4 font-normal">
         <div
           className={`${
-            state === 0 ? "flex bg-code-darkpurple" : "flex bg-code-darkerpurple"
-        } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
-        onClick={() => onUpdateState(0)}
+            state === 0
+              ? "flex bg-code-darkpurple"
+              : "flex bg-code-darkerpurple"
+          } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
+          onClick={() => onUpdateState(0)}
         >
-          <BsDot className="text-xl" />
+          <BsDot className="text-xl" color="green" />
           Case 1
         </div>
         <div
           className={`${
-            state === 1 ? "flex bg-code-darkpurple" : "flex bg-code-darkerpurple"
-        } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
-        onClick={() => onUpdateState(1)}
+            state === 1
+              ? "flex bg-code-darkpurple"
+              : "flex bg-code-darkerpurple"
+          } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
+          onClick={() => onUpdateState(1)}
         >
-          <BsDot className="text-xl " />
+          <BsDot className="text-xl" color="red" />
           Case 2
         </div>
       </div>
