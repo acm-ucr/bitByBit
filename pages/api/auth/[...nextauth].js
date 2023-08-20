@@ -3,8 +3,8 @@ import googleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
 import { db } from "../../../firebase";
-import { collection, getDocs, where, query, getDoc } from "firebase/firestore";
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 export const authOptions = {
   // eslint-disable-next-line new-cap
@@ -17,25 +17,22 @@ export const authOptions = {
   }),
   providers: [
     googleProvider({
+      profile(profile) {
+        return {
+          id: profile.sub,
+          email: profile.email,
+          name: profile.name,
+          image: profile.picture,
+          username: profile.email.split("@")[0],
+          role: "member",
+          start: Timestamp.now(),
+        };
+      },
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      const docSnap = await getDoc(doc(db, "users", user.id));
-      if (!docSnap.data().start) {
-        const currUser = doc(db, "users", user.id);
-
-        await updateDoc(currUser, {
-          username: user.email.split("@")[0],
-          role: "member",
-          start: Timestamp.now(),
-        });
-      }
-      return true;
-    },
-
     async redirect({ url, baseUrl }) {
       return url.startsWith(baseUrl)
         ? Promise.resolve(url)
@@ -43,7 +40,6 @@ export const authOptions = {
     },
 
     async session({ session, user }) {
-      // console.log("User Info", user);
       const output = [];
       const docSnap = await getDocs(
         query(collection(db, "attempts"), where("uid", "==", user.id))

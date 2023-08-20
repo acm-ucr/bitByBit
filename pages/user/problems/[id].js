@@ -78,7 +78,9 @@ const Problems = () => {
       }
     };
 
-    fetchProblem();
+    if (router.isReady) {
+      fetchProblem();
+    }
   }, [id]);
 
   const containerRef = useRef();
