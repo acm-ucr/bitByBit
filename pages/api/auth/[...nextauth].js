@@ -3,7 +3,7 @@ import googleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
 import { db } from "../../../firebase";
-import { collection, getDocs, where, query, getDoc } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
 import { Timestamp } from "firebase/firestore";
 
 export const authOptions = {
