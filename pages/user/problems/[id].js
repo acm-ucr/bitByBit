@@ -72,6 +72,9 @@ const Problems = () => {
           .then((response) => setProblem(response.data));
       } catch (error) {
         console.error("Error fetching problem:", error);
+        if (error.response.status === 400) {
+          router.push("/404");
+        }
       }
     };
 
