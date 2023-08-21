@@ -16,16 +16,14 @@ const Dashboard = () => {
 
     if (cachedProblems !== null) {
       setProblems(cachedProblems);
-      console.log("local storage");
     }
     else {
       await axios
         .post("/api/getProblems")
         .then((response) => {
           setProblems(response.data);
-          localStorage.setItem("problems", JSON.stringify(problems));
+          localStorage.setItem("problems", JSON.stringify(response.data));
         });
-      console.log("axios");
     }
   }
 
