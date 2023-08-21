@@ -10,10 +10,27 @@ import axios from "axios";
 const Dashboard = () => {
   const [problems, setProblems] = useState([]);
 
+  const getProblems = async () => {
+    const cachedProblems =
+      JSON.parse(localStorage.getItem("problems")) || null;
+
+    if (cachedProblems !== null) {
+      setProblems(cachedProblems);
+      console.log("local storage");
+    }
+    else {
+      await axios
+        .post("/api/getProblems")
+        .then((response) => {
+          setProblems(response.data);
+          localStorage.setItem("problems", JSON.stringify(problems));
+        });
+      console.log("axios");
+    }
+  }
+
   useEffect(() => {
-    axios
-      .post("/api/getProblems")
-      .then((response) => setProblems(response.data));
+    getProblems();
   }, []);
 
   const [filtered, setFiltered] = useState([]);
