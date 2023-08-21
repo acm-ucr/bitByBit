@@ -10,10 +10,21 @@ import axios from "axios";
 const Dashboard = () => {
   const [problems, setProblems] = useState([]);
 
+  const getProblems = async () => {
+    const cachedProblems = JSON.parse(localStorage.getItem("problems")) || null;
+
+    if (cachedProblems !== null) {
+      setProblems(cachedProblems);
+    } else {
+      await axios.post("/api/getProblems").then((response) => {
+        setProblems(response.data);
+        localStorage.setItem("problems", JSON.stringify(response.data));
+      });
+    }
+  };
+
   useEffect(() => {
-    axios
-      .post("/api/getProblems")
-      .then((response) => setProblems(response.data));
+    getProblems();
   }, []);
 
   const [filtered, setFiltered] = useState([]);
