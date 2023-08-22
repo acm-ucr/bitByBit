@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProgressCircle from "./ProgressCircle";
 import { difficultyColors } from "./data/Problems";
 import { useSession } from "next-auth/react";
+import axios from "axios";
 
 const handleProgrammingProblems = (problem, index) => {
   return (
@@ -19,7 +20,7 @@ const handleProgrammingProblems = (problem, index) => {
               className={`mr-1 px-1 ${
                 index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
               } rounded`}
-              key={index}
+              key={tagsIndex}
             >
               {element}
             </div>
@@ -49,36 +50,63 @@ const handleProgrammingProblems = (problem, index) => {
 const ProblemRecord = () => {
   const { data: session } = useSession();
 
-  const [filteredProblems, setFilteredProblems] = useState(
-    session.user.attempts
-  );
+  const [problems, setProblems] = useState([]);
+
+  const [filteredProblems, setFilteredProblems] = useState([]);
 
   const [status, setStatus] = useState("all");
 
+  const allIDs = session.user.attempts.map((attempt) => attempt.data.pid); // array of all attempted problem ids
+  const incompleteIDs = session.user.attempts
+    .filter((a) => a.data.complete === false)
+    .map((attempt) => attempt.data.pid); // array of all incomplete attempt ids
+  const completeIDs = session.user.attempts
+    .filter((a) => a.data.complete === true)
+    .map((attempt) => attempt.data.pid); // array of all complete attempt problem ids
+
+  const getProblems = async () => {
+    const cachedProblems = JSON.parse(localStorage.getItem("problems")) || null;
+
+    if (cachedProblems !== null) {
+      setProblems(cachedProblems);
+      setFilteredProblems(
+        cachedProblems.filter((problem) => allIDs.includes(problem.id))
+      );
+    } else {
+      await axios.post("/api/getProblems").then((response) => {
+        setProblems(response.data);
+        localStorage.setItem("problems", JSON.stringify(response.data));
+        setFilteredProblems(
+          response.data.filter((problem) => allIDs.includes(problem.id))
+        );
+      });
+    }
+  };
+
   const filterProblem = (status) => {
     setStatus(status);
-    const incompleteIDs = session.user.attempts
-      .filter((a) => a.data.complete === false)
-      .map((x) => x.data.pid); // array of all incomplete attempt ids
-    const completeIDs = session.user.attempts
-      .filter((a) => a.data.complete === true)
-      .map((x) => x.data.pid); // array of all complete attempt problem ids
     switch (status) {
       case "all":
-        setFilteredProblems(session.user.attempts);
+        setFilteredProblems(
+          problems.filter((problem) => allIDs.includes(problem.id))
+        );
         break;
       case "completed":
         setFilteredProblems(
-          session.user.attempts.filter((x) => completeIDs.includes(x.id))
+          problems.filter((problem) => completeIDs.includes(problem.id))
         );
         break;
       case "in-progress":
         setFilteredProblems(
-          session.user.attempts.filter((x) => incompleteIDs.includes(x.id))
+          problems.filter((problem) => incompleteIDs.includes(problem.id))
         );
         break;
     }
   };
+
+  useEffect(() => {
+    getProblems();
+  }, []);
 
   return (
     <div className="py-3 pr-4 font-readex w-full h-min text-code-white">
