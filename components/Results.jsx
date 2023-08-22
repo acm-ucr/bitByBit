@@ -9,23 +9,29 @@ const ResultsStateToggle = ({ state, onUpdateState }) => {
         <div
           className={`${
             state === 0
-              ? "flex rounded-lg bg-code-darkpurple px-3 py-1"
-              : "flex cursor-pointer"
-          }`}
+              ? "flex bg-code-darkpurple"
+              : "flex bg-code-darkerpurple"
+          } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
           onClick={() => onUpdateState(0)}
         >
-          <BsDot className="text-xl" />
+          <BsDot
+            className="text-xl"
+            color={`${state === 0 ? "green" : "green"}`}
+          />
           Case 1
         </div>
         <div
           className={`${
             state === 1
-              ? "flex rounded-lg bg-code-darkpurple px-3 py-1"
-              : "flex cursor-pointer"
-          }`}
+              ? "flex bg-code-darkpurple"
+              : "flex bg-code-darkerpurple"
+          } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
           onClick={() => onUpdateState(1)}
         >
-          <BsDot className="text-xl " />
+          <BsDot
+            className="text-xl"
+            color={`${state === 1 ? "red" : "green"}`}
+          />
           Case 2
         </div>
       </div>
@@ -39,7 +45,14 @@ const Results = () => {
   return (
     <div style={{ overflow: "scroll", height: "150px" }}>
       <div className="flex flex-row gap-4 font-normal py-3">
-        <div className="text-lg text-code-green">Accepted</div>
+        <div
+          className={`${
+            state === 0 ? "text-lg text-code-green" : "text-lg text-red-500"
+          }`}
+        >
+          {" "}
+          {state === 0 ? "Accepted" : "Wrong Answer"}{" "}
+        </div>
         <div className="text-sm text-code-gray">Runtime: 0ms</div>
       </div>
       <div>
