@@ -80,7 +80,7 @@ const Console = ({ problem }) => {
       {state === 0 && <TestCases problem={problem} />}
       {state === 1 && (
         <div className="h-40">
-          <Results />
+          <Results isRunning={isRunning} />
         </div>
       )}
       <div className="flex flex-row gap-4 justify-end">
