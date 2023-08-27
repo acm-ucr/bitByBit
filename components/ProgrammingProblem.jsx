@@ -6,7 +6,6 @@ const ProgrammingProblem = ({ problem, index }) => {
 
   return (
     <Link
-      key={index}
       href={"/user/problems/" + index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
@@ -21,12 +20,12 @@ const ProgrammingProblem = ({ problem, index }) => {
         </p>
         <div className="flex justify-between">
           {problem.tags &&
-            problem.tags.map((tag) => (
+            problem.tags.map((tag, tagIndex) => (
               <div
                 className={`mr-1 px-1 ${
-                  index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
+                  tagIndex % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
                 } rounded text-code-white no-underline`}
-                key={index}
+                key={tagIndex}
               >
                 {tag}
               </div>
