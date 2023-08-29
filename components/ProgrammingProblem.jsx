@@ -21,7 +21,7 @@ const ProgrammingProblem = ({ problem, index }) => {
         </p>
         <div className="flex justify-between">
           {problem.tags &&
-            problem.tags.map((tag) => (
+            problem.tags.split(",").map((tag) => (
               <div
                 className={`mr-1 px-1 ${
                   index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
