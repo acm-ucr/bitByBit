@@ -28,13 +28,13 @@ const ProblemDescription = ({ problem }) => {
           <div className="bg-code-darkpurple flex py-2.5 px-3 mb-3 my-1.5 font-thin w-full whitespace-pre rounded-2xl">
             {problem.example}
           </div>
-          <div className="text-2xl font-bold">Constraints</div>
+          {/* <div className="text-2xl font-bold">Constraints</div>
           <ul className="list-disc font-extralight">
             {problem.constraints &&
               problem.constraints.map((constraint, index) => (
                 <li key={index}>{constraint}</li>
               ))}
-          </ul>
+          </ul> */}
         </div>
       </div>
     )
