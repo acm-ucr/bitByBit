@@ -6,7 +6,6 @@ const ProgrammingProblem = ({ problem, index }) => {
 
   return (
     <Link
-      key={index}
       href={"/user/problems/" + index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
@@ -25,9 +24,9 @@ const ProgrammingProblem = ({ problem, index }) => {
             problem.tags.split(",").map((tag) => (
               <div
                 className={`mr-1 px-1 ${
-                  index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
+                  tagIndex % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
                 } rounded text-code-white no-underline`}
-                key={index}
+                key={tagIndex}
               >
                 {tag}
               </div>
