@@ -9,6 +9,7 @@ import { FaCircle } from "react-icons/fa";
 import ProtectedPage from "@/components/ProtectedPage";
 import { useRouter } from "next/router";
 import axios from "axios";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
   const [panelWidth, setPanelWidth] = useState(initialWidth);
@@ -59,6 +60,7 @@ const useResize = (containerRef, panelRef, initialWidth, minWidth = 0) => {
 };
 
 const Problems = () => {
+  const [loaded, setLoaded] = useState(0);
   const [state, setState] = useState(0);
   const [problem, setProblem] = useState({});
   const router = useRouter();
@@ -70,6 +72,7 @@ const Problems = () => {
         await axios
           .post("/api/getProblem", { id: id })
           .then((response) => setProblem(response.data));
+        setLoaded(1);
       } catch (error) {
         console.error("Error fetching problem:", error);
         if (error.response.status === 400) {
@@ -99,61 +102,66 @@ const Problems = () => {
   );
 
   return (
-    <ProtectedPage title="Problem" restrictions={[]}>
-      <div
-        ref={containerRef}
-        style={{
-          maxWidth: `${maxContainerWidth}px`,
-        }}
-        className="flex w-full h-[calc(100vh-64px)]"
-      >
-        <div
-          ref={panelRef}
-          style={{
-            width: `${panelWidth}px`,
-            paddingRight: `${handleWidth}px`,
-          }}
-          className="relative flex flex-col h-full max-w-full"
-        >
-          <ProblemStateToggle state={state} onUpdateState={setState} />
-          {state === 0 && <ProblemDescription problem={problem} />}
-          {state === 1 && (
-            <ProblemSolution
-              problem={problem}
-              entries={[
-                {
-                  methodName: "TEST METHOD",
-                  description: "TEST DESCRIPTION",
-                  implementation: "TEST IMPLEMENTATION",
-                  timeComplexity: "TEST TIME COMPLEXITY",
-                  spaceComplexity: "TEST SPACE COMPLEXITY",
-                },
-              ]}
-            />
-          )}
-
+    <>
+      {!loaded && <LoadingScreen />}
+      {loaded && (
+        <ProtectedPage title="Problem" restrictions={[]}>
           <div
+            ref={containerRef}
             style={{
-              width: `${handleWidth}px`,
+              maxWidth: `${maxContainerWidth}px`,
             }}
-            onPointerDown={onResizeStart}
-            className="bg-code-black absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center flex justify-center items-center flex-col px-2"
+            className="flex w-full h-[calc(100vh-64px)]"
           >
-            <FaCircle className="text-[8px] my-1" />
-            <FaCircle className="text-[8px] my-1" />
-            <FaCircle className="text-[8px] my-1" />
+            <div
+              ref={panelRef}
+              style={{
+                width: `${panelWidth}px`,
+                paddingRight: `${handleWidth}px`,
+              }}
+              className="relative flex flex-col h-full max-w-full"
+            >
+              <ProblemStateToggle state={state} onUpdateState={setState} />
+              {state === 0 && <ProblemDescription problem={problem} />}
+              {state === 1 && (
+                <ProblemSolution
+                  problem={problem}
+                  entries={[
+                    {
+                      methodName: "TEST METHOD",
+                      description: "TEST DESCRIPTION",
+                      implementation: "TEST IMPLEMENTATION",
+                      timeComplexity: "TEST TIME COMPLEXITY",
+                      spaceComplexity: "TEST SPACE COMPLEXITY",
+                    },
+                  ]}
+                />
+              )}
+
+              <div
+                style={{
+                  width: `${handleWidth}px`,
+                }}
+                onPointerDown={onResizeStart}
+                className="bg-code-black absolute top-0 right-0 h-full text-code-white cursor-ew-resize text-center place-content-center flex justify-center items-center flex-col px-2"
+              >
+                <FaCircle className="text-[8px] my-1" />
+                <FaCircle className="text-[8px] my-1" />
+                <FaCircle className="text-[8px] my-1" />
+              </div>
+            </div>
+            <div className="flex flex-col flex-grow">
+              <LanguageSelector />
+              <div className="flex flex-col flex-grow h-full overflow-auto">
+                <CodeEditor problem={problem} />
+              </div>
+              <div className="w-full text-code-purple h-6 "></div>
+              <Console problem={problem} />
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col flex-grow">
-          <LanguageSelector />
-          <div className="flex flex-col flex-grow h-full overflow-auto">
-            <CodeEditor problem={problem} />
-          </div>
-          <div className="w-full text-code-purple h-6 "></div>
-          <Console problem={problem} />
-        </div>
-      </div>
-    </ProtectedPage>
+        </ProtectedPage>
+      )}
+    </>
   );
 };
 

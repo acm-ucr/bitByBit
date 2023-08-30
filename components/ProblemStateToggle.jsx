@@ -6,19 +6,19 @@ const ProblemStateToggle = ({ state, onUpdateState }) => {
           <div
             className={`${
               state === 0 ? "bg-code-darkerpurple" : "bg-code-black"
-            } hover:bg-code-darkerpurple rounded-t-xl px-14 text-xl text-white text-center py-2 font-medium w-1/2 cursor-pointer`}
+            } hover:bg-code-darkerpurple rounded-t-xl px-14 text-xl text-white text-center py-2 font-medium w-full cursor-pointer`}
             onClick={() => onUpdateState(0)}
           >
             Description
           </div>
-          <div
+          {/* <div
             className={`${
               state === 1 ? "bg-code-darkerpurple" : "bg-code-black"
             } hover:bg-code-darkerpurple rounded-t-xl px-14 text-xl text-white text-center py-2 font-medium w-1/2 cursor-pointer`}
             onClick={() => onUpdateState(1)}
           >
             Solution
-          </div>
+          </div> */}
         </div>
       </div>
     </>
