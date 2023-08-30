@@ -17,7 +17,7 @@ const ProblemDescription = ({ problem }) => {
           </div>
           <div className="flex flex-row mt-1 mb-4 font-thin">
             {problem.tags &&
-              problem.tags.map((element, index) => (
+              problem.tags.split(",").map((element, index) => (
                 <div className="mr-1 px-1 bg-code-black rounded" key={index}>
                   {element}
                 </div>
