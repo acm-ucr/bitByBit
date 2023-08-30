@@ -21,6 +21,7 @@ const ProgrammingProblem = ({ problem, index }) => {
         </p>
         <div className="flex justify-between">
           {problem.tags &&
+            typeof problem.tags === "string" &&
             problem.tags.split(",").map((tag) => (
               <div
                 className={`mr-1 px-1 ${
