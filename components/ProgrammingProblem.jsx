@@ -24,9 +24,9 @@ const ProgrammingProblem = ({ problem, index }) => {
             problem.tags.split(",").map((tag) => (
               <div
                 className={`mr-1 px-1 ${
-                  tagIndex % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
+                  index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
                 } rounded text-code-white no-underline`}
-                key={tagIndex}
+                key={index}
               >
                 {tag}
               </div>
