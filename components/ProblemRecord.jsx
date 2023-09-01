@@ -147,7 +147,12 @@ const ProblemRecord = () => {
         </div>
       </div>
       <hr className="border-2 opacity-100 border-white" />
-      {filteredProblems.map(handleProgrammingProblems)}
+      <hr className="border-2 opacity-100 border-white" />
+      {filteredProblems.length > 0 ? (
+        filteredProblems.map(handleProgrammingProblems)
+      ) : (
+        <div className="text-code-gray mt-4">No problems found.</div>
+      )}
     </div>
   );
 };
