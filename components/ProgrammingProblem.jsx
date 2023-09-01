@@ -6,7 +6,6 @@ const ProgrammingProblem = ({ problem, index }) => {
 
   return (
     <Link
-      key={index}
       href={"/user/problems/" + index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
