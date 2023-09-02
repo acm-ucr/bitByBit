@@ -36,7 +36,7 @@ const TestCases = ({ problem }) => {
   const [state, setState] = useState(0);
 
   return (
-    <div className="h-40">
+    <div className="h-full">
       <TestCasesToggle state={state} onUpdateState={setState} />
       <TestCaseInput tests={problem.testcases} state={state} />
     </div>
