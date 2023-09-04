@@ -69,7 +69,9 @@ const ProblemRecord = () => {
 
     if (cachedProblems !== null) {
       setProblems(cachedProblems);
-      setFilteredProblems(cachedProblems);
+      setFilteredProblems(
+        cachedProblems.filter((problem) => allIDs.includes(problem.id))
+      );
     } else {
       await axios.post("/api/getProblems").then((response) => {
         setProblems(response.data);
