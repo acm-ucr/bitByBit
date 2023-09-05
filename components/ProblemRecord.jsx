@@ -10,7 +10,7 @@ const handleProgrammingProblems = (problem, index) => {
       key={index}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
-      } p-4 flex items-center justify-between`}
+      } px-4 py-2 flex items-center justify-between`}
     >
       <div className="flex flex-col">
         <div className="text-2xl mb-2">{problem.data.title}</div>
@@ -141,8 +141,8 @@ const ProblemRecord = () => {
       </div>
       <div className="flex justify-between">
         <div className="text-xl">Title</div>
-        <div className="flex gap-10 w-1/2 justify-between">
-          <div className="text-xl">Difficulty</div>
+        <div className="flex w-1/2 justify-between">
+          <div className="text-xl -ml-4">Difficulty</div>
           <div className="text-xl mr-4">Status</div>
         </div>
       </div>

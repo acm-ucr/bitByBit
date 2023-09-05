@@ -75,15 +75,19 @@ const Console = ({ problem }) => {
   };
 
   return (
-    <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
+    <div className="flex flex-col p-2.5 h-full text-code-white font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
-      {state === 0 && <TestCases problem={problem} />}
+      {state === 0 && (
+        <div className="h-full">
+          <TestCases problem={problem} />
+        </div>
+      )}
       {state === 1 && (
-        <div className="h-40">
+        <div className="h-full">
           <Results />
         </div>
       )}
-      <div className="flex flex-row gap-4 justify-end">
+      <div className="flex flex-row justify-end">
         <div className="flex text-code-black gap-2">
           <button
             disabled={isRunning}

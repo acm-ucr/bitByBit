@@ -13,7 +13,8 @@ const Problems = ({ problems }) => {
       {problems.map((problem, index) => (
         <ProgrammingProblem
           problem={problem.data}
-          index={problem.id}
+          index={index}
+          id={problem.id}
           key={index}
         />
       ))}

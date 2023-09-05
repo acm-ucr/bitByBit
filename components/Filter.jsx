@@ -20,7 +20,7 @@ const Filter = ({ color, name, setFiltered, filtered }) => {
           isActive
             ? `${color} !text-code-black`
             : `hover:bg-code-lightpurple hover:!text-code-black  !text-code-white`
-        } rounded-full`}
+        } rounded`}
       >
         {name}
       </div>
