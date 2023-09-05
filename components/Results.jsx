@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BsDot } from "react-icons/bs";
 
 const ResultsStateToggle = ({ state, onUpdateState }) => {
@@ -42,27 +42,12 @@ const ResultsStateToggle = ({ state, onUpdateState }) => {
 const Results = ({ isRunning }) => {
   const [state, setState] = useState(0);
   const [running, setRunning] = useState(false);
-  // const [isRunningCalled, setIsRunningCalled] = useState(false);
+  const [isRunningCalled, setIsRunningCalled] = useState(false);
 
-  // if (isRunning && !isRunningCalled) {
-  //   setRunning(true);
-  //   setIsRunningCalled(true);
-  // }
-
-  useEffect(() => {
-    const storedRunning = localStorage.getItem("running");
-    if (isRunning && storedRunning === "true") {
-      setRunning(true);
-    }
-  }, [isRunning]);
-
-  useEffect(() => {
-    if (running) {
-      localStorage.setItem("running", "true");
-    } else {
-      localStorage.removeItem("running");
-    }
-  }, [running]);
+  if (isRunning && !isRunningCalled) {
+    setRunning(true);
+    setIsRunningCalled(true);
+  }
 
   return (
     <div style={{ overflow: "scroll", height: "150px" }}>
