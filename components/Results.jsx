@@ -50,7 +50,7 @@ const Results = ({ isRunning }) => {
   }
 
   return (
-    <div style={{ overflow: "scroll", height: "150px" }}>
+    <div className="overflow-scroll h-36">
       {running ? (
         <div>
           <div className="flex flex-row gap-4 font-normal py-3">
