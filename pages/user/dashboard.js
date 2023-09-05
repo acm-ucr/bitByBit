@@ -47,7 +47,7 @@ const Dashboard = () => {
         problems.filter(
           (a) =>
             filtered.includes(a.data.difficulty) ||
-            a.data.tags.some((r) => filtered.indexOf(r) >= 0)
+            a.data.tags.split(",").some((r) => filtered.indexOf(r) >= 0)
         )
       );
     }

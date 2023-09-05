@@ -15,7 +15,7 @@ const handleProgrammingProblems = (problem, index) => {
       <div className="flex flex-col">
         <div className="text-2xl mb-2">{problem.data.title}</div>
         <div className="flex">
-          {problem.data.tags.map((element, tagsIndex) => (
+          {problem.data.tags.split(",").map((element, tagsIndex) => (
             <div
               className={`mr-1 px-1 ${
                 index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
