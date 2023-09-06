@@ -1,4 +1,3 @@
-import { FaEllipsisH } from "react-icons/fa";
 import ProgrammingProblem from "./ProgrammingProblem";
 
 const Problems = ({ problems }) => {
