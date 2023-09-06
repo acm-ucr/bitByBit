@@ -41,13 +41,6 @@ const ResultsStateToggle = ({ state, onUpdateState }) => {
 
 const Results = ({ running }) => {
   const [state, setState] = useState(0);
-  // const [running, setRunning] = useState(false);
-  // const [isRunningCalled, setIsRunningCalled] = useState(false);
-
-  // if (isRunning && !isRunningCalled) {
-  //   setRunning(true);
-  //   setIsRunningCalled(true);
-  // }
 
   return (
     <div className="overflow-scroll h-36">
