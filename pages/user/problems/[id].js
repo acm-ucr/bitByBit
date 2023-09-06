@@ -3,7 +3,6 @@ import ProblemStateToggle from "@/components/ProblemStateToggle";
 import CodeEditor from "@/components/CodeEditor";
 import Console from "@/components/Console";
 import { useState, useEffect } from "react";
-import LanguageSelector from "@/components/LanguageSelector";
 import { FaCircle } from "react-icons/fa";
 import ProtectedPage from "@/components/ProtectedPage";
 import { useRouter } from "next/router";
@@ -58,7 +57,6 @@ const Problems = () => {
                 <PanelGroup direction="vertical">
                   <Panel defaultSize={50} minSize={20}>
                     <div className="flex flex-col h-full overflow-auto">
-                      <LanguageSelector />
                       <CodeEditor problem={problem} />
                     </div>
                   </Panel>
