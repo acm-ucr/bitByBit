@@ -39,18 +39,18 @@ const ResultsStateToggle = ({ state, onUpdateState }) => {
   );
 };
 
-const Results = ({ isRunning }) => {
+const Results = ({ running }) => {
   const [state, setState] = useState(0);
-  const [running, setRunning] = useState(false);
-  const [isRunningCalled, setIsRunningCalled] = useState(false);
+  // const [running, setRunning] = useState(false);
+  // const [isRunningCalled, setIsRunningCalled] = useState(false);
 
-  if (isRunning && !isRunningCalled) {
-    setRunning(true);
-    setIsRunningCalled(true);
-  }
+  // if (isRunning && !isRunningCalled) {
+  //   setRunning(true);
+  //   setIsRunningCalled(true);
+  // }
 
   return (
-    <div style={{ overflow: "scroll", height: "150px" }}>
+    <div className="overflow-scroll h-36">
       {running ? (
         <div>
           <div className="flex flex-row gap-4 font-normal py-3">

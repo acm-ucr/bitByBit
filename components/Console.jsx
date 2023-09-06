@@ -40,6 +40,13 @@ const Console = ({ problem }) => {
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
+  const [running, setRunning] = useState(false);
+  const [isRunningCalled, setIsRunningCalled] = useState(false);
+
+  if (isRunning && !isRunningCalled) {
+    setRunning(true);
+    setIsRunningCalled(true);
+  }
 
   const handleExecute = async () => {
     setIsRunning(true);
@@ -75,15 +82,19 @@ const Console = ({ problem }) => {
   };
 
   return (
-    <div className="p-2.5 text-code-white flex-col font-readex bg-code-darkerpurple">
+    <div className="flex flex-col p-2.5 h-full text-code-white font-readex bg-code-darkerpurple">
       <ConsoleStateToggle state={state} onUpdateState={setState} />
-      {state === 0 && <TestCases problem={problem} />}
-      {state === 1 && (
-        <div className="h-40">
-          <Results isRunning={isRunning} />
+      {state === 0 && (
+        <div className="h-full">
+          <TestCases problem={problem} />
         </div>
       )}
-      <div className="flex flex-row gap-4 justify-end">
+      {state === 1 && (
+        <div className="h-full">
+          <Results running={running} />
+        </div>
+      )}
+      <div className="flex flex-row justify-end">
         <div className="flex text-code-black gap-2">
           <button
             disabled={isRunning}

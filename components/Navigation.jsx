@@ -12,21 +12,19 @@ const Navigation = () => {
     return (
       <Navbar
         variant="light"
-        className="bg-code-black font-semibold font-readex w-11/12 gap-x-5"
+        className="bg-code-black font-semibold font-readex w-11/12"
       >
-        <Navbar.Brand href="/user/dashboard" className="!text-code-white">
+        <Navbar.Brand href="/user/dashboard" className="!text-code-white w-1/6">
           <div className="text-3xl">bitByBIT</div>
         </Navbar.Brand>
         {session.user && (
-          <>
-            <Nav className="me-auto">
-              <Link
-                className="text-code-white no-underline hover:text-code-lightpurple"
-                href="/user/dashboard"
-              >
-                Dashboard
-              </Link>
-            </Nav>
+          <Nav className="w-5/6 justify-end">
+            <Link
+              className="text-code-white no-underline hover:text-code-lightpurple mr-4"
+              href="/user/dashboard"
+            >
+              Dashboard
+            </Link>
             <Link
               className="text-code-white no-underline hover:text-code-lightpurple mr-4"
               href="/user/profile"
@@ -39,7 +37,7 @@ const Navigation = () => {
             >
               Sign Out
             </button>
-          </>
+          </Nav>
         )}
       </Navbar>
     );

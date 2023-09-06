@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { difficultyColors, difficultyColorsBorder } from "./data/Problems";
 
-const ProgrammingProblem = ({ problem, index }) => {
+const ProgrammingProblem = ({ problem, index, id }) => {
   const selectProblem = () => {};
 
   return (
     <Link
-      href={"/user/problems/" + index}
+      href={"/user/problems/" + id}
       className={`${
         index % 2 == 0 ? "" : "bg-code-darkerpurple"
       } p-4 flex items-center justify-between no-underline ${
@@ -21,12 +21,12 @@ const ProgrammingProblem = ({ problem, index }) => {
         <div className="flex justify-between">
           {problem.tags &&
             typeof problem.tags === "string" &&
-            problem.tags.split(",").map((tag) => (
+            problem.tags.split(",").map((tag, tagIdx) => (
               <div
                 className={`mr-1 px-1 ${
-                  tagIndex % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
+                  index % 2 == 0 ? "bg-code-darkerpurple" : "bg-code-black"
                 } rounded text-code-white no-underline`}
-                key={tagIndex}
+                key={tagIdx}
               >
                 {tag}
               </div>
