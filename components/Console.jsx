@@ -40,6 +40,13 @@ const Console = ({ problem }) => {
   const { language, code } = useContext(CodeContext);
 
   const [isRunning, setIsRunning] = useState(false);
+  const [running, setRunning] = useState(false);
+  const [isRunningCalled, setIsRunningCalled] = useState(false);
+
+  if (isRunning && !isRunningCalled) {
+    setRunning(true);
+    setIsRunningCalled(true);
+  }
 
   const handleExecute = async () => {
     setIsRunning(true);
@@ -84,7 +91,7 @@ const Console = ({ problem }) => {
       )}
       {state === 1 && (
         <div className="h-full">
-          <Results isRunning={isRunning} />
+          <Results running={running} />
         </div>
       )}
       <div className="flex flex-row justify-end">
