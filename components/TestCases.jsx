@@ -10,25 +10,15 @@ const TestCaseInput = ({ tests, state }) => {
     </div>
   );
 };
-const TestCasesToggle = ({ state, onUpdateState }) => {
+const TestCasesToggle = ({ caseIndex, state, onUpdateState }) => {
   return (
-    <div className="flex flex-row gap-2 py-2 h-30">
-      <div
-        className={`${
-          state === 0 ? "bg-code-darkpurple" : "bg-code-darkerpurple"
-        } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
-        onClick={() => onUpdateState(0)}
-      >
-        Case 1
-      </div>
-      <div
-        className={`${
-          state === 1 ? "bg-code-darkpurple" : "bg-code-darkerpurple"
-        } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
-        onClick={() => onUpdateState(1)}
-      >
-        Case 2
-      </div>
+    <div
+      className={`${
+        state === caseIndex ? "bg-code-darkpurple" : "bg-code-darkerpurple"
+      } hover:bg-code-darkpurple rounded-lg px-3 py-1 text-code-white cursor-pointer`}
+      onClick={() => onUpdateState(caseIndex)}
+    >
+      Case {caseIndex + 1}
     </div>
   );
 };
@@ -37,7 +27,16 @@ const TestCases = ({ problem }) => {
 
   return (
     <div className="h-full">
-      <TestCasesToggle state={state} onUpdateState={setState} />
+      <div className="flex flex-row gap-2 py-2 h-30">
+        {problem.testcases.map((input, index) => (
+          <TestCasesToggle
+            key={index}
+            caseIndex={index}
+            state={state}
+            onUpdateState={setState}
+          />
+        ))}
+      </div>
       <TestCaseInput tests={problem.testcases} state={state} />
     </div>
   );
