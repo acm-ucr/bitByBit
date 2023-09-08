@@ -56,9 +56,6 @@ const Console = ({ problem }) => {
         language_id: language.id,
         stdin: null,
       })
-      .then((response) => {
-        console.log("BHELLO", response.data);
-      })
       .finally(() => {
         setIsRunning(false);
       });
@@ -71,9 +68,6 @@ const Console = ({ problem }) => {
         source_code: code.toString("base64"),
         language_id: language.id,
         stdin: null,
-      })
-      .then((response) => {
-        console.log("BHELLO", response.data);
       })
       .finally(() => {
         setState(1);

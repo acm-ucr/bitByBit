@@ -12,8 +12,6 @@ const Profile = () => {
   const [newUserName, setNewUserName] = useState("");
 
   const updateContext = (tempUser) => {
-    console.log(session.user.id, tempUser);
-    console.log(newUserName);
     axios
       .post("/api/updateUserInfo", { uid: session.user.id, newName: tempUser })
       .finally(() => setIsEditing(false));
