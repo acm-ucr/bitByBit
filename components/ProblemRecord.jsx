@@ -93,11 +93,7 @@ const ProblemRecord = () => {
         break;
       case "completed":
         setFilteredProblems(
-          problems.filter(
-            (problem) =>
-              completeIDs.includes(problem.id) ||
-              problem.data.title === "Two Sum"
-          )
+          problems.filter((problem) => completeIDs.includes(problem.id))
         );
         break;
       case "in-progress":
