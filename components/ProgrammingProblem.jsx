@@ -8,8 +8,8 @@ const ProgrammingProblem = ({ problem, index, id }) => {
     <Link
       href={"/user/problems/" + id}
       className={`${
-        index % 2 == 0 ? "h-20" : "bg-code-darkerpurple h-20"
-      } p-4 flex items-center justify-between no-underline ${
+        index % 2 == 0 ? "" : "bg-code-darkerpurple"
+      } p-4 flex items-center justify-between no-underline py-2 my-1 ${
         difficultyColors[problem.difficulty]
       }`}
       onClick={selectProblem}
